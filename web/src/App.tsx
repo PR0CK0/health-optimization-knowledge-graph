@@ -330,7 +330,7 @@ const SCHEMA_STYLESHEET = [
 
 // ─── Legend items ─────────────────────────────────────────────────────────────
 
-interface LegendItem { label: string; color: string; nodeType: string; indent?: boolean; indent2?: boolean; defaultHidden?: boolean }
+interface LegendItem { label: string; color: string; nodeType?: string; indent?: boolean; indent2?: boolean; defaultHidden?: boolean }
 interface LegendGroup { group: string; items: LegendItem[] }
 
 const KG_LEGEND: LegendGroup[] = [
@@ -392,7 +392,7 @@ const KG_LEGEND: LegendGroup[] = [
   },
 ];
 
-const ALL_NODE_TYPES = KG_LEGEND.flatMap((g) => g.items.map((i) => i.nodeType));
+const ALL_NODE_TYPES = KG_LEGEND.flatMap((g) => g.items.map((i) => i.nodeType).filter((t): t is string => !!t));
 
 const SCHEMA_LEGEND: LegendGroup[] = [
   {
@@ -456,7 +456,7 @@ export default function App() {
   const [issuesExpanded, setIssuesExpanded] = useState(false);
   const [focusNodeId, setFocusNodeId] = useState<string | null>(null);
   const [hiddenTypes, setHiddenTypes] = useState<Set<string>>(
-    () => new Set(KG_LEGEND.flatMap((g) => g.items.filter((i) => i.defaultHidden).map((i) => i.nodeType)))
+    () => new Set(KG_LEGEND.flatMap((g) => g.items.filter((i) => i.defaultHidden).map((i) => i.nodeType).filter((t): t is string => !!t)))
   );
   const searchRef = useRef<HTMLInputElement>(null);
 
@@ -581,7 +581,7 @@ export default function App() {
   }, []);
 
   const toggleGroupTypes = useCallback((items: LegendItem[]) => {
-    const types = items.map((i) => i.nodeType).filter(Boolean);
+    const types = items.map((i) => i.nodeType).filter((t): t is string => !!t);
     const allHidden = types.every((t) => hiddenTypes.has(t));
     setHiddenTypes((prev) => {
       const next = new Set(prev);
@@ -595,7 +595,7 @@ export default function App() {
   }, [hiddenTypes]);
 
   const groupStatus = useCallback((items: LegendItem[]): '●' | '◐' | '○' => {
-    const types = items.map((i) => i.nodeType).filter(Boolean);
+    const types = items.map((i) => i.nodeType).filter((t): t is string => !!t);
     const n = types.filter((t) => hiddenTypes.has(t)).length;
     if (n === 0) return '●';
     if (n === types.length) return '○';
@@ -833,16 +833,17 @@ export default function App() {
                   {isKG && <span className="legend-group-check">{status}</span>}
                 </div>
                 {showItems && items.map(({ label, color, nodeType, indent, indent2 }) => {
-                  const hidden = isKG && hiddenTypes.has(nodeType);
+                  const type = nodeType ?? '';
+                  const hidden = isKG && hiddenTypes.has(type);
                   return (
                     <div
                       key={label}
                       className={`legend-item${indent ? ' legend-item--indent' : ''}${indent2 ? ' legend-item--indent2' : ''}${isKG ? ' legend-item--btn' : ''}${hidden ? ' legend-item--hidden' : ''}`}
-                      onClick={isKG ? () => toggleHiddenType(nodeType) : undefined}
+                      onClick={isKG ? () => toggleHiddenType(type) : undefined}
                       role={isKG ? 'checkbox' : undefined}
                       aria-checked={isKG ? !hidden : undefined}
                       tabIndex={isKG ? 0 : undefined}
-                      onKeyDown={isKG ? (e) => (e.key === ' ' || e.key === 'Enter') && toggleHiddenType(nodeType) : undefined}
+                      onKeyDown={isKG ? (e) => (e.key === ' ' || e.key === 'Enter') && toggleHiddenType(type) : undefined}
                     >
                       <span
                         className="legend-dot"
