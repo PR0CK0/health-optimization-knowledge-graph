@@ -179,3 +179,20 @@ Assert that all `administered_via` targets in agent YAMLs resolve to known node 
 
 ### [ ] Validate PMIDs
 Script to hit PubMed E-utilities API and verify that each PMID in evidence-claims actually resolves, flagging any marked `pmid_confidence: approximate`.
+
+---
+
+## Hosting / GitHub Pages
+
+### Note: MkDocs is not deployed — React app takes the Pages slot
+
+The project includes a MkDocs setup (`mkdocs.yml`, `docs/`) intended to generate a schema reference
+site from the LinkML schema (via `make docs-gen` / `make docs-deploy`). It is **not currently
+deployed** because the GitHub Pages deployment serves the React graph explorer instead, and only one
+site can occupy the Pages root.
+
+Options if docs are ever wanted alongside the app:
+
+- Deploy the React app to Pages and docs to a separate `docs` subdirectory via a second Actions job
+- Use a custom domain and host one on a subdomain
+- Abandon MkDocs and inline schema documentation directly into the React UI
