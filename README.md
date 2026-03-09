@@ -45,6 +45,42 @@ The graph's primary focus is **hair health** — agents, procedures, and evidenc
 | Immune function | Planned |
 | Bone health | Planned |
 
+## Ontologies & vocabularies
+
+### Formally declared schema namespaces
+
+| Ontology | Full name | Role |
+|---|---|---|
+| **BFO** | Basic Formal Ontology (ISO/IEC 21838-2) | Root class hierarchy |
+| **RO** | Relation Ontology | Formal inter-class relationships |
+| **IAO** | Information Artifact Ontology | Information content entities |
+| **OBI** | Ontology for Biomedical Investigations | Study design types (RCT, meta-analysis) |
+| **ECO** | Evidence & Conclusions Ontology | Per-study evidence type |
+| **STATO** | Statistics Ontology | Effect size metrics (Cohen's d, OR, HR) |
+| **ChEBI** | Chemical Entities of Biological Interest | Primary chemical/drug identifier |
+| **GO** | Gene Ontology | Mechanism-of-action biological processes |
+| **HP** | Human Phenotype Ontology | Phenotype and outcome terms |
+| **UBERON** | Uberon Multi-Species Anatomy Ontology | Anatomical sites (scalp, hair follicle) |
+| **MONDO** | Mondo Disease Ontology | Disease/condition classification |
+| **MAXO** | Medical Action Ontology | Procedural interventions |
+| **NCIT** | NCI Thesaurus | Routes of administration, biomedical concepts |
+| **LOINC** | Logical Observation Identifiers Names and Codes | Lab/biomarker observation codes |
+| **PROV** | W3C Provenance Ontology | Data provenance |
+
+### External identifier schemes used in data
+
+| Scheme | Example | Purpose |
+|---|---|---|
+| **ChEBI** | `CHEBI:5062` | Chemical entity identity |
+| **DrugBank** | `DB01216` | Drug database cross-reference |
+| **PubChem CID** | `57363` | Compound database cross-reference |
+| **RxNorm** | `692450` | Normalized drug naming (NLM) |
+| **CAS Number** | `98319-26-7` | Chemical registry |
+| **ATC** | `G04CB01` | WHO drug classification |
+| **UniProt** | `UniProtKB:P31213` | Molecular target (protein/enzyme) |
+| **PMID** | `9738759` | PubMed literature citation |
+| **DOI** | `10.1016/...` | Publication cross-reference |
+
 ## Stack
 
 | Layer | Technology |
