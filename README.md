@@ -16,17 +16,34 @@ Every claim is an `EvidenceClaim` — a self-contained unit asserting that *[age
 
 ## Current coverage
 
-The graph currently focuses on **hair health**. Planned expansions are tracked in [TODO.md](TODO.md).
+The graph's primary focus is **hair health** — agents, procedures, and evidence claims are most complete there. The schema and paradigm ontology cover a broader set of domains listed below, but data density varies.
+
+### Hair health (primary focus)
 
 | Domain | Agents / Procedures |
 |---|---|
-| Hair — AGA pharmacology | Finasteride, Dutasteride, RU58841, Estradiol |
-| Hair — topicals & adjuncts | Minoxidil, Ketoconazole, Caffeine, Saw Palmetto, Pygeum |
-| Hair — peptides | BPC-157, TB-500, GHK-Cu |
-| Hair — procedures | PRP scalp injection, Scalp microneedling, Red/NIR light therapy |
-| Skin | GHK-Cu collagen synthesis, Beef tallow barrier |
-| Longevity / NAD+ | NMN |
-| Hormonal | HGH, Testosterone, DHT axis |
+| AGA pharmacology | Finasteride, Dutasteride, RU58841, Estradiol |
+| Topicals & adjuncts | Minoxidil, Ketoconazole, Caffeine shampoo, Saw Palmetto, Pygeum |
+| Peptides | BPC-157, TB-500, GHK-Cu |
+| Procedures | PRP scalp injection, Scalp microneedling, Red/NIR light therapy |
+
+### Other paradigms (schema defined, data sparse)
+
+| Paradigm | Notes |
+|---|---|
+| Skin health | GHK-Cu collagen synthesis, beef tallow barrier |
+| Hormonal health | HGH, testosterone, DHT axis, anabolic androgens |
+| Longevity | NMN / NAD+ axis |
+| Metabolic health | Planned |
+| Musculoskeletal | Planned |
+| Mitochondrial health | Planned |
+| Recovery | Planned |
+| Tissue repair | Planned |
+| Wound healing | Planned |
+| Cardiovascular | Planned |
+| Gut microbiome | Planned |
+| Immune function | Planned |
+| Bone health | Planned |
 
 ## Stack
 
