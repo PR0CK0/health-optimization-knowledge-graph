@@ -1,0 +1,11 @@
+---
+id: healthkg:paradigm/hormonal-health
+name: Hormonal Health
+description: >-
+  Domain covering the endocrine system — production, regulation, and
+  signalling of hormones including androgens (testosterone, DHT),
+  oestrogens, thyroid hormones, cortisol, insulin, IGF-1, and growth
+  hormone. Interventions include hormone replacement, modulators,
+  and lifestyle factors affecting the HPG/HPA axis.
+paradigms: [hormonal_health]
+key_biomarkers: [testosterone, DHT, estradiol, TSH, cortisol, IGF-1]

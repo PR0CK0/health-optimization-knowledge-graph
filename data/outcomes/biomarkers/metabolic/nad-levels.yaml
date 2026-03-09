@@ -1,0 +1,25 @@
+# MetabolicBiomarker — NAD+ Levels
+---
+id: healthkg:outcome/nad-levels
+name: NAD+ Levels
+description: >-
+  Intracellular or whole-blood nicotinamide adenine dinucleotide (NAD+)
+  concentration. NAD+ is an essential cofactor for >500 enzymatic reactions
+  including sirtuin deacylases (SIRT1–7), PARP DNA repair enzymes, and
+  mitochondrial complex I. Declines approximately 50% per decade after age 40.
+  Measuring NAD+ restoration is the primary surrogate endpoint for NAD+
+  precursor supplementation (NMN, NR) trials. Whole-blood NAD+ by mass
+  spectrometry is the current gold standard.
+paradigms:
+  - longevity
+  - mitochondrial_health
+  - metabolic_health
+
+loinc_code: null   # no standard LOINC; research endpoint
+typical_units: µmol/L (whole blood); pmol/mg protein (PBMC)
+improvement_direction: increase
+measurement_method: >-
+  Whole-blood NAD+ by LC-MS/MS (mass spectrometry); PBMC NAD+ by enzymatic
+  cycling assay or mass spectrometry
+reference_range_lower: null   # age-dependent; no established clinical reference range
+reference_range_upper: null

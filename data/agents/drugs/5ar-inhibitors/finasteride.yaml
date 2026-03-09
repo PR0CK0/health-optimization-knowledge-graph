@@ -1,0 +1,64 @@
+# Drug entry — Finasteride
+# Validate: make validate-data FILE=data/agents/drugs/finasteride.yaml CLASS=Drug
+---
+id: CHEBI:5062
+name: Finasteride
+description: >-
+  Type II 5-alpha reductase inhibitor. Oral 1mg daily is the gold-standard
+  pharmacological treatment for male androgenic alopecia (AGA). Reduces
+  serum DHT by approximately 60–70% and scalp DHT by ~85%. Also used at
+  5mg for benign prostatic hyperplasia. Off-label use in women with AGA
+  is growing (post-menopausal or with contraception due to teratogenicity risk).
+aliases:
+  - Propecia
+  - Proscar
+  - 5-alpha reductase inhibitor type II
+  - 17β-(N-tert-butylcarbamoyl)-4-aza-5α-androst-1-en-3-one
+xrefs:
+  - DrugBank:DB01216
+  - PubChem:57363
+  - CHEBI:5062
+  - RxNorm:692450
+paradigms:
+  - hair_health
+  - hormonal_health
+
+cas_number: 98319-26-7
+molecular_formula: C23H36N2O2
+inchikey: UWFYSQMTEOIJJG-FDCXTGRMSA-N
+
+mechanisms_of_action:
+  - Competitive inhibitor of type II 5-alpha reductase enzyme
+  - Prevents conversion of testosterone to dihydrotestosterone (DHT)
+  - Reduces serum DHT by ~60–70% at 1mg/day
+  - Reduces scalp DHT by ~85% (type II predominates in follicles)
+  - Halts miniaturization of androgen-sensitive hair follicles in AGA
+molecular_targets:
+  - UniProtKB:P31213   # SRD5A2 — steroid 5-alpha-reductase type 2
+pathways:
+  - GO:0006702   # androgen biosynthetic process
+
+drugbank_id: DB01216
+rxcui: "692450"
+atc_code: G04CB01
+fda_approval_status: approved
+approved_indications:
+  - Androgenic alopecia (men) — 1mg oral daily (Propecia)
+  - Benign prostatic hyperplasia — 5mg oral daily (Proscar)
+off_label_uses:
+  - AGA in post-menopausal women (1–2.5mg/day)
+  - Hyperandrogenism in transgender women (5mg/day)
+drug_class: 5-alpha reductase inhibitor (type II selective)
+black_box_warnings:
+  - Teratogenic in male fetuses — contraindicated in pregnancy
+  - Post-finasteride syndrome (persistent sexual/neurological side effects
+    in a subset of men) — controversial but documented; requires informed consent
+notes: >-
+  Efficacy is maintained with continuous use; cessation leads to return of
+  hair loss within 6–12 months. Sexual side effects (decreased libido, erectile
+  dysfunction, ejaculation disorder) reported in ~3.8% of men vs ~2.1% placebo
+  in major RCTs — typically reversible on discontinuation. Long-term use
+  (up to 10 years) shows continued benefit without tachyphylaxis.
+  Combination with topical minoxidil provides additive efficacy.
+administered_via:
+  - healthkg:procedure/oral-administration

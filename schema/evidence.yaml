@@ -1,0 +1,464 @@
+id: https://healthoptkg.github.io/schema/evidence
+name: health-opt-kg-evidence
+description: >-
+  The evidence and provenance model for the Health Optimization KG.
+  Implements a nanopublication-inspired pattern: every claim is an
+  EvidenceClaim composed of a HealthAssertion (the claim itself),
+  one or more EvidenceLines (each linking to a Study), and
+  publication info. Vocabulary aligned with SEPIO, ECO, STATO, and OBI.
+license: CC-BY-4.0
+version: 0.1.0
+
+prefixes:
+  linkml:   https://w3id.org/linkml/
+  healthkg: https://healthoptkg.github.io/schema/
+  IAO:      http://purl.obolibrary.org/obo/IAO_
+  OBI:      http://purl.obolibrary.org/obo/OBI_
+  ECO:      http://purl.obolibrary.org/obo/ECO_
+  STATO:    http://purl.obolibrary.org/obo/STATO_
+  prov:     http://www.w3.org/ns/prov#
+  dc:       http://purl.org/dc/elements/1.1/
+  schema:   http://schema.org/
+
+default_prefix: healthkg
+default_range: string
+
+imports:
+  - linkml:types
+  - core
+  - agents
+  - outcomes
+
+# ── Classes ───────────────────────────────────────────────────────────────────
+classes:
+
+  # ─── Study ────────────────────────────────────────────────────────────────
+  Study:
+    description: >-
+      A research study, clinical trial, or systematic review that
+      provides evidence for or against a health claim. Each Study is an
+      IAO:0000311 (publication) and/or OBI:0000070 (planned process).
+      Serves as the source for one or more EvidenceLines.
+    is_a: BFOInformationContentEntity
+    class_uri: IAO:0000311
+    attributes:
+      pmid:
+        range: PubMedID
+        description: PubMed Identifier. Provide when available.
+      doi:
+        range: DOIString
+        description: Digital Object Identifier.
+      title:
+        range: string
+        required: true
+        description: Full title of the publication.
+      authors:
+        range: string
+        multivalued: true
+        description: Author list (Last FM format or full names).
+      journal:
+        range: string
+        description: Journal name (abbreviated or full).
+      year:
+        range: integer
+        description: Year of publication.
+        minimum_value: 1900
+        maximum_value: 2100
+      design:
+        range: StudyDesign
+        required: true
+        description: Methodological design of the study.
+      n_participants:
+        range: integer
+        description: Total number of participants/subjects enrolled.
+        minimum_value: 1
+      n_completers:
+        range: integer
+        description: Number who completed the study (if different from enrolled).
+      duration_weeks:
+        range: float
+        description: Duration of the intervention period in weeks.
+      population_description:
+        range: string
+        description: >-
+          Free-text description of the study population: age range, sex,
+          health status, inclusion criteria (e.g. "healthy men aged 18–35",
+          "postmenopausal women with androgenic alopecia").
+      population_sex:
+        range: BiologicalSex
+        description: Biological sex distribution of the study population.
+      mean_age_years:
+        range: float
+        description: Mean age of participants in years.
+      intervention_description:
+        range: string
+        description: >-
+          Free-text description of the intervention and comparator
+          (dose, form, frequency, duration, vehicle/placebo used).
+      blinding:
+        range: BlindingType
+        description: Type of blinding used in the study.
+      risk_of_bias:
+        range: RiskOfBias
+        description: >-
+          Overall risk-of-bias assessment (RoB 2 for RCTs, ROBINS-I
+          for observational studies).
+      funding_source:
+        range: FundingSource
+        description: >-
+          Type of funding to flag potential conflicts of interest.
+      url:
+        range: uri
+        description: URL to full text or abstract.
+      preprint:
+        range: boolean
+        description: >-
+          True if this is a preprint (not yet peer-reviewed).
+          Treat claims from preprints with lower certainty.
+
+  # ─── Evidence Line ────────────────────────────────────────────────────────
+  EvidenceLine:
+    description: >-
+      A single piece of evidence — the contribution of one Study to the
+      support or refutation of a HealthAssertion. Aligned with
+      SEPIO:0000002 (evidence line). An EvidenceClaim may have multiple
+      EvidenceLines, each from a different study.
+    is_a: BFOInformationContentEntity
+    attributes:
+      study:
+        range: Study
+        required: true
+        description: The study from which this evidence derives.
+      eco_evidence_type:
+        range: ECOEvidenceType
+        required: true
+        description: >-
+          Evidence type from the ECO ontology — classifies the
+          methodological basis of this evidence line.
+      direction:
+        range: EvidenceDirection
+        required: true
+        description: >-
+          Whether this evidence line supports, refutes, or is neutral/
+          mixed with respect to the parent claim.
+      effect_size:
+        range: float
+        description: >-
+          Primary effect size reported for this outcome in this study.
+          Interpret in context of effect_size_metric
+          (e.g. Cohen's d, mean difference, % change, OR, HR, RR).
+      effect_size_metric:
+        range: EffectSizeMetric
+        description: The type of effect size reported.
+      ci_lower:
+        range: float
+        description: Lower bound of the 95% confidence interval for the effect estimate.
+      ci_upper:
+        range: float
+        description: Upper bound of the 95% confidence interval for the effect estimate.
+      p_value:
+        range: PValue
+        description: >-
+          Reported p-value for the primary outcome. Prefer exact values
+          over threshold statements (p = 0.032 rather than p < 0.05).
+      percent_change:
+        range: float
+        description: >-
+          Percentage change from baseline in the intervention group,
+          if reported as primary outcome (e.g. +23% hair density).
+      heterogeneity_i2:
+        range: float
+        description: >-
+          I² statistic for heterogeneity in meta-analyses.
+          0–40%: low, 30–60%: moderate, 50–90%: substantial, 75–100%: considerable.
+        minimum_value: 0
+        maximum_value: 100
+      dose_used:
+        range: string
+        description: >-
+          The dose of the agent used in this specific study, if it
+          differs from the parent claim's dose specification.
+      duration_of_effect:
+        range: string
+        description: >-
+          Duration over which the effect was observed or maintained
+          (e.g. "at 24 weeks", "within 4 weeks", "maintained at 52 weeks").
+      notes:
+        range: string
+        description: >-
+          Curator notes on this specific evidence line: study limitations,
+          important caveats, population-specific effects, or sub-group
+          findings.
+
+  # ─── Health Assertion ─────────────────────────────────────────────────────
+  HealthAssertion:
+    description: >-
+      The core claim being asserted: [subject] [predicate] [object].
+      For example: "Minoxidil 5% (subject) increases (predicate)
+      hair density at vertex (object)". Aligned with SEPIO:0000001
+      (scientific assertion).
+    is_a: BFOInformationContentEntity
+    attributes:
+      subject_agent:
+        range: ChemicalAgent
+        description: >-
+          The agent (supplement, drug, peptide, topical) that is the
+          subject of the assertion. Mutually exclusive with
+          subject_procedure.
+      subject_procedure:
+        range: Procedure
+        description: >-
+          The procedure that is the subject of the assertion.
+          Mutually exclusive with subject_agent.
+      predicate:
+        range: EvidenceRelationType
+        required: true
+        description: >-
+          The relationship type being asserted between the subject
+          and the object.
+      object_outcome:
+        range: HealthOutcome
+        required: true
+        description: >-
+          The health outcome that is the object of the assertion.
+      dose_description:
+        range: string
+        description: >-
+          Description of the dose regimen associated with this
+          assertion (e.g. "5% topical solution applied once daily",
+          "5000 IU oral daily", "0.5mm needle depth 1×/week").
+      dose_mg:
+        range: float
+        description: Numeric dose in milligrams, when applicable.
+      route:
+        range: RouteOfAdministration
+        description: Route of administration for this assertion.
+      population:
+        range: string
+        description: >-
+          Target population this assertion applies to
+          (e.g. "males with AGA", "post-menopausal women",
+          "healthy adults aged 20–40").
+      duration_of_use:
+        range: string
+        description: >-
+          Duration of use associated with the claimed effect
+          (e.g. "after 24 weeks of use", "with chronic daily use").
+      timing_relative_to_procedure:
+        range: string
+        description: >-
+          For topical agents used in conjunction with a procedure:
+          timing relative to the procedure (e.g. "applied immediately
+          post-microneedling", "24h pre-treatment").
+      mechanism_summary:
+        range: string
+        description: >-
+          Brief mechanism summary — why this agent is expected to affect
+          this outcome (cite GO terms in xrefs where available).
+      mechanism_go_terms:
+        range: CURIEString
+        multivalued: true
+        description: >-
+          GO biological process or molecular function terms describing
+          the mechanism of action (e.g. GO:0006915 for apoptosis,
+          GO:0008542 for visual learning).
+      target_anatomy:
+        range: CURIEString
+        multivalued: true
+        description: >-
+          Anatomical site(s) where the effect occurs (UBERON CURIEs,
+          e.g. UBERON:0002073 for hair follicle, UBERON:0000978 for scalp).
+      confounders:
+        range: string
+        multivalued: true
+        description: >-
+          Known confounders, effect modifiers, or conditions that may
+          alter the magnitude or direction of this effect.
+
+  # ─── Evidence Claim (the top-level unit) ──────────────────────────────────
+  EvidenceClaim:
+    description: >-
+      The top-level, self-contained unit of the knowledge graph.
+      Inspired by the nanopublication model, each EvidenceClaim
+      packages together:
+        1. An assertion (the claim being made),
+        2. One or more evidence lines (studies supporting or refuting it),
+        3. An overall aggregated evidence summary,
+        4. Curation metadata.
+
+      Separate EvidenceClaims should be created for meaningfully distinct
+      assertions — e.g. "minoxidil increases hair density" and "minoxidil
+      increases hair shaft diameter" are two distinct claims, even if
+      both come from the same study.
+
+      When new evidence refutes a prior claim, create a new EvidenceClaim
+      with predicate=refuted_by rather than overwriting the original.
+    is_a: BFOInformationContentEntity
+    attributes:
+      assertion:
+        range: HealthAssertion
+        required: true
+        inlined: true
+        description: The core health assertion being made.
+      evidence_lines:
+        range: EvidenceLine
+        multivalued: true
+        inlined_as_list: true
+        description: >-
+          All evidence lines (one per study) that support or refute
+          this claim. Include both supporting and refuting lines.
+      overall_grade:
+        range: GRADECertainty
+        description: >-
+          Curator-aggregated GRADE certainty rating across all evidence
+          lines. Represents the overall confidence in the claim based on
+          the totality of available evidence.
+      n_supporting_studies:
+        range: integer
+        description: Number of evidence lines with direction=supports.
+        minimum_value: 0
+      n_refuting_studies:
+        range: integer
+        description: Number of evidence lines with direction=refutes.
+        minimum_value: 0
+      highest_study_design:
+        range: StudyDesign
+        description: >-
+          The highest-quality study design among all evidence lines
+          (used to set the GRADE starting point).
+      curator:
+        range: string
+        description: >-
+          Name or identifier of the person who curated this claim.
+      curation_date:
+        range: date
+        description: Date this claim was created or last updated.
+      last_reviewed:
+        range: date
+        description: >-
+          Date this claim was last reviewed for new evidence.
+          Claims older than 12–18 months should be re-reviewed.
+      tags:
+        range: string
+        multivalued: true
+        description: >-
+          Free-text tags for filtering (e.g. "hair", "androgenic-alopecia",
+          "microneedling-synergy", "AGA-frontline").
+      hallmarks_of_aging:
+        range: HallmarkOfAging
+        multivalued: true
+        description: >-
+          Relevant hallmarks of aging if this claim relates to longevity
+          or anti-aging mechanisms.
+      related_claims:
+        range: uriorcurie
+        multivalued: true
+        description: >-
+          IDs of other EvidenceClaims that are related to this one
+          (complementary mechanisms, synergistic effects, or
+          contradicting claims).
+      claim_status:
+        range: ClaimStatus
+        description: >-
+          Current standing of this claim in the scientific literature.
+
+# ── Enumerations ──────────────────────────────────────────────────────────────
+enums:
+
+  EffectSizeMetric:
+    description: Type of effect size statistic reported.
+    permissible_values:
+      cohens_d:
+        description: >-
+          Standardized mean difference (Cohen's d). Benchmarks:
+          small=0.2, medium=0.5, large=0.8.
+        meaning: STATO:0000021
+      hedges_g:
+        description: Bias-corrected standardized mean difference for small samples.
+      mean_difference:
+        description: Raw (unstandardized) mean difference between groups.
+      percent_change:
+        description: Percentage change from baseline.
+      odds_ratio:
+        description: Odds ratio from logistic regression or case-control study.
+        meaning: STATO:0000286
+      relative_risk:
+        description: Risk ratio from cohort study or RCT.
+      hazard_ratio:
+        description: Hazard ratio from survival analysis (Cox regression).
+        meaning: STATO:0000285
+      correlation_r:
+        description: Pearson or Spearman correlation coefficient.
+      partial_eta_squared:
+        description: Effect size for ANOVA — proportion of variance explained by factor.
+      number_needed_to_treat:
+        description: NNT — number of patients needing treatment to achieve one additional benefit.
+      hair_count_change:
+        description: >-
+          Raw change in hair count per cm² — specific to trichological
+          outcomes; report with measurement area in notes.
+      other:
+        description: Other effect size — specify in evidence line notes.
+
+  BlindingType:
+    description: Type of blinding used in a study.
+    permissible_values:
+      double_blind:
+        description: Both participants and assessors are blinded to treatment.
+      single_blind:
+        description: Either participant or assessor (but not both) is blinded.
+      triple_blind:
+        description: Participants, assessors, and statisticians are all blinded.
+      open_label:
+        description: No blinding; both participants and investigators know treatment.
+      not_applicable:
+        description: Blinding not applicable (e.g. some procedural interventions).
+      not_reported:
+        description: Blinding status not reported in the publication.
+
+  FundingSource:
+    description: Type of funding for a study — relevant for conflict-of-interest assessment.
+    permissible_values:
+      industry_funded:
+        description: >-
+          Funded in whole or in part by a company with commercial
+          interest in the intervention (pharmaceutical, supplement, device company).
+      government_funded:
+        description: Funded by government agencies (NIH, BMBF, MRC, etc.).
+      academic_institutional:
+        description: Funded by university or academic institution.
+      non_profit:
+        description: Funded by a non-profit or charitable organization.
+      mixed:
+        description: Multiple funding sources including industry.
+      not_reported:
+        description: Funding source not disclosed.
+      self_funded:
+        description: Investigator-initiated with no external funding.
+
+  ClaimStatus:
+    description: Current standing of an evidence claim.
+    permissible_values:
+      active:
+        description: Current best evidence supports this claim; no major contradictions.
+      disputed:
+        description: >-
+          Conflicting evidence exists; the field has not reached consensus.
+          Both supporting and refuting high-quality studies exist.
+      preliminary:
+        description: >-
+          Only preclinical or very early-phase human data available.
+          The claim is biologically plausible but not yet confirmed in
+          adequate human studies.
+      superseded:
+        description: >-
+          This claim has been replaced by a more specific or updated
+          version. See related_claims for the current version.
+      retracted:
+        description: >-
+          The primary study supporting this claim has been retracted.
+          Retain for historical record; do not use clinically.
+      refuted:
+        description: >-
+          The claim has been convincingly refuted by subsequent
+          high-quality evidence.

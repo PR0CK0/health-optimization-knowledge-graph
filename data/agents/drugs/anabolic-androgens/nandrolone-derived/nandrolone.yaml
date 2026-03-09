@@ -1,0 +1,32 @@
+id: healthkg:agent/nandrolone
+name: Nandrolone (Deca-Durabolin)
+description: >
+  Injectable 19-nortestosterone-derived AAS; one of the most extensively studied anabolic steroids.
+  Removal of the C19 methyl group yields a high anabolic:androgenic ratio (125:37). Licensed
+  for anaemia, osteoporosis, and muscle wasting (HIV, cancer). Aromatises weakly but converts
+  to a potent progestogen. Evidence for collagen and joint tissue synthesis makes it notable in
+  musculoskeletal recovery contexts. Available as decanoate (long-acting depot) and
+  phenylpropionate (shorter-acting) esters.
+aliases:
+  - Nandrolone decanoate
+  - Nandrolone phenylpropionate
+  - Deca-Durabolin
+  - Deca
+  - NPP
+xrefs:
+  - CHEBI:7514
+  - ATC:A14AB01
+  - DrugBank:DB00984
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+  - bone_health
+  - recovery
+regulatory_status: schedule_iii_controlled_substance_us
+wada_prohibited: true
+aromatizes: true
+anabolic_index: 125
+androgenic_index: 37
+half_life: 7-12 days (decanoate)
+administered_via:
+  - healthkg:procedure/intramuscular-injection

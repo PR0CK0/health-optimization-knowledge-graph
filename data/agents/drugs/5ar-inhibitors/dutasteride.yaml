@@ -1,0 +1,36 @@
+---
+id: CHEBI:521903
+name: Dutasteride
+description: >-
+  Dual 5-alpha reductase inhibitor — blocks both Type I and Type II
+  isoforms of 5-AR, compared to finasteride which selectively inhibits
+  only Type II. This results in more complete DHT suppression:
+  ~90–95% reduction in serum DHT vs ~70% with finasteride, and
+  ~97% reduction in scalp DHT. Approved for BPH (Avodart 0.5mg);
+  used off-label for AGA at 0.5mg daily or 0.5mg weekly (evidence for
+  both dosing schedules). Stronger effect on scalp DHT makes it
+  attractive for treatment-resistant AGA.
+aliases:
+  - Avodart
+  - GI198014
+  - dual 5-alpha reductase inhibitor
+xrefs:
+  - CHEBI:521903
+  - DrugBank:DB01126
+  - PubChem:6918296
+paradigms: [hair_health, hormonal_health]
+cas_number: "164656-23-9"
+molecular_formula: C27H30F6N2O2
+drugbank_id: DB01126
+atc_code: G04CB02
+fda_approval_status: approved_for_bph_off_label_aga
+drug_class: Dual 5-alpha reductase inhibitor (Type I + II)
+notes: >-
+  More potent DHT suppression than finasteride. Not FDA-approved for
+  AGA but widely used off-label. Some evidence it is more effective
+  than finasteride for severe or treatment-resistant AGA. Side effect
+  profile similar to finasteride (sexual side effects ~5–9%). Long
+  half-life (~5 weeks) allows less frequent dosing. Combination with
+  topical minoxidil is common clinical practice.
+administered_via:
+  - healthkg:procedure/oral-administration

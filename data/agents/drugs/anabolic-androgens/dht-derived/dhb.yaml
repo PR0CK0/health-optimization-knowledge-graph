@@ -1,0 +1,26 @@
+id: healthkg:agent/dihydroboldenone
+name: DHB (1-Testosterone, Dihydroboldenone)
+description: >
+  Injectable DHT-derived AAS; the 5-alpha-reduced form of boldenone (Equipoise). Structurally
+  similar to Primobolan but significantly more potent by anabolic index (~200:100). Does not
+  aromatize. Produces lean, dry mass with notable strength increases. Minimal clinical literature;
+  limited to underground and research contexts. Originally existed as a prohormone precursor
+  sold as a supplement before scheduling.
+aliases:
+  - 1-Testosterone
+  - Dihydroboldenone
+  - DHB
+  - 1-Test
+xrefs:
+  - CHEBI:34836
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+regulatory_status: schedule_iii_controlled_substance_us
+wada_prohibited: true
+aromatizes: false
+anabolic_index: 200
+androgenic_index: 100
+half_life: 4-6 days (cypionate ester common)
+administered_via:
+  - healthkg:procedure/intramuscular-injection

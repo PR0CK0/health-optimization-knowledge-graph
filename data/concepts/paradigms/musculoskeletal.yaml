@@ -1,0 +1,10 @@
+---
+id: healthkg:paradigm/musculoskeletal
+name: Musculoskeletal
+description: >-
+  Domain covering skeletal muscle (hypertrophy, strength, atrophy),
+  connective tissue (tendon, ligament integrity), bone density, and
+  joint health. Includes resistance training protocols, peptides
+  (BPC-157, TB-500), collagen supplementation, and creatine.
+paradigms: [musculoskeletal]
+key_biomarkers: [bone mineral density, muscle mass (DEXA), creatine kinase]

@@ -1,0 +1,49 @@
+# PhotobiomodulationProtocol entry — Red/NIR Light Therapy
+# Validate: make validate-data FILE=data/procedures/photobiomodulation/red-light-therapy.yaml CLASS=PhotobiomodulationProtocol
+---
+id: healthkg:procedure/red-light-therapy
+name: Red/NIR Light Therapy
+description: >-
+  Photobiomodulation (PBM) therapy using red (630–670nm) and near-infrared
+  (800–1100nm) light at low irradiance to stimulate biological processes via
+  chromophore absorption — primarily cytochrome c oxidase (complex IV) in
+  the mitochondrial electron transport chain. Increasing evidence supports
+  efficacy for androgenic alopecia (FDA-cleared LLLT devices), skin collagen
+  stimulation, wound healing, and mitochondrial function. Well-tolerated with
+  no thermal damage at therapeutic doses.
+aliases:
+  - RLT
+  - PBM
+  - LLLT
+  - Low-level laser therapy
+  - Low-level light therapy
+  - Photobiomodulation therapy
+  - Red light therapy
+  - Near-infrared therapy
+paradigms:
+  - hair_health
+  - skin_health
+  - mitochondrial_health
+
+wavelengths: 630–670 nm (red) and/or 800–1100 nm (NIR)
+dose_range: 10–60 J/cm² per session (therapeutic window)
+frequency: 3–5 sessions/week (hair); daily for skin and mitochondrial
+device_types: >-
+  Laser diode helmets (FDA 510(k)-cleared for AGA: iRestore, HairMax LaserBand),
+  LED panels, wearable devices
+
+mechanisms_of_action:
+  - Primary: Cytochrome c oxidase (CCO) absorption of 630–680nm and 830nm photons
+  - Increases ATP production in mitochondria → cellular energy
+  - Reduces reactive oxygen species (ROS) at photobiomodulation doses
+  - Stimulates nitric oxide (NO) release from CCO → vasodilation
+  - Activates heat shock proteins and transcription factors (NF-κB, AP-1)
+  - Hair-specific: increases anagen phase duration, follicular vascularisation
+  - Skin: stimulates fibroblast collagen and elastin synthesis
+notes: >-
+  Biphasic dose response (Arndt-Schulz law): insufficient dose → no effect;
+  optimal dose → stimulation; excessive dose → inhibition. Therapeutic
+  window is typically 1–10 mW/cm² irradiance and 10–60 J/cm² fluence.
+  Multiple FDA-cleared Class II devices for AGA. Strong RCT evidence for
+  hair growth in AGA (Lanzafame 2013, Hairmax trials). Skin collagen evidence
+  from multiple RCTs. Avoid eyes — use protective goggles.

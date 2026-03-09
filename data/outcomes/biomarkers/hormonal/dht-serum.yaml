@@ -1,0 +1,21 @@
+# HormonalBiomarker — Serum DHT
+---
+id: healthkg:outcome/dht-serum
+name: Serum DHT
+description: >-
+  Serum dihydrotestosterone (DHT) concentration. DHT is the primary androgen
+  driving androgenic alopecia via high-affinity binding to androgen receptors
+  in genetically susceptible hair follicles, causing progressive miniaturisation.
+  Formed from testosterone by type II 5-alpha reductase (SRD5A2) in the
+  prostate, liver, and hair follicle dermal papilla. Reducing serum and scalp
+  DHT is the primary mechanism of action of finasteride and dutasteride.
+paradigms:
+  - hair_health
+  - hormonal_health
+
+loinc_code: 2991-8
+typical_units: pg/mL (or nmol/L)
+reference_range_lower: 112.0   # pg/mL (adult men, approximate)
+reference_range_upper: 955.0
+improvement_direction: decrease   # in AGA context
+measurement_method: Serum mass spectrometry or immunoassay (LC-MS/MS preferred)

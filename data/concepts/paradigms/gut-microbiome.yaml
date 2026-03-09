@@ -1,0 +1,11 @@
+---
+id: healthkg:paradigm/gut-microbiome
+name: Gut / Microbiome
+description: >-
+  Domain covering intestinal microbiota composition and diversity,
+  gut barrier integrity (leaky gut), short-chain fatty acid production,
+  the gut-brain axis, and microbiome-immune interactions. Interventions
+  include prebiotics, probiotics, dietary fibre, and faecal microbiota
+  transplant (FMT).
+paradigms: [gut_microbiome]
+key_biomarkers: [microbiome diversity (Shannon index), calprotectin, zonulin, SCFA levels]

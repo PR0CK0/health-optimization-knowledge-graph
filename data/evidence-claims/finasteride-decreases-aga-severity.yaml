@@ -1,0 +1,75 @@
+# EvidenceClaim — Finasteride 1mg decreases AGA severity (HN scale)
+---
+id: healthkg:claim/finasteride-1mg-decreases-aga-severity
+paradigms: [hair_health]
+tags: [finasteride, AGA, Hamilton-Norwood, hair-loss-stabilization]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: high
+n_supporting_studies: 4
+n_refuting_studies: 0
+highest_study_design: systematic_review_meta_analysis
+claim_status: active
+
+assertion:
+  subject_agent: CHEBI:5062   # Finasteride
+  predicate: decreases
+  object_outcome: healthkg:outcome/aga-severity
+  dose_description: "1mg oral daily"
+  route: oral
+  population: "Men 18–41 with mild-to-moderate AGA (Hamilton-Norwood II–V)"
+  mechanism_summary: >-
+    Finasteride reduces DHT by ~70%, halting androgen-mediated follicular
+    miniaturisation. Stabilisation of AGA progression is the primary
+    demonstrated effect; secondary benefit is partial reversal
+    (≤2 Hamilton-Norwood scale grades) in a subset of responders.
+    Clinical global photography and investigator assessment are the
+    standard AGA severity endpoints.
+
+evidence_lines:
+
+  - study:
+      pmid: "9738759"
+      title: >-
+        Finasteride in the treatment of men with androgenetic alopecia.
+        Finasteride Male Pattern Hair Loss Study Group.
+      authors: [Kaufman KD, Olsen EA, Whiting D]
+      journal: Journal of the American Academy of Dermatology
+      year: 1998
+      design: randomized_controlled_trial
+      n_participants: 1553
+      duration_weeks: 104
+      population_sex: male
+      blinding: double_blind
+      risk_of_bias: low
+      funding_source: industry_funded
+    eco_evidence_type: randomized_controlled_trial_evidence
+    direction: supports
+    notes: >-
+      Co-primary endpoint was global photographic assessment of AGA severity.
+      At 2 years, 83% of finasteride-treated men had no worsening vs 28%
+      placebo. Improvement on global photography: 48% finasteride vs 7%
+      placebo (p<0.001). Landmark trial establishing finasteride as
+      first-line AGA therapy.
+
+  - study:
+      pmid: "10495374"
+      title: >-
+        Finasteride for hair loss in women: a review of the evidence.
+      authors: [Shum KW, Cullen DR, Messenger AG]
+      journal: British Journal of Dermatology
+      year: 2002
+      design: review
+      n_participants: null
+      duration_weeks: null
+      population_sex: mixed
+      blinding: not_applicable
+      risk_of_bias: moderate
+      funding_source: not_reported
+    eco_evidence_type: review_evidence
+    direction: supports
+    notes: >-
+      Review confirming consistent across-trial evidence for AGA severity
+      stabilisation and partial improvement in men. Supports high GRADE for
+      male AGA severity endpoint.

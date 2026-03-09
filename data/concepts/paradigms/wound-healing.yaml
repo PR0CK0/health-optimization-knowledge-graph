@@ -1,0 +1,11 @@
+---
+id: healthkg:paradigm/wound-healing
+name: Wound Healing
+description: >-
+  Domain covering the biology of cutaneous and soft-tissue wound
+  closure: haemostasis, inflammatory phase, proliferative phase
+  (fibroblast activity, angiogenesis, re-epithelialisation), and
+  remodelling. Closely related to tissue repair; wound healing
+  specifically emphasises skin/mucosal barrier restoration.
+paradigms: [wound_healing]
+key_biomarkers: [wound closure rate, VEGF, TGF-beta, collagen deposition]

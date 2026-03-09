@@ -1,0 +1,65 @@
+# EvidenceClaim — Dutasteride produces >90% serum DHT suppression
+---
+id: healthkg:claim/dutasteride-decreases-dht
+paradigms: [hair_health, hormonal_health]
+tags: [dutasteride, DHT, 5-alpha-reductase, pharmacodynamic]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: high
+n_supporting_studies: 2
+n_refuting_studies: 0
+highest_study_design: randomized_controlled_trial
+claim_status: active
+
+assertion:
+  subject_agent: CHEBI:521903
+  predicate: decreases
+  object_outcome: healthkg:outcome/dht-serum
+  dose_description: "0.5mg oral daily"
+  mechanism_summary: >-
+    Dual 5-AR inhibition (Type I + II isoforms) produces ~94–97% serum
+    DHT suppression, greater than finasteride's ~70%. Scalp skin DHT
+    reduced by ~97%. Long half-life (~5 weeks) enables sustained suppression.
+
+evidence_lines:
+
+  - study:
+      pmid: "12237580"
+      title: >-
+        Marked suppression of dihydrotestosterone in men with benign
+        prostatic hyperplasia by dutasteride, a dual 5alpha-reductase
+        inhibitor.
+      authors: [Clark RV, Hermann DJ, Cunningham GR, Wilson TH, Morrill BB, Hobbs S]
+      journal: Journal of Clinical Endocrinology and Metabolism
+      year: 2004
+      design: randomized_controlled_trial
+      n_participants: 399
+      duration_weeks: 104
+      blinding: double_blind
+      risk_of_bias: low
+      funding_source: industry_funded
+    eco_evidence_type: randomized_controlled_trial_evidence
+    direction: supports
+    percent_change: -94.7
+    notes: >-
+      Dutasteride 0.5mg/day produced 94.7% median serum DHT suppression
+      at 2 weeks, maintained at 96.4% at 2 years. Scalp skin DHT reduced
+      ~97% at steady state. Establishes pharmacodynamic benchmark.
+
+  - study:
+      pmid: "9815366"
+      title: >-
+        Unique preclinical characteristics of GG745, a potent dual
+        inhibitor of 5-alpha-reductase.
+      authors: [Bramson HN, Hermann D, Batchelor KW]
+      journal: Journal of Pharmacology and Experimental Therapeutics
+      year: 1997
+      design: pharmacology
+      risk_of_bias: moderate
+    eco_evidence_type: preclinical_evidence
+    direction: supports
+    notes: >-
+      Preclinical kinetics of dutasteride dual 5-AR inhibition:
+      Type I Ki ~6nM, Type II Ki ~7nM. Near-complete DHT suppression
+      achievable across both isoforms. Establishes mechanistic basis.

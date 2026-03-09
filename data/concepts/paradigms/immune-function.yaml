@@ -1,0 +1,11 @@
+---
+id: healthkg:paradigm/immune-function
+name: Immune Function
+description: >-
+  Domain covering innate and adaptive immunity, immune surveillance,
+  autoimmunity risk, chronic low-grade inflammation (inflammaging),
+  and vaccine response. Relevant to longevity, cancer prevention,
+  and autoimmune conditions. Key markers: CRP, IL-6, TNF-alpha,
+  NK cell activity.
+paradigms: [immune_function]
+key_biomarkers: [CRP, IL-6, TNF-alpha, white cell differential, NK cell activity]

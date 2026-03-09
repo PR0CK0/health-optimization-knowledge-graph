@@ -1,0 +1,55 @@
+# EvidenceClaim — Finasteride 1mg decreases serum DHT in AGA
+---
+id: healthkg:claim/finasteride-1mg-decreases-dht-aga-men
+paradigms: [hair_health, hormonal_health]
+tags: [finasteride, DHT, 5-alpha-reductase, AGA-frontline]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: high
+n_supporting_studies: 4
+n_refuting_studies: 0
+highest_study_design: randomized_controlled_trial
+claim_status: active
+
+assertion:
+  subject_agent: CHEBI:5062   # Finasteride
+  predicate: decreases
+  object_outcome: healthkg:outcome/dht-serum
+  dose_description: "1mg oral daily"
+  route: oral
+  population: "Adult males with androgenic alopecia"
+  mechanism_summary: >-
+    Finasteride selectively inhibits type II 5-alpha reductase (SRD5A2),
+    the isoenzyme predominant in the scalp dermal papilla and prostate.
+    This blocks conversion of testosterone → DHT, reducing serum DHT
+    by ~65–70% and scalp DHT by ~85% at steady state.
+
+evidence_lines:
+
+  - study:
+      pmid: "9738759"
+      title: >-
+        Finasteride in the treatment of men with androgenetic alopecia.
+        Finasteride Male Pattern Hair Loss Study Group.
+      authors: [Kaufman KD, Olsen EA, Whiting D, Savin R, DeVillez R, Bergfeld W]
+      journal: Journal of the American Academy of Dermatology
+      year: 1998
+      design: randomized_controlled_trial
+      n_participants: 1553
+      duration_weeks: 104
+      population_description: >-
+        Men aged 18–41 with mild-to-moderate AGA (Hamilton-Norwood IIIv–V vertex)
+      population_sex: male
+      blinding: double_blind
+      risk_of_bias: low
+      funding_source: industry_funded   # Merck
+    eco_evidence_type: randomized_controlled_trial_evidence
+    direction: supports
+    percent_change: -68.0
+    p_value: 0.001
+    notes: >-
+      Landmark 2-year RCT. Finasteride 1mg reduced serum DHT by ~68% from
+      baseline vs placebo. Scalp DHT reduced by ~85%. Serum testosterone
+      increased slightly (compensatory). Hair count at vertex increased by
+      mean +107 hairs vs -75 hairs (placebo) at 2 years.

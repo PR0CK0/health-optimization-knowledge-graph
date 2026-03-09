@@ -1,0 +1,19 @@
+# HairOutcome — Hair Density (vertex/crown)
+---
+id: healthkg:outcome/hair-density-vertex
+name: Hair Density (vertex)
+description: >-
+  Number of hair follicular units per cm² at the vertex (crown) of the scalp.
+  Primary trichoscopy endpoint in AGA clinical trials. Measured by dermoscopy
+  or phototrichogram. Reduction in vertex hair density is the hallmark of
+  male-pattern AGA (Hamilton-Norwood IIIv–V). Increase in this measure
+  indicates treatment response.
+paradigms:
+  - hair_health
+
+measurement_method: Trichoscopy (follicular units/cm²), phototrichogram, global photography
+improvement_direction: increase
+typical_units: follicular units/cm²
+reference_range_lower: 55.0   # units/cm² (approximate normal range)
+reference_range_upper: 90.0
+loinc_code: null   # no specific LOINC for trichoscopy endpoint

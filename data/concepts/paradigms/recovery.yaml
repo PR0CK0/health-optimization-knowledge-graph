@@ -1,0 +1,11 @@
+---
+id: healthkg:paradigm/recovery
+name: Recovery
+description: >-
+  Domain covering post-exercise and post-injury physiological
+  restoration: reduction of DOMS (delayed onset muscle soreness),
+  restoration of HRV, sleep quality optimisation, glycogen
+  repletion, and inflammation management. Includes cold/heat therapy,
+  compression, peptides, and nutritional timing.
+paradigms: [recovery]
+key_biomarkers: [HRV, resting heart rate, sleep efficiency, CK (creatine kinase), cortisol]

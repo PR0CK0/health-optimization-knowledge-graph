@@ -1,0 +1,83 @@
+# Example Drug entry — Minoxidil
+# Validate: make validate-data FILE=data/agents/drugs/minoxidil.yaml CLASS=Drug
+---
+id: CHEBI:50870
+name: Minoxidil
+description: >-
+  Potassium channel opener originally developed as an oral antihypertensive.
+  At topical doses, it is the most widely used and evidence-supported
+  treatment for androgenic alopecia (AGA) in both men and women.
+  Also available as an oral formulation at low doses (0.625–5mg/day)
+  for hair loss in recent off-label practice.
+aliases:
+  - Rogaine
+  - Regaine
+  - Loniten (oral)
+  - 2,4-diamino-6-piperidinopyrimidine 3-oxide
+xrefs:
+  - DrugBank:DB00350
+  - PubChem:4201
+  - CHEBI:50870
+  - RxNorm:41493
+paradigms:
+  - hair_health
+  - cardiovascular   # oral use: blood pressure effects
+
+# Chemical identity
+cas_number: 38304-91-5
+molecular_formula: C9H15N5O
+inchikey: ZFMITOMMDFUXMA-UHFFFAOYSA-N
+
+# Pharmacology
+mechanisms_of_action:
+  - Opens ATP-sensitive potassium channels (KATP) in vascular smooth muscle,
+    causing hyperpolarization and vasodilation
+  - Increases blood flow and oxygen/nutrient delivery to hair follicles
+  - Promotes transition of hair follicles from telogen to anagen phase
+  - May directly stimulate follicular keratinocyte proliferation
+  - Sulfotransferase-mediated conversion to minoxidil sulfate (active form)
+    occurs in the dermal papilla
+molecular_targets:
+  - UniProtKB:Q14654   # KCNJ11 — ATP-sensitive potassium channel Kir6.2
+  - UniProtKB:O00170   # AIF1 — less certain
+pathways:
+  - GO:0006811   # ion transport
+  - GO:0001942   # hair follicle development
+half_life_hours: 4.2   # for oral minoxidil; topical is largely local
+bioavailability_notes: >-
+  Oral bioavailability ~90%. Topical bioavailability ~1–2% through intact
+  scalp skin; increased significantly by microneedling pre-treatment (up to
+  4–8×). The active metabolite minoxidil sulfate requires scalp sulfotransferase
+  (SULT1A1) activity — individuals with low SULT1A1 are poor responders to
+  topical minoxidil.
+
+# Drug-specific fields
+drugbank_id: DB00350
+rxcui: "41493"
+atc_code: D11AX01
+fda_approval_status: approved
+approved_indications:
+  - Androgenic alopecia (men) — topical 2% and 5% solution/foam
+  - Androgenic alopecia (women) — topical 2% solution, 5% foam
+  - Severe hypertension — oral tablet (now rarely used for this)
+off_label_uses:
+  - Oral low-dose minoxidil (0.625–5mg/day) for AGA and other alopecias
+  - Traction alopecia, alopecia areata (less evidence)
+  - Combination with microneedling for enhanced scalp penetration
+  - Eyebrow and beard growth
+drug_class: Potassium channel opener, vasodilator
+cyp_interactions:
+  - Not a significant CYP450 substrate, inducer, or inhibitor
+black_box_warnings:
+  - Oral only — can cause serious cardiovascular effects including pericardial
+    effusion, angina, and fluid retention; requires cardiac monitoring
+notes: >-
+  Topical minoxidil is generally well-tolerated. Oral low-dose minoxidil
+  has gained substantial traction since 2020 as an alternative for patients
+  who cannot tolerate or comply with topical application; growing RCT evidence
+  as of 2023–2024. The hypertrichosis side effect (unwanted body hair) is the
+  primary adverse effect of oral formulation. Efficacy is maintained with
+  continuous use; cessation leads to loss of achieved hair within 3–6 months.
+administered_via:
+  - healthkg:procedure/topical-application
+  - healthkg:procedure/oral-administration

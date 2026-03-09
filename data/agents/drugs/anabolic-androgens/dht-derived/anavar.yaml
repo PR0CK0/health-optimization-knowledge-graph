@@ -1,0 +1,27 @@
+id: healthkg:agent/oxandrolone
+name: Anavar (Oxandrolone)
+description: >
+  Mild oral DHT-derived anabolic steroid with a highly favourable anabolic:androgenic ratio (322:24).
+  Licensed medically for muscle wasting (burns, HIV, surgery recovery) and paediatric short stature.
+  Does not aromatize; minimal hepatotoxicity relative to other orals. Often considered the safest
+  male AAS and the most commonly used AAS in female populations.
+aliases:
+  - Oxandrolone
+  - Var
+  - Oxandrin
+xrefs:
+  - CHEBI:7854
+  - ATC:A14AA08
+  - DrugBank:DB00621
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+  - recovery
+regulatory_status: schedule_iii_controlled_substance_us
+wada_prohibited: true
+aromatizes: false
+anabolic_index: 322
+androgenic_index: 24
+half_life: 9 hours
+administered_via:
+  - healthkg:procedure/oral-administration

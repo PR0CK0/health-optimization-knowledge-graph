@@ -1,0 +1,19 @@
+---
+id: healthkg:procedure/prp-scalp-injection
+name: PRP Scalp Injection
+description: >-
+  Platelet-Rich Plasma (PRP) prepared by centrifuging autologous whole
+  blood to concentrate platelets 4–6× above baseline. The platelet
+  concentrate is activated (with calcium chloride or thrombin, or
+  via injection trauma) to release alpha-granule contents: PDGF, TGF-β1,
+  VEGF, EGF, IGF-1, and FGF. These growth factors are injected
+  intradermally across the scalp at 1–2cm intervals. Promotes anagen
+  phase induction, dermal papilla cell proliferation, and angiogenesis
+  around follicles. Typically performed in clinic every 4–6 weeks for
+  3–4 sessions, then quarterly maintenance.
+paradigms: [hair_health]
+preparation: Autologous whole blood centrifuged at 1500–3000 rpm
+platelet_concentration: 4–6× baseline (1.5–2.5 million platelets/µL)
+session_interval_weeks: 4–6
+typical_course: 3–4 initial sessions then quarterly
+device_examples: [Eclipse PRP, ART PRP, Arthrex ACP]

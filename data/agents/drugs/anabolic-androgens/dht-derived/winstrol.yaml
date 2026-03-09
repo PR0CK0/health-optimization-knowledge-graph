@@ -1,0 +1,27 @@
+id: healthkg:agent/stanozolol
+name: Winstrol (Stanozolol)
+description: >
+  DHT-derived anabolic steroid available in oral (17-alpha-alkylated) and injectable (aqueous) forms.
+  Does not aromatize. Known for strength and vascularity without water retention. Used medically
+  for hereditary angioedema and aplastic anaemia. Notable for significantly lowering SHBG, which
+  raises free testosterone and potentiates other compounds in a stack.
+aliases:
+  - Stanozolol
+  - Winny
+  - Winstrol-V
+xrefs:
+  - CHEBI:9168
+  - ATC:A14AA09
+  - DrugBank:DB06718
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+regulatory_status: schedule_iii_controlled_substance_us
+wada_prohibited: true
+aromatizes: false
+anabolic_index: 320
+androgenic_index: 30
+half_life: 9 hours (oral), 24 hours (injectable)
+administered_via:
+  - healthkg:procedure/oral-administration
+  - healthkg:procedure/intramuscular-injection

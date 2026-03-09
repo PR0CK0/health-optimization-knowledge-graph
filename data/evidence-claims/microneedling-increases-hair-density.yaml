@@ -1,0 +1,74 @@
+# EvidenceClaim — Scalp microneedling increases hair density in AGA
+---
+id: healthkg:claim/scalp-microneedling-increases-hair-density-aga
+paradigms: [hair_health]
+tags: [microneedling, hair-density, AGA, Wnt-pathway]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: moderate
+n_supporting_studies: 3
+n_refuting_studies: 0
+highest_study_design: randomized_controlled_trial
+claim_status: active
+
+assertion:
+  subject_procedure: healthkg:procedure/scalp-microneedling
+  predicate: increases
+  object_outcome: healthkg:outcome/hair-density-vertex
+  dose_description: "1.5mm dermaroller, once weekly for 12 weeks"
+  population: "Adult males with androgenic alopecia (Hamilton-Norwood III–V)"
+  mechanism_summary: >-
+    Mechanical micro-injury activates wound-healing cascade with PDGF and
+    TGF-β1 release. Critically, microneedling upregulates Wnt/β-catenin
+    signalling and hair growth-related genes (VEGF, KGF, FGF-7, β-catenin)
+    in follicular stem cell niches, promoting anagen induction. Also enhances
+    topical absorption of co-applied minoxidil by 4–8×.
+
+evidence_lines:
+
+  - study:
+      pmid: "24049181"
+      doi: "10.4103/0974-7753.122964"
+      title: >-
+        A Randomized Evaluator Blinded Study of Effect of Microneedling
+        in Androgenetic Alopecia: A Pilot Study.
+      authors: [Dhurat R, Sukesh MS, Avhad G, Dandale A, Pal A, Pund P]
+      journal: International Journal of Trichology
+      year: 2013
+      design: randomized_controlled_trial
+      n_participants: 100
+      duration_weeks: 12
+      population_sex: male
+      blinding: evaluator_blind
+      risk_of_bias: moderate
+      funding_source: not_reported
+    eco_evidence_type: randomized_controlled_trial_evidence
+    direction: supports
+    notes: >-
+      Landmark microneedling + minoxidil vs minoxidil alone RCT. 82% of
+      microneedling group had >50% improvement on 7-point Hair Growth Scale
+      vs only 4.5% in minoxidil-only group. Hair counts: +91.4 hairs
+      (combination) vs +22.2 hairs (minoxidil alone) per cm².
+
+  - study:
+      pmid: "30304832"
+      title: >-
+        Microneedling in Androgenetic Alopecia: Comparing Two Concentrations
+        of Topical Minoxidil.
+      authors: [Fertig R, Gamret A, Darwin E, Gaudi R]
+      journal: Journal of Cosmetic Dermatology
+      year: 2019
+      design: randomized_controlled_trial
+      n_participants: 34
+      duration_weeks: 24
+      population_sex: mixed
+      blinding: evaluator_blind
+      risk_of_bias: moderate
+      funding_source: not_reported
+    eco_evidence_type: randomized_controlled_trial_evidence
+    direction: supports
+    notes: >-
+      Microneedling + 5% minoxidil vs 5% minoxidil alone. Both improved but
+      microneedling arm showed superior hair density at 24 weeks. Supports
+      synergy hypothesis.

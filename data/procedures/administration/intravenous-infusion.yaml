@@ -1,0 +1,12 @@
+---
+id: healthkg:procedure/intravenous-infusion
+name: Intravenous Infusion
+description: >-
+  Direct delivery into the bloodstream via peripheral or central
+  venous access. Provides 100% bioavailability and rapid onset.
+  Used for high-dose NAD+ infusions, vitamin C, ozone therapy, and
+  other IV nutrient protocols in longevity and functional medicine
+  contexts. Requires clinical supervision.
+paradigms: [drug_delivery]
+forms: [iv_drip, iv_push, iv_bag]
+requires_supervision: true

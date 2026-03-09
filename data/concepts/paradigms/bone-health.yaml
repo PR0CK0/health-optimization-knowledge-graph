@@ -1,0 +1,10 @@
+---
+id: healthkg:paradigm/bone-health
+name: Bone Health
+description: >-
+  Domain covering bone mineral density, osteoblast/osteoclast balance,
+  calcium and vitamin D homeostasis, fracture risk, and osteoporosis
+  prevention. Interventions include vitamin D3/K2, bisphosphonates,
+  resistance training, and adequate dietary calcium.
+paradigms: [bone_health]
+key_biomarkers: [bone mineral density (DEXA T-score), 25-OH vitamin D, PTH, osteocalcin]

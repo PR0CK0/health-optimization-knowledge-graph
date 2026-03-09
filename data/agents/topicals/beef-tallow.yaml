@@ -1,0 +1,46 @@
+# Topical entry — Beef Tallow
+# Validate: make validate-data FILE=data/agents/topicals/beef-tallow.yaml CLASS=Topical
+---
+id: healthkg:topical/beef-tallow
+name: Beef Tallow (topical)
+description: >-
+  Rendered beef fat (suet) used as a skin moisturiser and barrier agent.
+  Rich in saturated fatty acids (palmitic ~27%, stearic ~20%), oleic acid
+  (~42%), CLA (conjugated linoleic acid), and fat-soluble vitamins A, D,
+  E, K. Fatty acid profile closely resembles human sebum. Used in ancestral
+  and carnivore health communities as an alternative to synthetic emollients.
+  Clinical RCT evidence is absent; rationale is based on biochemical
+  composition and traditional use.
+aliases:
+  - Rendered beef fat
+  - Animal tallow
+  - Suet-based moisturiser
+  - Grass-fed tallow
+xrefs:
+  - CAS:61789-97-7   # beef tallow CAS
+paradigms:
+  - skin_health
+
+application_site: Skin (face, body)
+topical_category: emollient
+active_components: >-
+  Saturated fatty acids (palmitic C16:0, stearic C18:0), oleic acid (C18:1),
+  CLA (C18:2 cis-9 trans-11), fat-soluble vitamins A/D/E/K
+vehicle: Pure rendered animal fat
+
+mechanisms_proposed:
+  - Fatty acid composition similar to sebum → compatible with skin lipid bilayer
+  - Stearic and oleic acids support stratum corneum barrier function
+  - CLA has documented anti-inflammatory properties in vitro
+  - Vitamins A (retinol equivalent) and E provide antioxidant support
+  - Occlusive barrier reduces transepidermal water loss (TEWL)
+notes: >-
+  Evidence level: very low. No published human RCTs on tallow as a skincare
+  product. The rationale is largely theoretical (composition similarity to
+  sebum) and traditional (pre-industrial skincare). Current evidence is
+  anecdotal and case-report level. The claim is that tallow is an
+  "associated with" relationship to skin hydration and barrier function
+  rather than a validated causal effect. Would benefit enormously from
+  even a small pilot RCT.
+administered_via:
+  - healthkg:procedure/topical-application

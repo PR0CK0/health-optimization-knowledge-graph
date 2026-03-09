@@ -1,0 +1,25 @@
+id: https://healthoptkg.github.io/schema/
+name: health-optimization-kg
+description: >-
+  The Health Optimization Knowledge Graph (HOKG) schema.
+  A BFO-aligned, evidence-graded ontology covering health optimization
+  interventions (supplements, drugs, peptides, procedures) and their
+  relationships to health outcomes, backed by a SEPIO/nanopublication-
+  inspired evidence model.
+
+  Entry point — imports all sub-schemas.
+license: CC-BY-4.0
+version: 0.1.0
+
+prefixes:
+  linkml:   https://w3id.org/linkml/
+  healthkg: https://healthoptkg.github.io/schema/
+
+default_prefix: healthkg
+
+imports:
+  - linkml:types
+  - core
+  - agents
+  - outcomes
+  - evidence

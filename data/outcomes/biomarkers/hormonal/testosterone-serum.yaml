@@ -1,0 +1,19 @@
+---
+id: healthkg:outcome/testosterone-serum
+name: Serum Testosterone
+description: >-
+  Total serum testosterone concentration (nmol/L or ng/dL), the primary
+  circulating androgen. In androgen-sensitive hair follicles, testosterone
+  is converted by 5-alpha reductase (Type II predominant) to
+  dihydrotestosterone (DHT), which has ~5× greater affinity for the
+  androgen receptor. Elevated serum testosterone therefore drives
+  increased follicular DHT production in individuals with functional
+  5-AR. The testosterone → DHT conversion is the key upstream step
+  in androgen-mediated hair follicle miniaturisation.
+paradigms: [hair_health, hormonal_health, metabolic_health]
+measurement_methods:
+  - Immunoassay (routine clinical)
+  - LC-MS/MS (gold standard)
+units: nmol/L or ng/dL
+normal_range_male: "10–35 nmol/L (300–1000 ng/dL)"
+normal_range_female: "0.5–2.4 nmol/L (15–70 ng/dL)"

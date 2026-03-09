@@ -1,0 +1,30 @@
+id: healthkg:agent/trenbolone
+name: Trenbolone
+description: >
+  Injectable 19-nortestosterone-derived AAS with equal anabolic and androgenic indices (500:500).
+  Does not aromatize to oestrogen but exerts strong progestogenic activity. Veterinary origin
+  (Finaplix cattle implants; Parabolan in human medicine, discontinued). Markedly upregulates
+  IGF-1 in animal models; potent myostatin-pathway modulation suggested. No approved human
+  indication. Among the most potent AAS in terms of body composition change per unit dose.
+  Significant cardiovascular and androgenic side-effect profile.
+aliases:
+  - Trenbolone acetate
+  - Trenbolone enanthate
+  - Trenbolone hexahydrobenzylcarbonate
+  - Tren
+  - Fina
+  - Parabolan
+xrefs:
+  - CHEBI:9477
+  - DrugBank:DB13945
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+regulatory_status: veterinary_only_no_human_approval
+wada_prohibited: true
+aromatizes: false
+anabolic_index: 500
+androgenic_index: 500
+half_life: 1-2 days (acetate), 7-10 days (enanthate)
+administered_via:
+  - healthkg:procedure/intramuscular-injection

@@ -1,0 +1,620 @@
+id: https://healthoptkg.github.io/schema/core
+name: health-opt-kg-core
+description: >-
+  Core BFO-aligned base classes, shared types, and common enumerations
+  for the Health Optimization Knowledge Graph (HOKG).
+  All classes root in BFO 2020 (ISO/IEC 21838-2).
+license: CC-BY-4.0
+version: 0.1.0
+
+prefixes:
+  linkml:   https://w3id.org/linkml/
+  healthkg: https://healthoptkg.github.io/schema/
+  BFO:      http://purl.obolibrary.org/obo/BFO_
+  RO:       http://purl.obolibrary.org/obo/RO_
+  IAO:      http://purl.obolibrary.org/obo/IAO_
+  OBI:      http://purl.obolibrary.org/obo/OBI_
+  ECO:      http://purl.obolibrary.org/obo/ECO_
+  STATO:    http://purl.obolibrary.org/obo/STATO_
+  CHEBI:    http://purl.obolibrary.org/obo/CHEBI_
+  GO:       http://purl.obolibrary.org/obo/GO_
+  HP:       http://purl.obolibrary.org/obo/HP_
+  UBERON:   http://purl.obolibrary.org/obo/UBERON_
+  MONDO:    http://purl.obolibrary.org/obo/MONDO_
+  MAXO:     http://purl.obolibrary.org/obo/MAXO_
+  NCIT:     http://purl.obolibrary.org/obo/NCIT_
+  LOINC:    http://loinc.org/
+  schema:   http://schema.org/
+  prov:     http://www.w3.org/ns/prov#
+  dc:       http://purl.org/dc/elements/1.1/
+
+default_prefix: healthkg
+default_range: string
+
+imports:
+  - linkml:types
+
+# ── Custom scalar types ───────────────────────────────────────────────────────
+types:
+
+  CURIEString:
+    uri: xsd:string
+    description: >-
+      A compact URI (CURIE) referencing an external ontology term,
+      e.g. CHEBI:28940 or GO:0006914. Used for cross-references.
+    pattern: "^[A-Za-z_][A-Za-z0-9_.-]*:[A-Za-z0-9_./-]+$"
+
+  PubMedID:
+    uri: xsd:string
+    description: A PubMed identifier — digits only, no prefix.
+    pattern: "^[0-9]+$"
+
+  DOIString:
+    uri: xsd:string
+    description: A Digital Object Identifier string, starting with 10.
+    pattern: "^10\\.[0-9]{4,}/.+$"
+
+  CASNumber:
+    uri: xsd:string
+    description: Chemical Abstracts Service registry number.
+    pattern: "^[0-9]{2,7}-[0-9]{2}-[0-9]$"
+
+  PubChemCID:
+    uri: xsd:string
+    description: PubChem Compound Identifier (numeric string, no prefix).
+    pattern: "^[0-9]+$"
+
+  DrugBankID:
+    uri: xsd:string
+    description: DrugBank accession identifier.
+    pattern: "^DB[0-9]{5}$"
+
+  LOINCCode:
+    uri: xsd:string
+    description: LOINC observation identifier for laboratory tests and measurements.
+    pattern: "^[0-9]+-[0-9]+$"
+
+  NonnegativeFloat:
+    uri: xsd:float
+    description: A floating-point number that must be >= 0.
+    minimum_value: 0
+
+  PValue:
+    uri: xsd:float
+    description: A statistical p-value strictly between 0 and 1.
+    minimum_value: 0
+    maximum_value: 1
+
+# ── Global slots ──────────────────────────────────────────────────────────────
+slots:
+
+  id:
+    identifier: true
+    range: uriorcurie
+    required: true
+    description: >-
+      Primary stable identifier for the entity. Prefer an existing
+      ontology CURIE (e.g. CHEBI:28940) where one exists; otherwise use
+      a healthkg-namespaced CURIE (e.g. healthkg:supp/coq10).
+    slot_uri: schema:identifier
+
+  name:
+    required: true
+    range: string
+    description: Human-readable canonical name (preferred label).
+    slot_uri: schema:name
+
+  description:
+    range: string
+    description: Free-text description providing context and background.
+    slot_uri: schema:description
+
+  aliases:
+    range: string
+    multivalued: true
+    description: >-
+      Synonyms, trade names, common abbreviations, or alternate labels.
+      Include brand names and colloquial names here.
+
+  xrefs:
+    range: CURIEString
+    multivalued: true
+    description: >-
+      Cross-references to equivalent or closely related identifiers in
+      external databases or ontologies (CHEBI, PubChem, DrugBank,
+      SNOMED CT, etc.).
+
+  notes:
+    range: string
+    description: >-
+      Informal curator notes, caveats, important context, or open
+      questions. Not intended for machine consumption.
+
+  paradigms:
+    range: HealthParadigm
+    multivalued: true
+    description: >-
+      The health domains or paradigms this entity is relevant to
+      (e.g. hair_health, longevity, cognitive_function).
+
+# ── BFO 2020 class hierarchy ──────────────────────────────────────────────────
+# Full URI base: http://purl.obolibrary.org/obo/BFO_XXXXXXX
+# Source: https://github.com/BFO-ontology/BFO-2020 (ISO/IEC 21838-2)
+classes:
+
+  # ── Tier 0: root ─────────────────────────────────────────────────────────
+
+  BFOEntity:
+    description: >-
+      Root of the BFO 2020 hierarchy (BFO:0000001 entity). Every
+      named entity in this knowledge graph is ultimately a BFO entity.
+      Provides the shared identity (id), label (name), description,
+      and cross-reference slots inherited by all subclasses.
+    class_uri: BFO:0000001
+    tree_root: true
+    abstract: true
+    slots:
+      - id
+      - name
+      - description
+      - aliases
+      - xrefs
+      - notes
+      - paradigms
+
+  # ── Tier 1: Continuant vs Occurrent ──────────────────────────────────────
+
+  BFOContinuant:
+    description: >-
+      BFO:0000002 continuant. An entity that persists, endures, or
+      continues to exist through time while maintaining its identity.
+      Subdivided into independent continuants (material things),
+      specifically dependent continuants (qualities, dispositions),
+      and generically dependent continuants (information).
+    class_uri: BFO:0000002
+    is_a: BFOEntity
+    abstract: true
+
+  BFOOccurrent:
+    description: >-
+      BFO:0000003 occurrent. An entity that unfolds or develops through
+      time. Includes processes (interventions, physiological events),
+      process boundaries, and temporal/spatiotemporal regions.
+    class_uri: BFO:0000003
+    is_a: BFOEntity
+    abstract: true
+
+  # ── Tier 2: Continuant subtypes ───────────────────────────────────────────
+
+  BFOIndependentContinuant:
+    description: >-
+      BFO:0000004 independent continuant. A continuant that is a bearer
+      of quality and realizable entity parts. Exists independently of
+      other particulars. Subdivided into material entities and
+      immaterial entities (sites, spatial regions).
+    class_uri: BFO:0000004
+    is_a: BFOContinuant
+    abstract: true
+
+  BFOSpecificallyDependentContinuant:
+    description: >-
+      BFO:0000020 specifically dependent continuant. A continuant that
+      depends on exactly one or more specific independent continuants for
+      its existence. Includes qualities (measurable attributes) and
+      realizable entities (dispositions, functions, roles).
+    class_uri: BFO:0000020
+    is_a: BFOContinuant
+    abstract: true
+
+  BFOGenericallyDependentContinuant:
+    description: >-
+      BFO:0000031 generically dependent continuant. An entity that
+      depends on one or more other entities and can migrate from bearer
+      to bearer. Information content entities (publications, datasets,
+      claims, protocols) belong here via IAO.
+    class_uri: BFO:0000031
+    is_a: BFOContinuant
+    abstract: true
+
+  # ── Tier 2: Occurrent subtypes ────────────────────────────────────────────
+
+  BFOProcess:
+    description: >-
+      BFO:0000015 process. An occurrent that has temporal parts and
+      depends on some material entity. All interventions (procedures,
+      protocols, dietary approaches) are modelled as processes.
+    class_uri: BFO:0000015
+    is_a: BFOOccurrent
+    abstract: true
+
+  # ── Tier 3: Independent Continuant subtypes ───────────────────────────────
+
+  BFOMaterialEntity:
+    description: >-
+      BFO:0000040 material entity. An independent continuant that has
+      some portion of matter as part. Chemical agents (supplements,
+      drugs, peptides, topicals) and biological organisms are material
+      entities.
+    class_uri: BFO:0000040
+    is_a: BFOIndependentContinuant
+    abstract: true
+
+  # ── Tier 3: Specifically Dependent Continuant subtypes ────────────────────
+
+  BFOQuality:
+    description: >-
+      BFO:0000019 quality. A specifically dependent continuant that is
+      exhibited by its bearer at all times the bearer exists. Used to
+      represent health outcomes, biomarker values, phenotypic traits,
+      and other measurable attributes of an organism.
+    class_uri: BFO:0000019
+    is_a: BFOSpecificallyDependentContinuant
+    abstract: true
+
+  BFORealizableEntity:
+    description: >-
+      BFO:0000017 realizable entity. A specifically dependent continuant
+      whose instances are not qualities but are realizable in processes.
+      Subdivided into dispositions, functions, and roles.
+    class_uri: BFO:0000017
+    is_a: BFOSpecificallyDependentContinuant
+    abstract: true
+
+  BFODisposition:
+    description: >-
+      BFO:0000016 disposition. A realizable entity that, if realised,
+      is realised in a process of a specific type. Examples: genetic
+      predisposition to androgenic alopecia, susceptibility to insulin
+      resistance, pro-inflammatory tendency.
+    class_uri: BFO:0000016
+    is_a: BFORealizableEntity
+    abstract: true
+
+  # ── Tier 3: Generically Dependent Continuant subtypes ────────────────────
+
+  BFOInformationContentEntity:
+    description: >-
+      IAO:0000030 information content entity. A generically dependent
+      continuant that is about some entity. Includes publications,
+      evidence claims, health assertions, protocols, datasets. Modelled
+      here via IAO (Information Artifact Ontology) which extends
+      BFO:0000031.
+    class_uri: IAO:0000030
+    is_a: BFOGenericallyDependentContinuant
+    abstract: true
+
+# ── Enumerations ──────────────────────────────────────────────────────────────
+enums:
+
+  HealthParadigm:
+    description: >-
+      Top-level health domains covered by this knowledge graph.
+      An entity or claim may be tagged with one or more paradigms.
+    permissible_values:
+      hair_health:
+        description: Hair growth, density, loss (alopecia), scalp health, follicle biology.
+      skin_health:
+        description: Skin barrier, collagen, elasticity, pigmentation, sun damage, acne, aging.
+      longevity:
+        description: Lifespan extension, healthspan, biological aging, hallmarks of aging.
+      cognitive_function:
+        description: Memory, focus, neuroplasticity, neuroprotection, mood, sleep quality.
+      metabolic_health:
+        description: Insulin sensitivity, glucose control, lipid profiles, obesity, energy metabolism.
+      hormonal_health:
+        description: Sex hormones, thyroid, cortisol, HGH/IGF-1 axis, adrenal function.
+      immune_function:
+        description: Immune regulation, inflammation, autoimmunity, infection resistance.
+      gut_microbiome:
+        description: Intestinal flora, gut barrier integrity, dysbiosis, the gut-brain axis.
+      musculoskeletal:
+        description: Muscle mass/strength, bone density, joint health, connective tissue.
+      cardiovascular:
+        description: Heart health, vascular function, blood pressure, lipids, endothelial function.
+      sleep_recovery:
+        description: Sleep quality/duration, circadian rhythm, HRV, recovery.
+      sexual_health:
+        description: Libido, erectile/sexual function, fertility, reproductive hormones.
+      vision:
+        description: Eye health, macular degeneration prevention, photoreceptor function.
+      oral_health:
+        description: Dental and gum health, oral microbiome.
+      detoxification:
+        description: Liver health, phase I/II detoxification pathways, heavy metal clearance.
+      mitochondrial_health:
+        description: Mitochondrial biogenesis, ATP production, oxidative phosphorylation, ROS.
+
+  RouteOfAdministration:
+    description: The route by which an agent is delivered to the body.
+    permissible_values:
+      oral:
+        description: Swallowed; absorbed via the gastrointestinal tract.
+        meaning: NCIT:C38288
+      sublingual:
+        description: Dissolved under the tongue; absorbed via oral mucosa.
+        meaning: NCIT:C38300
+      buccal:
+        description: Held against the cheek mucosa.
+        meaning: NCIT:C38193
+      topical:
+        description: Applied directly to the skin or scalp surface without intent of systemic absorption.
+        meaning: NCIT:C38304
+      transdermal:
+        description: Applied to skin with intent of systemic absorption (patches, creams).
+        meaning: NCIT:C38305
+      intradermal:
+        description: Injected into the dermis layer of skin (e.g. mesotherapy, PRP).
+        meaning: NCIT:C38238
+      subcutaneous:
+        description: Injected into the subcutaneous fat layer beneath the skin.
+        meaning: NCIT:C38299
+      intramuscular:
+        description: Injected into muscle tissue.
+        meaning: NCIT:C28161
+      intravenous:
+        description: Administered directly into a vein.
+        meaning: NCIT:C38276
+      inhalation:
+        description: Inhaled; absorbed via the lungs.
+        meaning: NCIT:C38216
+      nasal:
+        description: Applied into the nasal cavity.
+        meaning: NCIT:C38284
+      ophthalmic:
+        description: Applied to the eye.
+        meaning: NCIT:C38287
+      rectal:
+        description: Administered via the rectum.
+        meaning: NCIT:C38295
+      vaginal:
+        description: Administered vaginally.
+        meaning: NCIT:C38313
+
+  BiologicalSex:
+    description: Biological sex of a study population.
+    permissible_values:
+      male: {}
+      female: {}
+      mixed:
+        description: Study included both male and female participants.
+      not_reported:
+        description: Sex was not reported in the study.
+
+  GRADECertainty:
+    description: >-
+      Evidence certainty rating per the GRADE framework (Grading of
+      Recommendations, Assessment, Development and Evaluations).
+      Used to express confidence in an effect estimate.
+    permissible_values:
+      high:
+        description: >-
+          Further research is very unlikely to change confidence in the
+          estimate of effect. Typically from multiple consistent RCTs.
+      moderate:
+        description: >-
+          Further research is likely to have an important impact on
+          confidence and may change the estimate.
+      low:
+        description: >-
+          Further research is very likely to change the estimate.
+          Typically from observational studies or RCTs with serious limitations.
+      very_low:
+        description: >-
+          Very little confidence in the effect estimate. True effect likely
+          substantially different from the estimate. Typically from case
+          reports, mechanistic data, or animal studies only.
+
+  StudyDesign:
+    description: The methodological design of a research study.
+    permissible_values:
+      randomized_controlled_trial:
+        description: Participants randomly assigned to intervention or control group.
+        meaning: OBI:0000070
+      crossover_trial:
+        description: RCT where participants receive both intervention and control in sequence.
+      non_randomized_trial:
+        description: Controlled trial without randomization.
+      open_label_trial:
+        description: Trial where both participants and investigators know the assigned treatment.
+      observational_cohort:
+        description: Longitudinal follow-up of a defined group without intervention.
+      case_control:
+        description: Comparison between cases and controls, looking backward in time.
+      cross_sectional:
+        description: A single snapshot measurement at one point in time.
+      systematic_review_meta_analysis:
+        description: >-
+          Systematic literature review with statistical pooling of results
+          (meta-analysis). Highest evidence tier for summarizing a body of research.
+        meaning: OBI:0002110
+      systematic_review:
+        description: Comprehensive structured literature review without meta-analysis.
+      narrative_review:
+        description: Unsystematic expert review of the literature.
+      case_report:
+        description: Detailed report of a single patient/individual case.
+      case_series:
+        description: Report of a small group of related cases without control group.
+      in_vitro:
+        description: Laboratory study conducted in cell cultures or isolated tissues.
+      animal_study:
+        description: Study conducted in non-human animal models.
+      mechanistic_study:
+        description: Investigation of biological mechanisms, typically preclinical.
+      expert_opinion:
+        description: Expert statement or consensus not based on primary study data.
+
+  ECOEvidenceType:
+    description: >-
+      Evidence type vocabulary drawn from the Evidence and Conclusions
+      Ontology (ECO). Tags the type of experimental or observational
+      support behind an EvidenceLine.
+    permissible_values:
+      randomized_controlled_trial_evidence:
+        description: Evidence from a randomized controlled trial.
+        meaning: ECO:0000311
+      non_randomized_trial_evidence:
+        description: Evidence from a non-randomized controlled trial.
+        meaning: ECO:0000312
+      systematic_review_evidence:
+        description: Evidence from a systematic review or meta-analysis.
+        meaning: ECO:0000217
+      clinical_study_evidence:
+        description: General clinical study evidence.
+        meaning: ECO:0006016
+      traceable_author_statement:
+        description: Claim made by authors of a publication with traceable reference.
+        meaning: ECO:0000033
+      computational_evidence:
+        description: Evidence derived from computational modeling or bioinformatics.
+        meaning: ECO:0000362
+      in_vitro_assay_evidence:
+        description: Evidence from in vitro cell or tissue assay experiments.
+        meaning: ECO:0000058
+      animal_model_evidence:
+        description: Evidence from studies in non-human animal models.
+        meaning: ECO:0000179
+      population_genetics_evidence:
+        description: Evidence from GWAS or other population-level genomics studies.
+        meaning: ECO:0007702
+      background_scientific_knowledge:
+        description: >-
+          Inference based on well-established scientific principles without
+          a direct primary study.
+        meaning: ECO:0000366
+
+  EvidenceRelationType:
+    description: >-
+      The predicate of a HealthAssertion — describes the relationship
+      being claimed between an agent/intervention and a health outcome.
+    permissible_values:
+      increases:
+        description: >-
+          The agent/intervention causes a statistically significant
+          increase in the outcome measure (e.g. higher hair density,
+          elevated testosterone, improved VO2max).
+      decreases:
+        description: >-
+          The agent/intervention causes a statistically significant
+          decrease in the outcome measure (e.g. reduced hair loss score,
+          lower blood glucose, decreased inflammation marker).
+      no_significant_effect:
+        description: >-
+          Available evidence shows no statistically significant effect on
+          the outcome. Not the same as absence of evidence.
+      modulates:
+        description: >-
+          The agent affects the outcome in a direction that is
+          context-dependent, bidirectional, or depends on baseline state.
+      mechanistically_supports:
+        description: >-
+          Preclinical (in vitro or animal) evidence supports biological
+          plausibility, but high-quality human evidence is currently lacking.
+      lightly_supports:
+        description: >-
+          Weak or preliminary evidence — trends toward an effect but
+          does not meet conventional statistical thresholds, or is from
+          very small or low-quality studies only.
+      validated_by:
+        description: >-
+          A previously proposed or preliminary claim has been validated
+          by subsequent independent research.
+      refuted_by:
+        description: >-
+          A previously accepted claim has been directly contradicted by
+          higher-quality evidence. Use to represent ongoing scientific debate.
+      synergistic_with:
+        description: >-
+          The combination of two agents produces a greater-than-additive
+          effect. Subject and object are both agents.
+      antagonistic_with:
+        description: >-
+          One agent diminishes or blocks the action of another. Subject
+          and object are both agents.
+      causal_mechanism_for:
+        description: >-
+          The subject (e.g. a biological process or pathway) is a
+          mechanistic mediator of the effect on the object outcome.
+      associated_with:
+        description: >-
+          Observational association between subject and object, without
+          established causation. Use when only epidemiological data exists.
+
+  EvidenceDirection:
+    description: Whether a specific piece of evidence supports or refutes a claim.
+    permissible_values:
+      supports:
+        description: This evidence supports the asserted claim.
+      refutes:
+        description: This evidence directly contradicts the asserted claim.
+      neutral:
+        description: This evidence is ambiguous or has no clear directional implication.
+      mixed:
+        description: >-
+          This evidence shows opposing effects in different sub-groups,
+          doses, or timepoints.
+
+  RiskOfBias:
+    description: >-
+      Overall risk-of-bias assessment for a study, evaluated using
+      standard tools (RoB 2 for RCTs, ROBINS-I for observational studies).
+    permissible_values:
+      low:
+        description: Low risk of bias across all evaluated domains.
+      some_concerns:
+        description: Some concerns about bias in at least one domain.
+      high:
+        description: High risk of bias in at least one key domain.
+      critical:
+        description: Critical risk of bias that invalidates the study findings.
+      not_assessed:
+        description: Risk of bias has not been formally assessed for this study.
+
+  HallmarkOfAging:
+    description: >-
+      The twelve hallmarks of aging as defined by López-Otín et al. (2023),
+      Nature. These are the primary drivers of biological aging and age-related
+      disease. Useful for tagging mechanisms and interventions.
+    permissible_values:
+      genomic_instability:
+        description: Accumulation of somatic mutations and DNA damage over time.
+      telomere_attrition:
+        description: Progressive shortening of telomeres with each cell division.
+      epigenetic_alterations:
+        description: >-
+          Changes to DNA methylation, histone modification, and chromatin
+          remodeling patterns associated with aging.
+      loss_of_proteostasis:
+        description: >-
+          Decline in protein quality control, including folding, unfolding,
+          and degradation pathways (UPS, autophagy).
+      disabled_macroautophagy:
+        description: Decline in autophagic flux and cellular self-cleaning capacity.
+      deregulated_nutrient_sensing:
+        description: >-
+          Dysregulation of nutrient-sensing pathways: mTOR, AMPK, IGF-1/insulin,
+          sirtuins.
+      mitochondrial_dysfunction:
+        description: >-
+          Decline in mitochondrial function, increased reactive oxygen species,
+          reduced ATP production, impaired mitophagy.
+      cellular_senescence:
+        description: >-
+          Accumulation of senescent cells that secrete pro-inflammatory
+          factors (SASP — senescence-associated secretory phenotype).
+      stem_cell_exhaustion:
+        description: >-
+          Decline in regenerative capacity due to reduction in stem cell
+          number, function, or niche quality.
+      altered_intercellular_communication:
+        description: >-
+          Dysregulation of signaling between cells, including hormones,
+          extracellular vesicles, and inflammatory mediators.
+      chronic_inflammation:
+        description: >-
+          Sterile low-grade chronic inflammation (inflammaging) that
+          accelerates aging and drives age-related disease.
+      dysbiosis:
+        description: >-
+          Imbalance in the composition and function of the microbiome,
+          particularly the gut microbiome.

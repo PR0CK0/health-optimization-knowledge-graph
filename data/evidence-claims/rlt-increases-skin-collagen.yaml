@@ -1,0 +1,53 @@
+# EvidenceClaim — Red/NIR light therapy increases dermal collagen density
+---
+id: healthkg:claim/rlt-increases-skin-collagen-density
+paradigms: [skin_health]
+tags: [LLLT, PBM, red-light, collagen, skin-aging]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: moderate
+n_supporting_studies: 3
+n_refuting_studies: 0
+highest_study_design: randomized_controlled_trial
+claim_status: active
+
+assertion:
+  subject_procedure: healthkg:procedure/red-light-therapy
+  predicate: increases
+  object_outcome: healthkg:outcome/skin-collagen-density
+  dose_description: "630–830nm, 10–30 J/cm², 2–3× weekly"
+  population: "Adults with photoaged skin or wrinkles; healthy volunteers"
+  mechanism_summary: >-
+    Red/NIR photons absorbed by mitochondrial CCO → ATP → fibroblast
+    activation. Activated fibroblasts upregulate collagen type I/III
+    synthesis, downregulate MMP-1 (collagenase), and increase TGF-β1
+    secretion. Net effect: increased dermal collagen content and improved
+    skin texture.
+
+evidence_lines:
+
+  - study:
+      pmid: "24286681"
+      doi: "10.1111/jocd.12047"
+      title: >-
+        A controlled trial to determine the efficacy of red and near-infrared
+        light treatment in patient satisfaction, reduction of fine lines,
+        wrinkles, skin roughness, and intradermal collagen density increase.
+      authors: [Wunsch A, Matuschka K]
+      journal: Photomedicine and Laser Surgery
+      year: 2014
+      design: randomized_controlled_trial
+      n_participants: 136
+      duration_weeks: 15
+      population_sex: mixed
+      population_description: Adults with mild-to-moderate facial ageing
+      blinding: double_blind
+      risk_of_bias: moderate
+      funding_source: industry_funded
+    eco_evidence_type: randomized_controlled_trial_evidence
+    direction: supports
+    notes: >-
+      N=136 RCT, 15-week PBM treatment. Significant improvement in skin
+      complexion, skin feeling, intradermal collagen density (measured by
+      skin profilometry), and reduction in wrinkle depth vs sham control.

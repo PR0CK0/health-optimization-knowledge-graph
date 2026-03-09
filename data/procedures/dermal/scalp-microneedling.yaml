@@ -1,0 +1,41 @@
+# DermalProcedure entry — Scalp Microneedling
+# Validate: make validate-data FILE=data/procedures/dermal/scalp-microneedling.yaml CLASS=DermalProcedure
+---
+id: healthkg:procedure/scalp-microneedling
+name: Scalp Microneedling
+description: >-
+  Percutaneous induction therapy using a roller (Dermaroller) or automated
+  pen (Dermapen) with 0.5–1.5mm needles to create controlled micro-injuries
+  to the scalp dermis. Stimulates wound-healing cascade, activates follicular
+  stem cells, enhances topical absorption (up to 4–8× increase for minoxidil),
+  and promotes angiogenesis. Increasingly used as monotherapy or adjunct to
+  minoxidil/finasteride for androgenic alopecia (AGA) and other hair loss
+  conditions.
+aliases:
+  - Dermaroller (scalp)
+  - Dermapen (scalp)
+  - Percutaneous collagen induction (scalp)
+  - Microneedling therapy
+  - PCI therapy
+paradigms:
+  - hair_health
+
+procedure_depth: 0.5–1.5 mm (0.5mm for absorption enhancement, 1.0–1.5mm for hair growth)
+procedure_frequency: Once weekly (research protocols); some use biweekly or monthly
+device: Dermaroller 1.5mm or automated Dermapen
+application_site: Vertex / crown scalp, temporal regions
+
+mechanisms_of_action:
+  - Creates micro-channels → activates wound healing cascade
+  - Stimulates platelet-derived growth factor (PDGF) and TGF-β release
+  - Upregulates Wnt/β-catenin signalling → activates follicular stem cells
+  - Induces VEGF expression → promotes follicular angiogenesis
+  - Stimulates expression of hair growth factors: KGF (FGF-7), VEGF, β-catenin
+  - Enhances transdermal delivery of co-applied agents (minoxidil, GHK-Cu, PRP)
+notes: >-
+  Best evidence is for 1.5mm microneedling combined with minoxidil
+  (Dhurat et al. 2013, Int J Trichology). Key study showed 82% of combination
+  group had >50% improvement vs 4.5% for minoxidil alone at 12 weeks.
+  Technique requires care to avoid infection and post-inflammatory
+  hyperpigmentation in darker skin types. Minimum 24-hour wait after
+  microneedling before applying active topicals if skin is irritated.

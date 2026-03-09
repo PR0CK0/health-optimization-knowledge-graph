@@ -1,0 +1,11 @@
+---
+id: healthkg:procedure/intranasal-administration
+name: Intranasal Administration
+description: >-
+  Delivery via the nasal mucosa. Bypasses first-pass metabolism and
+  can provide rapid systemic or CNS-targeted absorption via the
+  olfactory route. Used for peptides where oral bioavailability is
+  poor (e.g. BPC-157, oxytocin, insulin). Requires specialised
+  nasal spray formulation.
+paradigms: [drug_delivery]
+forms: [nasal_spray, nasal_drops]

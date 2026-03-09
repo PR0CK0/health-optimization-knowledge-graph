@@ -1,0 +1,676 @@
+id: https://healthoptkg.github.io/schema/agents
+name: health-opt-kg-agents
+description: >-
+  Classes representing health optimization agents — anything that can
+  be intentionally applied, consumed, or performed to affect health.
+  Covers chemical agents (supplements, drugs, peptides, topicals) and
+  procedural interventions (microneedling, photobiomodulation, dietary
+  protocols, exercise, etc.).
+license: CC-BY-4.0
+version: 0.1.0
+
+prefixes:
+  linkml:   https://w3id.org/linkml/
+  healthkg: https://healthoptkg.github.io/schema/
+  BFO:      http://purl.obolibrary.org/obo/BFO_
+  CHEBI:    http://purl.obolibrary.org/obo/CHEBI_
+  MAXO:     http://purl.obolibrary.org/obo/MAXO_
+  NCIT:     http://purl.obolibrary.org/obo/NCIT_
+  UBERON:   http://purl.obolibrary.org/obo/UBERON_
+  schema:   http://schema.org/
+  ECTO:     http://purl.obolibrary.org/obo/ECTO_
+
+default_prefix: healthkg
+default_range: string
+
+imports:
+  - linkml:types
+  - core
+
+# ── Classes ───────────────────────────────────────────────────────────────────
+classes:
+
+  # ─── Chemical Agents ───────────────────────────────────────────────────────
+
+  ChemicalAgent:
+    description: >-
+      A material entity with a defined chemical identity that exerts
+      biological effects when introduced into the body. The broadest
+      category covering supplements, drugs, peptides, and topicals.
+      Aligned with BFO:0000040 (material entity) and CHEBI:24431
+      (chemical entity).
+    is_a: BFOMaterialEntity
+    class_uri: CHEBI:24431
+    abstract: true
+    attributes:
+      chebi_id:
+        range: CURIEString
+        description: CHEBI ontology identifier (e.g. CHEBI:28940 for Vitamin D3).
+        slot_uri: schema:identifier
+      pubchem_cid:
+        range: PubChemCID
+        description: PubChem Compound Identifier.
+      cas_number:
+        range: CASNumber
+        description: Chemical Abstracts Service registry number.
+      molecular_formula:
+        range: string
+        description: Molecular formula (e.g. C27H44O3 for Vitamin D3).
+      smiles:
+        range: string
+        description: SMILES string representing the chemical structure.
+      inchikey:
+        range: string
+        description: InChIKey — standard hashed chemical identifier.
+      mechanisms_of_action:
+        range: string
+        multivalued: true
+        description: >-
+          Free-text descriptions of known biological mechanisms through
+          which this agent acts (cite GO terms in xrefs where possible).
+      molecular_targets:
+        range: CURIEString
+        multivalued: true
+        description: >-
+          Known protein or molecular targets (PRO or UniProt CURIEs),
+          e.g. PR:000015738 for SIRT1, or UniProtKB:P37231 for PPARG.
+      pathways:
+        range: CURIEString
+        multivalued: true
+        description: >-
+          Biological pathways this agent modulates (GO biological process
+          CURIEs preferred, e.g. GO:0006914 for autophagy).
+      half_life_hours:
+        range: float
+        description: Plasma half-life in hours.
+      bioavailability_notes:
+        range: string
+        description: >-
+          Notes on oral bioavailability, absorption factors, food
+          interactions, or formulation-dependent differences.
+
+  Supplement:
+    description: >-
+      A dietary supplement — a product intended to augment the diet,
+      containing one or more ingredients such as vitamins, minerals,
+      amino acids, herbs, or other botanicals. Not classified as a
+      prescription drug. Encompasses nutraceuticals, nootropics,
+      ergogenics, and longevity compounds.
+    is_a: ChemicalAgent
+    class_uri: CHEBI:33292
+    attributes:
+      supplement_category:
+        range: SupplementCategory
+        description: Broad functional category of the supplement.
+      typical_dose_mg:
+        range: float
+        description: >-
+          Common or studied dose in milligrams per day. Use dose_unit
+          for non-mg units (e.g. IU for fat-soluble vitamins).
+      dose_unit:
+        range: string
+        description: >-
+          Unit for typical dose when not milligrams (IU, mcg, CFU, mg/kg).
+          Defaults to mg.
+      upper_tolerable_limit_mg:
+        range: float
+        description: >-
+          Tolerable upper intake level (UL) per day in mg, if established
+          (e.g. by NIH Office of Dietary Supplements).
+      forms_available:
+        range: string
+        multivalued: true
+        description: >-
+          Different bioavailable forms (e.g. magnesium glycinate,
+          magnesium oxide, magnesium citrate for magnesium).
+      preferred_form:
+        range: string
+        description: >-
+          Most bioavailable or commonly recommended form, with brief
+          rationale.
+      fat_soluble:
+        range: boolean
+        description: >-
+          True if fat-soluble (vitamins A, D, E, K, CoQ10); affects
+          absorption and toxicity risk at high doses.
+      cofactors:
+        range: string
+        multivalued: true
+        description: >-
+          Nutrients or compounds that enhance efficacy of this supplement
+          (e.g. vitamin K2 for vitamin D3; magnesium for vitamin D3).
+      timing_recommendations:
+        range: string
+        description: >-
+          Recommended timing relative to meals, sleep, exercise, or other
+          supplements (e.g. "take with fat-containing meal", "morning").
+      contraindications:
+        range: string
+        multivalued: true
+        description: >-
+          Known contraindications, including drug interactions, medical
+          conditions, or populations to avoid.
+
+  ResearchPeptide:
+    description: >-
+      A short chain of amino acids (typically 2–50 residues) used in
+      health optimization contexts, often for purposes not yet approved
+      by regulatory bodies. Includes growth hormone secretagogues,
+      tissue-repair peptides, cognitive peptides, and cosmetic peptides.
+      These are not yet well-represented in CHEBI; use pubchem_cid or
+      uniprot_id for external cross-references.
+    is_a: ChemicalAgent
+    attributes:
+      amino_acid_sequence:
+        range: string
+        description: Single-letter amino acid sequence of the peptide.
+      residue_count:
+        range: integer
+        description: Number of amino acid residues.
+      uniprot_id:
+        range: string
+        description: UniProtKB accession if this peptide corresponds to a known protein fragment.
+      peptide_class:
+        range: PeptideClass
+        description: Functional class of the peptide.
+      regulatory_status:
+        range: string
+        description: >-
+          Regulatory classification in key jurisdictions
+          (e.g. "Research chemical (USA)", "Approved drug (EU) as BPC-157").
+      administration_notes:
+        range: string
+        description: >-
+          Notes on reconstitution, storage, and administration specifics
+          relevant to this peptide.
+
+  Drug:
+    description: >-
+      A pharmacological agent approved or used for therapeutic purposes,
+      including prescription drugs, OTC medications, and repurposed
+      compounds used in health optimization (e.g. metformin, rapamycin,
+      minoxidil, finasteride, ketoconazole, low-dose naltrexone).
+    is_a: ChemicalAgent
+    class_uri: CHEBI:23888
+    attributes:
+      drugbank_id:
+        range: DrugBankID
+        description: DrugBank database accession.
+      rxcui:
+        range: string
+        description: RxNorm Concept Unique Identifier.
+      atc_code:
+        range: string
+        description: >-
+          WHO Anatomical Therapeutic Chemical classification code
+          (e.g. D11AX01 for minoxidil).
+      fda_approval_status:
+        range: FDAApprovalStatus
+        description: FDA regulatory approval status for this drug.
+      approved_indications:
+        range: string
+        multivalued: true
+        description: Official approved therapeutic indications.
+      off_label_uses:
+        range: string
+        multivalued: true
+        description: >-
+          Off-label uses documented in the literature or in health
+          optimization contexts.
+      drug_class:
+        range: string
+        description: >-
+          Pharmacological class (e.g. "5-alpha reductase inhibitor",
+          "potassium channel opener", "biguanide").
+      cyp_interactions:
+        range: string
+        multivalued: true
+        description: >-
+          Known CYP450 enzyme interactions — specify whether inducer,
+          inhibitor, or substrate for each isoform.
+      black_box_warnings:
+        range: string
+        multivalued: true
+        description: FDA black box (boxed) warnings associated with this drug.
+
+  Topical:
+    description: >-
+      A substance applied externally to the skin, scalp, or mucous
+      membranes with local and/or limited systemic effects. Includes
+      prescription topicals, OTC products, and natural/traditional
+      preparations. Examples: minoxidil topical solution, ketoconazole
+      shampoo, tretinoin cream, rosehip oil, beef tallow, GHK-Cu serum,
+      azelaic acid.
+    is_a: ChemicalAgent
+    class_uri: MAXO:0001081
+    attributes:
+      topical_category:
+        range: TopicalCategory
+        description: Functional category of the topical agent.
+      application_site:
+        range: CURIEString
+        multivalued: true
+        description: >-
+          Anatomical sites this topical is applied to (UBERON CURIEs
+          preferred, e.g. UBERON:0000978 for scalp).
+      vehicle:
+        range: string
+        description: >-
+          The carrier or vehicle formulation (e.g. ethanol solution,
+          propylene glycol, oil, foam, shampoo, cream, gel, serum).
+      penetration_enhancers:
+        range: string
+        multivalued: true
+        description: >-
+          Excipients or compounds that enhance dermal penetration
+          (e.g. DMSO, propylene glycol, microneedling pre-treatment).
+      active_concentration:
+        range: string
+        description: >-
+          Concentration of the active ingredient(s) in the formulation
+          (e.g. "5% minoxidil", "2% ketoconazole", "0.1% tretinoin").
+      occlusion:
+        range: boolean
+        description: >-
+          True if application under occlusion (wrap, patch) is required
+          or significantly increases efficacy.
+
+  # ─── Procedural Interventions ──────────────────────────────────────────────
+
+  Procedure:
+    description: >-
+      A non-chemical intervention — a physical, mechanical, behavioral,
+      or energetic process performed on or by an individual for health
+      optimization. Aligned with BFO:0000015 (process) and MAXO:0000001
+      (medical action).
+    is_a: BFOProcess
+    class_uri: MAXO:0000001
+    abstract: true
+    attributes:
+      target_anatomy:
+        range: CURIEString
+        multivalued: true
+        description: >-
+          Anatomical targets of this procedure (UBERON CURIEs preferred,
+          e.g. UBERON:0002073 for hair follicle).
+      frequency:
+        range: string
+        description: >-
+          How often the procedure is performed (e.g. "once weekly",
+          "3x/week", "monthly").
+      session_duration_minutes:
+        range: float
+        description: Duration of a single session in minutes.
+      professional_required:
+        range: boolean
+        description: >-
+          True if a licensed professional (physician, esthetician, etc.)
+          is required for administration.
+      contraindications:
+        range: string
+        multivalued: true
+        description: Known contraindications or safety precautions.
+      adjunct_agents:
+        range: string
+        multivalued: true
+        description: >-
+          Chemical agents commonly combined with this procedure for
+          synergistic effect (e.g. minoxidil post-microneedling,
+          PRP with microneedling).
+
+  DermalProcedure:
+    description: >-
+      A procedure applied to the skin or scalp that modulates dermal
+      physiology. Includes mechanical, chemical, energetic, and
+      biological interventions.
+    is_a: Procedure
+    attributes:
+      needle_depth_mm:
+        range: float
+        description: >-
+          Needle depth in millimeters, for needling-based procedures
+          (microneedling, mesotherapy, dermarolling). Range varies by
+          target: scalp (~0.5–1.5mm), face (~0.25–1.5mm).
+      device_type:
+        range: string
+        description: >-
+          Device used (e.g. "dermaroller", "dermapen", "radiofrequency
+          microneedling device", "CO2 fractional laser", "IPL device").
+      dermal_procedure_category:
+        range: DermalProcedureCategory
+        description: Functional category of this dermal procedure.
+      anesthesia:
+        range: string
+        description: >-
+          Type of anesthesia used, if any (e.g. "topical lidocaine",
+          "local injection", "none").
+      downtime_days:
+        range: float
+        description: >-
+          Expected recovery/downtime in days before social presentability.
+
+  PhotobiomodulationProtocol:
+    description: >-
+      A procedure using low-level light (red or near-infrared) to
+      stimulate mitochondrial function and cellular processes. Also
+      known as red light therapy (RLT) or photobiomodulation (PBM).
+      Distinct from high-power laser procedures.
+    is_a: Procedure
+    attributes:
+      wavelength_nm:
+        range: float
+        multivalued: true
+        description: >-
+          Light wavelength(s) used in nanometers. Therapeutic windows:
+          red (630–700nm) and near-infrared (800–1100nm).
+      irradiance_mw_cm2:
+        range: float
+        description: Power density at the treatment surface in mW/cm².
+      dose_j_cm2:
+        range: float
+        description: >-
+          Energy dose delivered per treatment session in J/cm²
+          (irradiance × time).
+      device_type:
+        range: string
+        description: >-
+          Device category (e.g. "panel", "handheld", "helmet/cap",
+          "low-level laser cap").
+
+  PhysicalIntervention:
+    description: >-
+      A structured physical activity or thermal intervention used for
+      health optimization. Includes resistance training, aerobic
+      exercise, sauna, cold exposure, and breathwork protocols.
+    is_a: Procedure
+    attributes:
+      physical_modality:
+        range: PhysicalModality
+        description: Type of physical intervention.
+      intensity:
+        range: string
+        description: >-
+          Intensity description (e.g. "Zone 2 cardio", "VO2max intervals",
+          "75% 1RM", "high-intensity").
+      volume:
+        range: string
+        description: >-
+          Volume description (e.g. "3 sets × 8 reps", "30 minutes",
+          "10 rounds of 30s on/30s off").
+      temperature_celsius:
+        range: float
+        description: >-
+          Temperature in Celsius, for thermal interventions (sauna,
+          cold plunge, cryotherapy).
+
+  DietaryProtocol:
+    description: >-
+      A structured approach to eating, fasting, or macronutrient
+      composition used for health optimization. Includes intermittent
+      fasting, time-restricted eating, ketogenic diet, caloric
+      restriction, and elimination diets.
+    is_a: Procedure
+    class_uri: ECTO:0003520
+    attributes:
+      dietary_approach:
+        range: DietaryApproach
+        description: The specific dietary strategy or pattern.
+      eating_window_hours:
+        range: float
+        description: >-
+          Duration of the daily eating window in hours for
+          time-restricted eating protocols (e.g. 8 for 16:8 TRE).
+      fasting_duration_hours:
+        range: float
+        description: >-
+          Duration of fasting periods for intermittent or extended fasting
+          protocols (e.g. 16 for 16:8, 24 for OMAD, 72 for extended fast).
+      macronutrient_targets:
+        range: string
+        description: >-
+          Macronutrient targets as ratios or grams/day
+          (e.g. "fat:70%, protein:20%, carbs:10%" for ketogenic).
+      caloric_restriction_percent:
+        range: float
+        description: >-
+          Percent reduction from ad libitum (unrestricted) caloric intake
+          (e.g. 25 for 25% caloric restriction).
+
+# ── Enumerations ──────────────────────────────────────────────────────────────
+enums:
+
+  SupplementCategory:
+    description: Functional categories for dietary supplements.
+    permissible_values:
+      vitamin:
+        description: Essential fat- or water-soluble organic micronutrient (A, B, C, D, E, K).
+      mineral:
+        description: Essential inorganic element (magnesium, zinc, selenium, iodine, etc.).
+      amino_acid:
+        description: Individual amino acid or derivative (glycine, taurine, NAC, creatine).
+      omega_fatty_acid:
+        description: Essential or long-chain polyunsaturated fatty acids (omega-3, DHA, EPA).
+      herbal_botanical:
+        description: Plant-derived extract or compound (ashwagandha, lion's mane, berberine).
+      longevity_compound:
+        description: >-
+          Compound studied for lifespan or healthspan extension
+          (NMN, NR, resveratrol, spermidine, rapamycin, metformin, fisetin).
+      nootropic:
+        description: Cognitive-enhancing or neuroprotective compound.
+      ergogenic:
+        description: Performance-enhancing for athletic or physical output (creatine, beta-alanine).
+      probiotic:
+        description: Live microorganisms providing health benefit when consumed in adequate amounts.
+      prebiotic:
+        description: Substrates selectively utilized by gut microorganisms.
+      adaptogen:
+        description: >-
+          Compound purported to help the body adapt to stress
+          (ashwagandha, rhodiola, eleuthero).
+      mitochondrial_support:
+        description: Compounds supporting mitochondrial function (CoQ10, PQQ, alpha-lipoic acid).
+      hormone_precursor:
+        description: Precursor to endogenous hormones (DHEA, pregnenolone, vitamin D as prohormone).
+      collagen_support:
+        description: >-
+          Compounds supporting collagen synthesis or structure
+          (collagen peptides, vitamin C, silica).
+      digestive_enzyme:
+        description: Exogenous enzyme supplementation for digestive support.
+      other: {}
+
+  PeptideClass:
+    description: Functional classification for research peptides.
+    permissible_values:
+      growth_hormone_secretagogue:
+        description: >-
+          Peptides that stimulate endogenous growth hormone release
+          (ipamorelin, CJC-1295, GHRP-6, hexarelin, MK-677 as peptidomimetic).
+      tissue_repair:
+        description: >-
+          Peptides promoting tissue healing, injury repair, and
+          anti-inflammatory effects (BPC-157, TB-500/thymosin beta-4).
+      anti_aging_epigenetic:
+        description: >-
+          Peptides with reported epigenetic or anti-aging effects
+          (Epithalon/Epitalon targets telomerase; Thymalin for immune aging).
+      copper_peptide:
+        description: >-
+          Copper-binding peptides with regenerative and anti-inflammatory
+          effects on skin and hair (GHK-Cu).
+      cognitive_neuroprotective:
+        description: >-
+          Peptides with nootropic or neuroprotective properties
+          (Semax, Selank, Dihexa, P21).
+      sexual_function:
+        description: >-
+          Peptides affecting sexual arousal or function
+          (PT-141/bremelanotide, acts on melanocortin receptors).
+      metabolic:
+        description: >-
+          Peptides modulating metabolism, insulin sensitivity, or body
+          composition (AOD-9604, MOTS-c, humanin).
+      sleep:
+        description: >-
+          Peptides affecting sleep architecture or delta sleep
+          (DSIP — delta sleep-inducing peptide).
+      cosmetic:
+        description: >-
+          Topically applied peptides in skincare (Argireline/acetyl
+          hexapeptide-3, Leuphasyl, Matrixyl/palmitoyl pentapeptide-4).
+      other: {}
+
+  TopicalCategory:
+    description: Functional category for topical agents.
+    permissible_values:
+      hair_growth_stimulant:
+        description: Promotes hair follicle activity and/or hair growth (minoxidil, rosemary oil).
+      anti_fungal:
+        description: Antifungal agent for scalp or skin (ketoconazole, ciclopirox).
+      anti_androgen_topical:
+        description: >-
+          Topical anti-androgen or DHT blocker (topical finasteride,
+          saw palmetto topical, spironolactone topical).
+      retinoid:
+        description: Vitamin A derivative for skin renewal (tretinoin, adapalene, retinol).
+      sunscreen:
+        description: UV-blocking agent (mineral: zinc oxide, titanium dioxide; chemical filters).
+      emollient_moisturizer:
+        description: Skin barrier support and moisturization (tallow, shea, ceramides, squalane).
+      exfoliant:
+        description: Chemical or physical exfoliant (AHA, BHA, enzymes, physical scrubs).
+      peptide_serum:
+        description: Topical formulation containing bioactive peptides (GHK-Cu, Matrixyl, etc.).
+      antioxidant_topical:
+        description: Antioxidant for skin (vitamin C serum, niacinamide, astaxanthin cream).
+      anti_inflammatory_topical:
+        description: Anti-inflammatory topical (azelaic acid, colloidal oatmeal, aloe vera).
+      hair_care:
+        description: Topical supporting scalp or hair health without direct growth stimulation.
+      other: {}
+
+  DermalProcedureCategory:
+    description: Category of dermal/skin procedure.
+    permissible_values:
+      microneedling:
+        description: >-
+          Mechanical creation of micro-channels using needles to stimulate
+          collagen and enhance topical absorption (dermapen, dermaroller).
+      radiofrequency_microneedling:
+        description: >-
+          Combined RF energy and microneedles for deeper dermal remodeling
+          (Morpheus8, Vivace, Genius).
+      laser_resurfacing:
+        description: Laser ablation or non-ablative remodeling (CO2, erbium, fractional).
+      chemical_peel:
+        description: Application of chemical exfoliants to controlled skin injury depth.
+      platelet_rich_plasma:
+        description: >-
+          PRP — autologous growth factor concentrate derived from centrifuged
+          blood, injected or applied post-microneedling.
+      mesotherapy:
+        description: >-
+          Intradermal injection of micronutrients, peptides, or medications
+          directly into the dermis/scalp.
+      exosome_therapy:
+        description: Application of exosomes to stimulate cellular regeneration.
+      microdermabrasion:
+        description: Physical mechanical exfoliation of the stratum corneum.
+      dermaplaning:
+        description: Manual removal of surface skin cells and vellus hair with a blade.
+      cryotherapy_local:
+        description: Localized cold application for anti-inflammatory effect.
+      ipl_broadband_light:
+        description: Intense pulsed light for pigmentation, vascular lesions, or hair removal.
+      other: {}
+
+  PhysicalModality:
+    description: Type of physical activity or thermal intervention.
+    permissible_values:
+      resistance_training:
+        description: Weightlifting, resistance bands, bodyweight training for muscular adaptation.
+      aerobic_endurance:
+        description: >-
+          Sustained aerobic activity: running, cycling, rowing, swimming
+          (Zone 2, Zone 5, VO2max intervals).
+      high_intensity_interval:
+        description: HIIT — alternating high-intensity effort with recovery periods.
+      sauna_heat:
+        description: Dry or wet sauna heat exposure.
+      cold_exposure:
+        description: Cold plunge, cold shower, cryotherapy, ice bath.
+      breathwork:
+        description: >-
+          Structured breathing practices (Wim Hof, box breathing, 4-7-8,
+          cyclic hyperventilation).
+      yoga_flexibility:
+        description: Yoga, stretching, mobility work.
+      zone_2_cardio:
+        description: >-
+          Low-intensity steady-state cardio at conversational pace
+          (Maffetone method, metabolic efficiency zone).
+      sprint_training:
+        description: All-out sprint intervals for speed and power adaptation.
+      other: {}
+
+  DietaryApproach:
+    description: Specific dietary strategy or nutritional pattern.
+    permissible_values:
+      intermittent_fasting_16_8:
+        description: 16 hours fasting, 8-hour eating window daily.
+      intermittent_fasting_18_6:
+        description: 18 hours fasting, 6-hour eating window daily.
+      omad:
+        description: One Meal A Day — 23 hours fasting daily.
+      alternate_day_fasting:
+        description: Alternating complete or partial fasting days with eating days.
+      extended_fast_48_plus:
+        description: Extended multi-day fasts of 48 hours or longer.
+      ketogenic:
+        description: Very low carbohydrate, high fat diet targeting ketosis (typically <20g net carbs/day).
+      carnivore:
+        description: Animal products only; no plant foods.
+      animal_based:
+        description: >-
+          Primarily animal products; some fruit and select plant foods
+          tolerated (Paul Saladino-style).
+      paleo:
+        description: Whole foods mimicking ancestral diet; excludes grains, legumes, dairy.
+      caloric_restriction:
+        description: Structured reduction of caloric intake below ad libitum levels.
+      mediterranean:
+        description: Whole foods, olive oil, fish, vegetables, moderate legumes and whole grains.
+      whole_food_plant_based:
+        description: Primarily unprocessed plant foods; minimal or no animal products.
+      low_carbohydrate:
+        description: Carbohydrate restriction without necessarily reaching ketosis (<100g/day).
+      elimination_diet:
+        description: >-
+          Systematic removal of suspected trigger foods to identify
+          sensitivities (gluten, dairy, nightshades, FODMAP, etc.).
+      protein_pacing:
+        description: >-
+          Distributing protein intake strategically across meals to
+          maximize muscle protein synthesis.
+      other: {}
+
+  FDAApprovalStatus:
+    description: FDA regulatory approval status for a drug compound.
+    permissible_values:
+      approved:
+        description: FDA-approved for at least one indication.
+      otc:
+        description: Available over-the-counter without prescription (may also have Rx version).
+      investigational:
+        description: Under investigation in clinical trials; not yet approved.
+      research_only:
+        description: >-
+          No regulatory approval; available only for research purposes.
+          (Typical status for research peptides.)
+      controlled_substance:
+        description: Classified as a controlled substance under the CSA.
+      discontinued:
+        description: Previously approved but withdrawn from the market.
+      off_label:
+        description: Approved for other indications; used off-label in optimization context.

@@ -1,0 +1,10 @@
+---
+id: healthkg:procedure/oral-administration
+name: Oral Administration
+description: >-
+  Delivery of a compound via the gastrointestinal tract (swallowed as
+  tablet, capsule, liquid, or sublingual). Most common and convenient
+  route. Subject to first-pass hepatic metabolism; bioavailability
+  varies widely by compound.
+paradigms: [drug_delivery]
+forms: [tablet, capsule, liquid, sublingual, powder]

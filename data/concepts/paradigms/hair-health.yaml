@@ -1,0 +1,12 @@
+---
+id: healthkg:paradigm/hair-health
+name: Hair Health
+description: >-
+  Domain covering hair follicle biology, the hair growth cycle (anagen/
+  catagen/telogen), androgenetic alopecia (AGA), diffuse alopecias,
+  and interventions affecting hair density, shaft diameter, shedding
+  rate, and follicle miniaturisation. Spans pharmacological, procedural,
+  and nutritional approaches.
+paradigms: [hair_health]
+key_conditions: [AGA, telogen effluvium, alopecia areata]
+key_biomarkers: [DHT, testosterone, hair density, hair shaft diameter]

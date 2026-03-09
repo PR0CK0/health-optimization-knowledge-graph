@@ -1,0 +1,49 @@
+# Supplement entry — Vitamin D3 (Cholecalciferol)
+# Validate: make validate-data FILE=data/agents/supplements/vitamin-d3.yaml CLASS=Supplement
+---
+id: CHEBI:28940
+name: Vitamin D3
+description: >-
+  Cholecalciferol. Fat-soluble prohormone synthesised in skin upon UVB
+  exposure; converted to 25-OH-D3 (calcidiol) in the liver, then to the
+  active form 1,25-OH2-D3 (calcitriol) in the kidneys and peripheral tissues.
+  Functions as a steroid hormone ligand for the vitamin D receptor (VDR),
+  regulating >1000 genes. Critical for calcium/phosphate homeostasis,
+  immune function, hair follicle cycling, and anti-inflammatory signalling.
+  Deficiency (25-OH-D3 < 20 ng/mL) is widespread and associated with
+  numerous alopecias, autoimmune disease, and metabolic dysfunction.
+aliases:
+  - Cholecalciferol
+  - Calciol
+  - Vitamin D
+  - 25-hydroxyvitamin D3 (metabolite)
+xrefs:
+  - CHEBI:28940
+  - PubChem:5280795
+  - DrugBank:DB00169
+paradigms:
+  - hormonal_health
+  - immune_function
+  - hair_health
+  - bone_health
+
+typical_dose: 2000–10000 IU/day oral, depending on baseline 25-OH-D3 level
+supplement_category: Fat-soluble vitamin / prohormone
+cofactors: Vitamin K2 (MK-7), Magnesium (required for hydroxylation)
+
+mechanisms_of_action:
+  - Ligand for VDR (vitamin D receptor) → nuclear transcription factor
+  - VDR expressed in hair follicle keratinocytes and dermal papilla cells
+  - Regulates hair follicle cycling via VDR-dependent gene expression
+  - Modulates Wnt/β-catenin pathway (involved in anagen initiation)
+  - Anti-inflammatory: downregulates NF-κB, inhibits Th1/Th17 responses
+  - Immunomodulatory: promotes Treg differentiation
+notes: >-
+  Optimal 25-OH-D3 target for hair health: 50–80 ng/mL (125–200 nmol/L).
+  Most people need 5000–8000 IU/day to achieve this without sunlight.
+  Take with K2 (to direct calcium appropriately) and with fat for absorption.
+  Deficiency strongly associated with telogen effluvium, alopecia areata,
+  and female pattern hair loss in observational studies. RCT evidence for
+  supplementation improving hair outcomes is limited to deficient populations.
+administered_via:
+  - healthkg:procedure/oral-administration

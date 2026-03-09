@@ -1,0 +1,28 @@
+id: healthkg:agent/methandrostenolone
+name: Dianabol (Methandrostenolone)
+description: >
+  Oral testosterone-derived anabolic steroid; the first widely used AAS, developed in the 1950s
+  by Ciba and used by US Olympic weightlifters. Highly anabolic, aromatizes significantly to
+  oestradiol — oestrogen management typically required. Classic bulking agent producing rapid
+  mass and strength gains with notable water retention. 17-alpha-alkylated, so hepatotoxic
+  with prolonged use. Among the most studied performance-enhancing drugs historically.
+aliases:
+  - Methandrostenolone
+  - Methandienone
+  - Dianabol
+  - Dbol
+xrefs:
+  - CHEBI:6831
+  - ATC:A14AA03
+  - DrugBank:DB13941
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+regulatory_status: schedule_iii_controlled_substance_us
+wada_prohibited: true
+aromatizes: true
+anabolic_index: 210
+androgenic_index: 60
+half_life: 3-6 hours
+administered_via:
+  - healthkg:procedure/oral-administration

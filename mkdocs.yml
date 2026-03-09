@@ -1,0 +1,63 @@
+site_name: Health Optimization Knowledge Graph
+site_description: >-
+  A BFO-aligned, evidence-graded knowledge graph covering health
+  optimization interventions, outcomes, and their evidence base.
+site_url: https://healthoptkg.github.io/
+repo_url: https://github.com/your-username/health-optimization-kg
+repo_name: health-optimization-kg
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      accent: green
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: green
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+
+plugins:
+  - search
+  - mermaid2
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - def_list
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Schema Reference:
+    # gen-doc generates one file per class/enum (e.g. Drug.md, Supplement.md).
+    # After running `make docs-gen`, schema/index.md is an auto-generated
+    # index listing every class, slot, and enum with links. Add individual
+    # class pages here as you grow (gen-doc output is in docs/schema/).
+    - All Classes & Enums: schema/index.md

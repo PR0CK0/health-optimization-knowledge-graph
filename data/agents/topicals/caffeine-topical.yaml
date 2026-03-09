@@ -1,0 +1,31 @@
+---
+id: CHEBI:27732
+name: Caffeine (topical)
+description: >-
+  Topically applied caffeine (typically 0.2% in shampoo or serum)
+  penetrates the hair follicle via the transfollicular route. Acts
+  as a phosphodiesterase inhibitor, increasing intracellular cAMP
+  in follicular keratinocytes — counteracting the cAMP-lowering
+  effect of DHT. In vitro and ex vivo data demonstrate caffeine
+  partially rescues DHT-suppressed hair follicle elongation. Some
+  RCT evidence for increased hair density and reduced shedding.
+aliases:
+  - 1,3,7-trimethylxanthine (topical)
+  - Alpecin (brand)
+  - topical caffeine
+xrefs:
+  - CHEBI:27732
+  - PubChem:2519
+paradigms: [hair_health]
+cas_number: "58-08-2"
+molecular_formula: C8H10N4O2
+typical_formulation: 0.2% caffeine in shampoo; leave-on serum 1–2%
+notes: >-
+  Fischer et al. 2007 (Int J Dermatol) demonstrated ex vivo that
+  0.001% caffeine counteracts DHT-induced suppression of hair follicle
+  growth. Bussoletti et al. 2011 showed 0.2% caffeine shampoo reduced
+  hair loss versus placebo in a controlled trial. Evidence grade is low
+  — studies are small, often industry-funded (Alpecin), and endpoints
+  vary. Topical route avoids systemic caffeine effects. Safe adjunct.
+administered_via:
+  - healthkg:procedure/topical-application

@@ -1,0 +1,10 @@
+---
+id: healthkg:paradigm/cardiovascular
+name: Cardiovascular
+description: >-
+  Domain covering cardiac function, vascular biology, blood pressure
+  regulation, atherosclerosis, lipid management, and cardiovascular
+  risk reduction. Interventions range from statins and omega-3s to
+  exercise, Mediterranean diet, and emerging agents (PCSK9 inhibitors).
+paradigms: [cardiovascular]
+key_biomarkers: [LDL-C, HDL-C, triglycerides, Lp(a), ApoB, hs-CRP, coronary calcium score]

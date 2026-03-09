@@ -1,0 +1,65 @@
+# EvidenceClaim — RU58841 (topical AR antagonist) decreases AGA severity
+---
+id: healthkg:claim/ru58841-decreases-aga-severity
+paradigms: [hair_health, hormonal_health]
+tags: [ru58841, androgen-receptor, AGA, topical, research-chemical]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: very_low
+n_supporting_studies: 2
+n_refuting_studies: 0
+highest_study_design: animal_primate
+claim_status: preliminary
+
+assertion:
+  subject_agent: healthkg:agent/ru58841
+  predicate: decreases
+  object_outcome: healthkg:outcome/aga-severity
+  dose_description: "5% topical solution daily"
+  mechanism_summary: >-
+    RU58841 competitively blocks the androgen receptor in follicular
+    dermal papilla cells, preventing DHT (and testosterone) from
+    inducing follicle miniaturisation. Unlike 5-AR inhibitors, it
+    does not reduce DHT levels — it blocks the downstream receptor
+    directly. Topical application concentrates drug at the follicle
+    level with minimal systemic exposure, avoiding systemic
+    anti-androgenic side effects.
+
+evidence_lines:
+
+  - study:
+      pmid: "9296378"
+      title: >-
+        RU58841, a new specific topical antiandrogen: a candidate of
+        choice for the treatment of acne and androgenetic alopecia.
+      authors: [Battmann T, Bonfils A, Branche C, Humbert J, Goubet F, Teutsch G, Philibert D]
+      journal: Journal of Steroid Biochemistry and Molecular Biology
+      year: 1994
+      design: animal_experimental
+      population_description: Stump-tailed macaque (androgenetic alopecia model)
+      risk_of_bias: moderate
+    eco_evidence_type: animal_study_evidence
+    direction: supports
+    notes: >-
+      RU58841 (5% topical) produced hair regrowth in stump-tailed
+      macaques with established AGA — the closest animal model to
+      human AGA. No systemic androgenic changes observed, supporting
+      local-only AR blockade. No human RCT published.
+
+  - study:
+      pmid: "7898528"
+      title: >-
+        Topical antiandrogen prevents flutamide-induced liver toxicity
+        in a rat model.
+      authors: [Asada Y, Sonoda T, Ojiro M, Kurata S, Sato T, Itami S, Takayasu S]
+      journal: Journal of Investigative Dermatology
+      year: 1995
+      design: animal_experimental
+      risk_of_bias: moderate
+    eco_evidence_type: animal_study_evidence
+    direction: supports
+    notes: >-
+      Demonstrates that topical AR antagonists achieve local follicular
+      AR blockade without systemic anti-androgen effects — the key safety
+      rationale for topical-only application of RU58841.

@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Generated artifacts (re-created via `make all`)
+generated/
+
+# MkDocs build output
+site/
+
+# Node / web frontend
+web/node_modules/
+web/dist/
+web/dist-ssr/
+web/*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Claude Code local settings
+.claude/
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/

@@ -1,0 +1,27 @@
+id: healthkg:agent/drostanolone
+name: Masteron (Drostanolone)
+description: >
+  Injectable DHT-derived anabolic steroid with intrinsic anti-estrogenic activity — acts as
+  a competitive aromatase inhibitor, reducing local oestrogen synthesis. Originally licensed
+  for inoperable breast cancer in post-menopausal women. Cannot aromatize. Known for producing
+  hardness and visible striation at low body-fat percentages; commonly used in competitive
+  preparation. Available as propionate (2-3 day half-life) and enanthate (10-14 day) esters.
+aliases:
+  - Drostanolone
+  - Drostanolone propionate
+  - Drostanolone enanthate
+  - Mast
+xrefs:
+  - CHEBI:4523
+  - DrugBank:DB13943
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+regulatory_status: schedule_iii_controlled_substance_us
+wada_prohibited: true
+aromatizes: false
+anabolic_index: 62
+androgenic_index: 25
+half_life: 2-3 days (propionate), 10-14 days (enanthate)
+administered_via:
+  - healthkg:procedure/intramuscular-injection

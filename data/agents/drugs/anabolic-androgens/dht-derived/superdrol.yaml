@@ -1,0 +1,26 @@
+id: healthkg:agent/methasterone
+name: Superdrol (Methasterone)
+description: >
+  Oral DHT-derived anabolic steroid (2-alpha,17-alpha-dimethyl-5-alpha-androstan-17-beta-ol-3-one).
+  Originally marketed as an over-the-counter "prohormone" supplement in 2005 before DEA scheduling.
+  Exceptionally high anabolic:androgenic ratio (400:20). Produces rapid dry mass and strength gains
+  without aromatization. Significant hepatotoxicity — peliosis hepatis and cholestatic jaundice
+  reported even at low doses. No therapeutic approval.
+aliases:
+  - Methasterone
+  - Methyldrostanolone
+  - Superdrol
+  - SD
+xrefs:
+  - CHEBI:34838
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+regulatory_status: schedule_iii_controlled_substance_us
+wada_prohibited: true
+aromatizes: false
+anabolic_index: 400
+androgenic_index: 20
+half_life: 6-8 hours
+administered_via:
+  - healthkg:procedure/oral-administration

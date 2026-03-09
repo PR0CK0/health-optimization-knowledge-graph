@@ -1,0 +1,14 @@
+# Outcome — Tissue repair rate / wound healing speed
+---
+id: healthkg:outcome/tissue-repair-rate
+name: Tissue Repair Rate
+description: >-
+  Rate of healing of musculoskeletal, connective, or soft tissue injury.
+  Encompasses tendon-to-bone healing speed, muscle fibre regeneration,
+  anastomosis integrity, and wound closure metrics. Primary endpoints
+  include biomechanical tensile strength, histological fibre density,
+  and functional recovery scores.
+paradigms: [musculoskeletal, wound_healing, recovery]
+measurement: Biomechanical testing, histology, functional assessment
+direction: increase = better (faster healing)
+xrefs: []

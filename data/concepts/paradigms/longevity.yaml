@@ -1,0 +1,12 @@
+---
+id: healthkg:paradigm/longevity
+name: Longevity
+description: >-
+  Domain covering the biology of ageing — hallmarks of ageing
+  (senescence, telomere attrition, epigenetic drift, mitochondrial
+  dysfunction, proteostasis loss, stem cell exhaustion) and
+  interventions targeting lifespan and healthspan extension.
+  Includes NAD+ biology, senolytics, mTOR/AMPK modulation,
+  and caloric restriction mimetics.
+paradigms: [longevity]
+key_biomarkers: [NAD+, telomere length, epigenetic clock, IGF-1, mTOR activity]

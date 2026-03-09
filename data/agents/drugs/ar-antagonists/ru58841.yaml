@@ -1,0 +1,37 @@
+---
+id: healthkg:agent/ru58841
+name: RU58841
+description: >-
+  Non-steroidal antiandrogen developed by Roussel-Uclaf. Competitive
+  antagonist at the androgen receptor (AR), blocking DHT and testosterone
+  binding at the hair follicle level. Applied topically to the scalp.
+  Unlike systemic AR antagonists (bicalutamide, spironolactone), topical
+  RU58841 achieves high local concentrations with minimal systemic
+  absorption, avoiding feminising side effects in men. Never received
+  regulatory approval — development was abandoned in the late 1990s.
+  Now widely used in the AGA biohacker/research community.
+aliases:
+  - PSK3841
+  - HMR3841
+  - 4-[3-(4-fluorophenyl)-4,4-dimethyl-2-oxo-5-trifluoromethyl-2,3-dihydro-1H-imidazol-1-yl]-2-(trifluoromethyl)benzonitrile
+xrefs:
+  - PubChem:208902
+  - CAS:154992-24-2
+paradigms: [hair_health, hormonal_health]
+cas_number: "154992-24-2"
+molecular_formula: C17H14F6N4O
+drug_class: Non-steroidal androgen receptor antagonist (topical)
+regulatory_status: research_chemical_unapproved
+fda_approval_status: never_approved
+mechanism: Competitive AR antagonist — blocks DHT/testosterone binding at follicular AR
+typical_formulation: 5% solution in ethanol/propylene glycol or KB (kerasol/benzyl benzoate) vehicle
+notes: >-
+  Preclinical data (stump-tailed macaque studies) showed significant hair
+  regrowth. No published human RCTs exist. Self-reported community data
+  (HairLossTalk, Reddit) broadly positive, but publication bias and
+  lack of controls limit conclusions. Key concern: vehicle matters
+  enormously — poor vehicle leads to systemic absorption and potential
+  side effects. KB (kerasol/benzyl benzoate) vehicle generally preferred
+  for minimising systemic exposure. Not available from licensed pharmacies.
+administered_via:
+  - healthkg:procedure/topical-application

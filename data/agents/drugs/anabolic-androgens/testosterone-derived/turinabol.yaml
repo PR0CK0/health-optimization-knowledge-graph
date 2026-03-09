@@ -1,0 +1,26 @@
+id: healthkg:agent/turinabol
+name: Turinabol (Oral-Turinabol)
+description: >
+  Oral testosterone-derived AAS structurally a chlorinated Dianabol (4-chloro group prevents
+  aromatization; 1-dehydro modification reduces androgenicity). Developed in East Germany in the
+  1960s and used extensively in the state-sponsored doping programme (Operation STASI).
+  Produces slow, dry, quality mass with very low androgenic side effects. Does not aromatize.
+  Extremely low androgenic index (6) makes it one of the most tissue-selective oral AAS.
+aliases:
+  - 4-Chlorodehydromethyltestosterone
+  - Chlorodehydromethyltestosterone
+  - Tbol
+  - Oral-Turinabol
+xrefs:
+  - CHEBI:3637
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+regulatory_status: schedule_iii_controlled_substance_us
+wada_prohibited: true
+aromatizes: false
+anabolic_index: 54
+androgenic_index: 6
+half_life: 16 hours
+administered_via:
+  - healthkg:procedure/oral-administration

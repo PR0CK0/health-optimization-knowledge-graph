@@ -1,0 +1,10 @@
+---
+id: healthkg:paradigm/metabolic-health
+name: Metabolic Health
+description: >-
+  Domain covering glucose homeostasis, insulin sensitivity, lipid
+  metabolism, body composition, and metabolic syndrome. Interventions
+  span dietary protocols, exercise, pharmacological agents (metformin,
+  GLP-1 agonists), and supplements (berberine, NMN).
+paradigms: [metabolic_health]
+key_biomarkers: [fasting glucose, HbA1c, insulin, HOMA-IR, LDL, HDL, triglycerides]

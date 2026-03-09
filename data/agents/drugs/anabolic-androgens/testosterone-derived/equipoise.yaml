@@ -1,0 +1,27 @@
+id: healthkg:agent/boldenone
+name: Equipoise (Boldenone)
+description: >
+  Injectable testosterone-derived AAS with an additional 1,2-double bond (making it the
+  delta-1 analogue of testosterone). Originally developed as a veterinary drug (Parenabol,
+  Equipoise). Aromatizes at roughly half the rate of testosterone. Known for producing lean,
+  quality mass with increased appetite and vascularity. Long half-life via undecylenate ester.
+  Modestly increases red blood cell production (erythropoiesis).
+aliases:
+  - Boldenone
+  - Boldenone undecylenate
+  - EQ
+  - Equipoise
+xrefs:
+  - CHEBI:3080
+  - DrugBank:DB13942
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+regulatory_status: schedule_iii_controlled_substance_us
+wada_prohibited: true
+aromatizes: true
+anabolic_index: 100
+androgenic_index: 50
+half_life: 14 days (undecylenate ester)
+administered_via:
+  - healthkg:procedure/intramuscular-injection

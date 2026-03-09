@@ -1,0 +1,66 @@
+# EvidenceClaim — Saw palmetto modestly supports hair density in AGA
+---
+id: healthkg:claim/saw-palmetto-supports-hair-density
+paradigms: [hair_health]
+tags: [saw-palmetto, serenoa-repens, hair-density, AGA, natural]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: low
+n_supporting_studies: 2
+n_refuting_studies: 0
+highest_study_design: randomized_controlled_trial
+claim_status: preliminary
+
+assertion:
+  subject_agent: healthkg:supplement/saw-palmetto
+  predicate: increases
+  object_outcome: healthkg:outcome/hair-density
+  dose_description: "320mg/day standardised liposterolic extract"
+  population: "Adult males with androgenetic alopecia"
+  mechanism_summary: >-
+    Liposterolic extract inhibits both Type I and Type II 5-AR with
+    weaker potency than finasteride, and may block androgen receptor
+    binding at the follicle. Effect is substantially smaller than
+    pharmaceutical 5-AR inhibitors.
+
+evidence_lines:
+
+  - study:
+      pmid: "12006122"
+      title: >-
+        A randomized, double-blind, placebo-controlled trial to determine
+        the effectiveness of botanically derived inhibitors of 5-alpha-
+        reductase in the treatment of androgenetic alopecia.
+      authors: [Prager N, Bickett K, French N, Marcovici G]
+      journal: Journal of Alternative and Complementary Medicine
+      year: 2002
+      design: randomized_controlled_trial
+      n_participants: 26
+      duration_weeks: 21
+      blinding: double_blind
+      risk_of_bias: high
+      funding_source: industry_funded
+    eco_evidence_type: randomized_controlled_trial_evidence
+    direction: supports
+    notes: >-
+      Saw palmetto 320mg/day improved hair in 60% of participants vs
+      11% placebo (investigator + self-assessment). Small sample, possible
+      industry involvement. Landmark positive RCT for this supplement.
+
+  - study:
+      pmid: "32795477"
+      title: >-
+        Natural hair supplement: Friend or foe? Saw Palmetto,
+        a Systematic Review in Alopecia.
+      authors: [Evron E, Juhasz M, Babadjouni A, Mesinkovska NA]
+      journal: Skin Appendage Disorders
+      year: 2020
+      design: systematic_review
+      risk_of_bias: moderate
+    eco_evidence_type: systematic_review_evidence
+    direction: supports
+    notes: >-
+      Systematic review: evidence weak but shows favourable trend; inferior
+      to finasteride in all comparative data; no serious adverse events
+      reported. Conclusion: reasonable OTC adjunct with acceptable safety.

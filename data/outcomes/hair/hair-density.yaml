@@ -1,0 +1,16 @@
+---
+id: healthkg:outcome/hair-density
+name: Hair Density (overall)
+description: >-
+  Total hair count per unit scalp area (hairs/cm²), measured across the
+  whole scalp or a representative target zone. Less spatially specific than
+  vertex or frontal measurements. Assessed by phototrichogram, trichoscopy,
+  or global hair count photography. Used as a primary endpoint when
+  the agent or procedure affects diffuse hair density rather than
+  androgen-pattern–specific zones.
+paradigms: [hair_health]
+measurement_methods:
+  - Phototrichogram (target area hair count)
+  - Trichoscopy (folliscope)
+  - Global photography + blinded grading
+units: hairs/cm²

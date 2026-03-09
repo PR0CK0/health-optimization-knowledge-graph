@@ -1,0 +1,37 @@
+---
+id: healthkg:agent/hgh
+name: HGH (Somatotropin)
+description: >-
+  Recombinant human growth hormone (rhGH / somatropin). A 191-amino-acid
+  peptide hormone produced by the anterior pituitary. Stimulates IGF-1
+  production in the liver; IGF-1 is the primary mediator of GH's
+  anabolic effects at the tissue level. Hair follicles express both GH
+  and IGF-1 receptors — IGF-1 promotes dermal papilla cell proliferation
+  and anagen phase maintenance. GH deficiency is associated with dry
+  skin and reduced hair growth; replacement restores these. Not a
+  primary AGA treatment — evidence for hair is indirect and mechanistic.
+aliases:
+  - Somatropin
+  - rhGH
+  - recombinant human growth hormone
+  - Norditropin
+  - Genotropin
+  - Humatrope
+xrefs:
+  - DrugBank:DB00052
+paradigms: [hair_health, skin_health, longevity, musculoskeletal, metabolic_health]
+drugbank_id: DB00052
+fda_approval_status: approved_for_gh_deficiency
+drug_class: Peptide hormone / growth factor
+regulatory_status: controlled_substance_schedule_III_US
+notes: >-
+  Prescribed for GH deficiency, Turner syndrome, Prader-Willi, HIV
+  wasting, and short stature. Widely misused in anti-aging and
+  bodybuilding contexts. Evidence for hair growth in GH-sufficient
+  individuals is weak — improvements are documented mainly in GH-
+  deficient patients receiving replacement therapy. Potential risks
+  include insulin resistance, fluid retention, carpal tunnel,
+  acromegalic features, and possible cancer promotion with chronic
+  supraphysiological use. WADA-prohibited.
+administered_via:
+  - healthkg:procedure/subcutaneous-injection

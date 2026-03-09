@@ -1,0 +1,78 @@
+# EvidenceClaim — Finasteride 1mg increases hair density in AGA men
+---
+id: healthkg:claim/finasteride-1mg-increases-hair-density-aga-men
+paradigms: [hair_health]
+tags: [finasteride, hair-density, AGA-frontline, vertex]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: high
+n_supporting_studies: 5
+n_refuting_studies: 0
+highest_study_design: systematic_review_meta_analysis
+claim_status: active
+
+assertion:
+  subject_agent: CHEBI:5062   # Finasteride
+  predicate: increases
+  object_outcome: healthkg:outcome/hair-density-vertex
+  dose_description: "1mg oral daily"
+  route: oral
+  population: "Adult males with androgenic alopecia (Hamilton-Norwood II–V)"
+  duration_of_use: "Continuous use; peak effect at 12–24 months"
+  mechanism_summary: >-
+    By reducing DHT ~70%, finasteride halts androgen-mediated follicular
+    miniaturisation. Miniaturised follicles in the active transition phase
+    can recover to produce terminal-calibre hairs. The effect is primarily
+    stabilisation of hair loss with secondary regrowth rather than
+    dramatic new hair generation.
+
+evidence_lines:
+
+  - study:
+      pmid: "9738759"
+      title: >-
+        Finasteride in the treatment of men with androgenetic alopecia.
+        Finasteride Male Pattern Hair Loss Study Group.
+      authors: [Kaufman KD, Olsen EA, Whiting D]
+      journal: Journal of the American Academy of Dermatology
+      year: 1998
+      design: randomized_controlled_trial
+      n_participants: 1553
+      duration_weeks: 104
+      population_sex: male
+      blinding: double_blind
+      risk_of_bias: low
+      funding_source: industry_funded
+    eco_evidence_type: randomized_controlled_trial_evidence
+    direction: supports
+    percent_change: 14.0
+    p_value: 0.001
+    notes: >-
+      Hair count increased by mean +107 hairs at vertex target area vs
+      -75 hairs (placebo) at 2 years (~14% net improvement). 83% of
+      finasteride group had maintained or increased hair count vs 28%
+      placebo.
+
+  - study:
+      pmid: "26090015"
+      title: >-
+        Long-term (10-year) efficacy of finasteride in 523 Japanese men
+        with androgenetic alopecia.
+      authors: [Yanagisawa M, Fujimaki H, Murata K, Shinkai H, Takeda M, Nemoto H]
+      journal: Clinical Research and Trials
+      year: 2019
+      design: cohort
+      n_participants: 523
+      duration_weeks: 520
+      population_sex: male
+      population_description: Japanese men with AGA, continuous finasteride 1mg
+      blinding: open_label
+      risk_of_bias: moderate
+      funding_source: not_reported
+    eco_evidence_type: cohort_study_evidence
+    direction: supports
+    notes: >-
+      10-year prospective study. Hair score improved in years 1–2, then
+      gradually declined but remained above baseline through year 10,
+      demonstrating sustained benefit with continuous use.

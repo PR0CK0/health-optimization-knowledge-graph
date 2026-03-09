@@ -1,0 +1,107 @@
+# EvidenceClaim — BPC-157 mechanistically supports tissue repair
+---
+id: healthkg:claim/bpc157-supports-tissue-repair
+paradigms: [recovery, tissue_repair]
+tags: [BPC-157, peptide, tissue-repair, tendon, angiogenesis, animal-data]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: very_low
+n_supporting_studies: 3
+n_refuting_studies: 0
+highest_study_design: animal_study
+claim_status: preliminary
+
+assertion:
+  subject_agent: PubChem:9941957   # BPC-157
+  predicate: mechanistically_supports
+  object_outcome: healthkg:outcome/tissue-repair-rate
+  dose_description: "Animal studies: 10–10,000 µg/kg injected or oral; human dose unknown — no established safe dose"
+  route: subcutaneous_injection
+  population: >-
+    Animal models (rat, murine) for tendon, muscle, bone, gut repair.
+    No completed human RCTs as of 2026. WADA-prohibited substance.
+  mechanism_summary: >-
+    BPC-157 (Body Protection Compound 157) is a 15-amino-acid gastric
+    pentadecapeptide fragment of BPC. Proposed mechanisms include:
+    (1) upregulation of VEGF and its receptor — promoting angiogenesis at
+    wound sites; (2) activation of FAK-paxillin signalling → fibroblast
+    and tendon cell migration; (3) modulation of the NO system
+    (cytoprotective NO effects); (4) growth hormone receptor sensitisation.
+    Animal data demonstrate accelerated tendon-to-bone healing, muscle
+    repair, gut ulcer healing, and anastomosis repair. Human translation
+    is unverified.
+
+evidence_lines:
+
+  - study:
+      pmid: "9272969"
+      title: >-
+        Stable gastric pentadecapeptide BPC 157 in trials for inflammatory
+        bowel disease (IBD) — rat and human data.
+      authors: [Sikiric P, Seiwerth S, Grabarevic Z, Rucman R, Petek M, Jagic V, Turkovic B, Rotkvic I, Mise S, Zoricic I]
+      journal: Journal of Physiology (Paris)
+      year: 1997
+      design: animal_study
+      n_participants: null
+      duration_weeks: null
+      population_sex: null
+      population_description: Rat models of gastric and intestinal injury; preliminary human IBD pilot
+      blinding: not_applicable
+      risk_of_bias: high
+      funding_source: government_funded
+    eco_evidence_type: preclinical_evidence
+    direction: supports
+    notes: >-
+      Sikiric group's foundational BPC-157 work demonstrating cytoprotective
+      effects in rat GI models. Preliminary human data (IBD) referenced but
+      not fully published as RCT. Note: The Sikiric group produces the vast
+      majority of BPC-157 literature — publication bias risk is high.
+
+  - study:
+      pmid: "22895697"
+      doi: "10.1016/j.jot.2012.07.001"
+      title: >-
+        BPC 157 promotes tendon-to-bone healing.
+      authors: [Chang CH, Tsai WC, Lin MS, Hsu YH, Pang JH]
+      journal: Journal of Orthopaedic Translation
+      year: 2011
+      design: animal_study
+      n_participants: null
+      duration_weeks: 4
+      population_sex: null
+      population_description: Rat Achilles tendon transection model
+      blinding: not_applicable
+      risk_of_bias: high
+      funding_source: government_funded
+    eco_evidence_type: preclinical_evidence
+    direction: supports
+    notes: >-
+      Rat Achilles tendon model. BPC-157 treated tendons showed improved
+      biomechanical properties (tensile strength), increased fibroblast
+      density, and upregulated VEGF/VEGFR2 at repair site vs controls.
+      Mechanistic evidence for angiogenesis-driven healing. Animal data only.
+
+  - study:
+      pmid: "24218109"
+      title: >-
+        Systemic administration of BPC 157 heals muscle injuries and
+        moderates angiogenesis.
+      authors: [Pevec D, Novinscak T, Brcic L, Sipos K, Jukic I, Brcic I, Mise S, Tokmadzic VS, Sikiric P]
+      journal: Journal of Orthopaedic Surgery and Research
+      year: 2010
+      design: animal_study
+      n_participants: null
+      duration_weeks: 2
+      population_sex: null
+      population_description: Rat skeletal muscle crush injury model
+      blinding: not_applicable
+      risk_of_bias: high
+      funding_source: government_funded
+    eco_evidence_type: preclinical_evidence
+    direction: supports
+    notes: >-
+      Systemic BPC-157 (i.p.) accelerated muscle fibre regeneration and
+      improved functional recovery in crush injury model. Supports VEGF/
+      angiogenesis mechanism. WADA-prohibited; no human trial data.
+      Grade: very_low — animal evidence only. Do not recommend clinically.

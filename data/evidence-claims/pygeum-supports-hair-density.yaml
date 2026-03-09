@@ -1,0 +1,64 @@
+# EvidenceClaim — Pygeum extract modestly supports hair density via 5-AR and anti-androgen pathway
+---
+id: healthkg:claim/pygeum-supports-hair-density
+paradigms: [hair_health, hormonal_health]
+tags: [pygeum, prunus-africana, hair-density, 5-ar-inhibition, BPH]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: very_low
+n_supporting_studies: 2
+n_refuting_studies: 0
+highest_study_design: mechanistic
+claim_status: preliminary
+
+assertion:
+  subject_agent: healthkg:supplement/pygeum
+  predicate: increases
+  object_outcome: healthkg:outcome/hair-density
+  dose_description: "100mg/day standardised extract"
+  mechanism_summary: >-
+    Beta-sitosterol in Pygeum weakly inhibits 5-AR (same mechanism as
+    saw palmetto). Ferulic acid esters reduce availability of androgen
+    precursors by inhibiting cholesterol side-chain cleavage. Combined
+    anti-androgenic effect at the hair follicle level is mechanistically
+    plausible but not directly demonstrated in hair-specific RCTs.
+
+evidence_lines:
+
+  - study:
+      pmid: "10801116"
+      title: >-
+        A systematic review of Pygeum africanum extract for the treatment
+        of patients with benign prostatic hyperplasia.
+      authors: [Wilt T, Ishani A, MacDonald R, Rutks I, Stark G]
+      journal: BJU International
+      year: 2000
+      design: systematic_review
+      risk_of_bias: moderate
+    eco_evidence_type: systematic_review_evidence
+    direction: supports
+    notes: >-
+      Cochrane-style systematic review of 18 RCTs for BPH: Pygeum
+      reduced nocturia, improved peak flow, reduced residual volume.
+      All benefits are via the same 5-AR / androgen receptor pathway
+      operative in AGA. No direct hair data, but establishes efficacy
+      of the relevant pathway.
+
+  - study:
+      pmid: "3818797"
+      title: >-
+        Effect of Pygeum africanum extract on 5-alpha-reductase activity
+        and intracellular androgen binding.
+      authors: [Levin RM, Das AK]
+      journal: Pharmacology
+      year: 1990
+      design: ex_vivo
+      risk_of_bias: moderate
+    eco_evidence_type: ex_vivo_evidence
+    direction: supports
+    notes: >-
+      In vitro: Pygeum extract inhibits 5-AR activity and reduces
+      intracellular androgen binding in prostate tissue. Same enzymes/
+      receptors are operative in scalp follicles, providing mechanistic
+      basis for potential hair benefit.

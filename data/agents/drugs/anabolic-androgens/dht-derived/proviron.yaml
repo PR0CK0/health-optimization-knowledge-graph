@@ -1,0 +1,25 @@
+id: healthkg:agent/mesterolone
+name: Proviron (Mesterolone)
+description: >
+  Oral DHT-derived androgen with minimal anabolic activity but clinically significant androgenic
+  and anti-estrogenic properties. Displaces testosterone from SHBG, raising free testosterone.
+  Competes with oestradiol at the aromatase enzyme. Not significantly suppressive at typical doses.
+  Licensed in many countries for male hypogonadism and infertility (improves sperm quality).
+  Unique among oral AAS in being non-17-alpha-alkylated, so hepatotoxicity is minimal.
+aliases:
+  - Mesterolone
+  - Proviron
+xrefs:
+  - CHEBI:6840
+  - ATC:G03BB01
+  - DrugBank:DB13946
+paradigms:
+  - hormonal_health
+regulatory_status: not_approved_us_licensed_europe
+wada_prohibited: true
+aromatizes: false
+anabolic_index: 100
+androgenic_index: 30
+half_life: 12 hours
+administered_via:
+  - healthkg:procedure/oral-administration

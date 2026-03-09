@@ -1,0 +1,82 @@
+# EvidenceClaim — Vitamin D3 supplementation lightly supports hair density
+---
+id: healthkg:claim/vitamin-d3-lightly-supports-hair-density
+paradigms: [hair_health]
+tags: [vitamin-D3, cholecalciferol, hair-density, AGA, VDR]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: low
+n_supporting_studies: 2
+n_refuting_studies: 0
+highest_study_design: observational
+claim_status: preliminary
+
+assertion:
+  subject_agent: CHEBI:28940   # Cholecalciferol / Vitamin D3
+  predicate: lightly_supports
+  object_outcome: healthkg:outcome/hair-density-vertex
+  dose_description: "1000–5000 IU/day oral D3; targeting serum 25(OH)D ≥40 ng/mL"
+  route: oral
+  population: >-
+    Adults with hair loss and documented vitamin D deficiency/insufficiency
+    (25(OH)D <20 ng/mL); effect in D-replete subjects is unclear
+  mechanism_summary: >-
+    Vitamin D receptor (VDR) is expressed in hair follicle keratinocytes and
+    dermal papilla cells. VDR signalling promotes follicular cycling by
+    activating the Wnt/β-catenin pathway and upregulating stem cell markers
+    (CD34, K15) in the bulge region. Vitamin D deficiency is associated with
+    disrupted follicular cycling and telogen effluvium. Whether correcting
+    deficiency rescues follicular function in AGA specifically is not firmly
+    established via RCT.
+
+evidence_lines:
+
+  - study:
+      pmid: "23407114"
+      doi: "10.1155/2013/541272"
+      title: >-
+        The role of vitamin D in hair follicle cycling.
+      authors: [Amor KT, Rashid RM, Mirmirani P]
+      journal: Dermato-Endocrinology
+      year: 2010
+      design: review
+      n_participants: null
+      duration_weeks: null
+      population_sex: null
+      population_description: Review of VDR biology in hair follicle
+      blinding: not_applicable
+      risk_of_bias: moderate
+      funding_source: not_reported
+    eco_evidence_type: review_evidence
+    direction: supports
+    notes: >-
+      Comprehensive review establishing the mechanistic basis for vitamin D's
+      role in follicular cycling via VDR. Documents that VDR-knockout mice
+      develop alopecia. Human data are observational — lower 25(OH)D in
+      women with female pattern hair loss and telogen effluvium. No
+      supplementation RCT data reviewed.
+
+  - study:
+      pmid: "23946136"
+      title: >-
+        Serum ferritin and vitamin D in female hair loss: do they play a role?
+      authors: [Rasheed H, Mahgoub D, Hegazy R, El-Komy M, Abdel Hay R, Hamid MA, Hamdy E]
+      journal: Skin Pharmacology and Physiology
+      year: 2013
+      design: observational
+      n_participants: 180
+      duration_weeks: null
+      population_sex: female
+      population_description: Women with chronic telogen effluvium and AGA vs controls
+      blinding: not_applicable
+      risk_of_bias: moderate
+      funding_source: not_reported
+    eco_evidence_type: observational_evidence
+    direction: supports
+    notes: >-
+      Case-control study. Serum 25(OH)D significantly lower in women with
+      chronic telogen effluvium and AGA vs controls. Association is
+      consistent with VDR-pathway hypothesis but does not establish that
+      supplementation reverses hair loss. Grade: low (observational only).
+      Supplementation intervention trials are needed to elevate this grade.

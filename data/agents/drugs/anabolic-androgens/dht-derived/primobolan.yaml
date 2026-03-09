@@ -1,0 +1,29 @@
+id: healthkg:agent/metenolone
+name: Primobolan (Metenolone)
+description: >
+  Mild DHT-derived anabolic steroid available as oral acetate and injectable enanthate ester.
+  Does not aromatize; low androgenic activity. Considered among the safest AAS; commonly used
+  in female populations and in cutting protocols. Oral form has low bioavailability; injectable
+  enanthate is the preferred form. Immune-modulating properties noted in HIV research.
+aliases:
+  - Metenolone
+  - Methenolone
+  - Primo
+  - Nibal
+xrefs:
+  - CHEBI:6842
+  - ATC:A14AA07
+  - DrugBank:DB13944
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+  - immune_function
+regulatory_status: schedule_iii_controlled_substance_us
+wada_prohibited: true
+aromatizes: false
+anabolic_index: 88
+androgenic_index: 44
+half_life: 5-6 hours (oral), 10-14 days (injectable enanthate)
+administered_via:
+  - healthkg:procedure/oral-administration
+  - healthkg:procedure/intramuscular-injection

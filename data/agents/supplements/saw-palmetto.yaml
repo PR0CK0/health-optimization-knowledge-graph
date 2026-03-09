@@ -1,0 +1,29 @@
+---
+id: healthkg:supplement/saw-palmetto
+name: Saw Palmetto
+description: >-
+  Liposterolic extract of Serenoa repens (saw palmetto berry). The
+  active constituents — free fatty acids (oleic, lauric, myristic),
+  β-sitosterol, and other phytosterols — weakly inhibit both Type I
+  and Type II 5-alpha reductase and may block androgen receptor binding
+  at the follicular level. Used as an OTC natural alternative to
+  finasteride for AGA. Evidence is substantially weaker than
+  pharmaceutical 5-AR inhibitors but meaningful compared to placebo.
+aliases:
+  - Serenoa repens extract
+  - Sabal serrulata
+  - Permixon (standardised extract)
+xrefs:
+  - PubChem:65082 # beta-sitosterol (primary active constituent)
+paradigms: [hair_health, hormonal_health]
+supplement_category: Botanical / phytosterol extract
+standardisation: Liposterolic extract 85–95% fatty acids and sterols
+typical_dose: 320mg/day standardised extract
+notes: >-
+  Prager et al. 2002 (PMID 12006122) showed 320mg/day saw palmetto
+  improved hair in 60% of men vs 11% placebo over 21 weeks. Head-to-head
+  with finasteride shows substantially inferior efficacy. Useful as an
+  adjunct or for those who prefer natural approaches or cannot tolerate
+  finasteride. Very low side-effect profile. Women's evidence is minimal.
+administered_via:
+  - healthkg:procedure/oral-administration

@@ -1,0 +1,48 @@
+# Drug entry — Estradiol (17β-Estradiol)
+---
+id: CHEBI:16469
+name: Estradiol
+description: >-
+  17β-Estradiol — the primary endogenous estrogen. Used exogenously in
+  feminizing hormone therapy (HRT) for transgender women and in
+  post-menopausal estrogen replacement. Suppresses the
+  hypothalamic-pituitary-gonadal (HPG) axis via negative feedback,
+  substantially reducing LH/FSH → testosterone production drops to
+  female physiological range. This androgen suppression halts and
+  often reverses androgenic alopecia (AGA) in people with testes.
+  Available as oral tablets, transdermal patches/gel, subcutaneous
+  pellets, and intramuscular/subcutaneous injections (estradiol
+  valerate, cypionate, enanthate).
+aliases:
+  - 17β-Estradiol
+  - Oestradiol
+  - E2
+  - Estrace
+  - Climara (patch)
+  - Divigel (gel)
+xrefs:
+  - CHEBI:16469
+  - PubChem:5757
+  - DrugBank:DB00783
+paradigms: [hair_health, hormonal_health, skin_health]
+cas_number: "50-28-2"
+molecular_formula: C18H24O2
+drugbank_id: DB00783
+atc_code: G03CA03
+fda_approval_status: approved
+drug_class: Estrogen / sex hormone
+notes: >-
+  In the context of AGA, estradiol's benefit is primarily mediated
+  through testosterone suppression rather than direct follicular
+  estrogenic effects (though estrogen receptors are expressed in
+  follicles). Typically combined with an anti-androgen (spironolactone,
+  bicalutamide, or cyproterone acetate) in feminizing HRT for maximum
+  androgen suppression. Estradiol monotherapy at sufficient doses
+  (e.g. high-dose patches or injections) can suppress testosterone
+  to female range (<50 ng/dL) without anti-androgens in some individuals.
+  Not used for AGA in cisgender men due to feminizing side effects.
+administered_via:
+  - healthkg:procedure/oral-administration
+  - healthkg:procedure/topical-application
+  - healthkg:procedure/subcutaneous-injection
+  - healthkg:procedure/intramuscular-injection

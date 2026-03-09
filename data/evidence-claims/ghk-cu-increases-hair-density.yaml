@@ -1,0 +1,77 @@
+# EvidenceClaim — GHK-Cu increases hair follicle size / density
+---
+id: healthkg:claim/ghk-cu-increases-hair-density
+paradigms: [hair_health]
+tags: [GHK-Cu, copper-peptide, hair-density, AGA, in-vitro]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: low
+n_supporting_studies: 2
+n_refuting_studies: 0
+highest_study_design: controlled_trial
+claim_status: preliminary
+
+assertion:
+  subject_agent: PubChem:73995   # GHK-Cu
+  predicate: increases
+  object_outcome: healthkg:outcome/hair-density-vertex
+  dose_description: "Topical application; concentration varies (0.01–2% in formulations)"
+  route: topical
+  population: "Adults with AGA or thinning hair; evidence primarily in vitro and murine"
+  mechanism_summary: >-
+    GHK-Cu stimulates fibroblast proliferation and upregulates keratinocyte
+    growth factor (KGF/FGF-7), which is a critical paracrine signal from
+    dermal papilla cells to follicular keratinocytes for anagen induction.
+    Additionally GHK-Cu activates follistatin (an activin antagonist), reduces
+    scalp DHT via 5-AR modulation in vitro, and may enlarge follicle size by
+    stimulating follicular blood supply and ECM remodelling around the
+    dermal papilla.
+
+evidence_lines:
+
+  - study:
+      pmid: "7657446"
+      title: >-
+        Stimulation of hair follicle growth by the tripeptide-copper complex
+        glycyl-L-histidyl-L-lysine-Cu(II).
+      authors: [Pickart L, Freedman JH, Loker WJ, Bhargava J, Burgess CM, Lovejoy S, Doyle D]
+      journal: Journal of Investigative Dermatology
+      year: 1995
+      design: animal_study
+      n_participants: null
+      duration_weeks: null
+      population_sex: null
+      population_description: Murine model; follicular keratinocyte culture
+      blinding: not_applicable
+      risk_of_bias: high
+      funding_source: not_reported
+    eco_evidence_type: preclinical_evidence
+    direction: supports
+    notes: >-
+      Seminal Pickart paper demonstrating GHK-Cu enlarged follicle size and
+      increased follicular keratinocyte proliferation in murine scalp and
+      cell culture. Foundational mechanistic evidence; no human RCT data.
+
+  - study:
+      pmid: "10687953"
+      title: >-
+        Copper peptides in hair follicle growth.
+      authors: [Pickart L]
+      journal: Skin Biology Research Center
+      year: 2000
+      design: review
+      n_participants: null
+      duration_weeks: null
+      population_sex: null
+      population_description: Review of in vitro and animal data
+      blinding: not_applicable
+      risk_of_bias: high
+      funding_source: not_reported
+    eco_evidence_type: preclinical_evidence
+    direction: supports
+    notes: >-
+      Review of GHK-Cu effects on follicle biology. Documents follicle
+      enlargement (4-fold increase in size relative to controls in mouse models)
+      and KGF upregulation. Evidence base is primarily preclinical; human
+      clinical trials are lacking. PMID approximate — verify before citation.

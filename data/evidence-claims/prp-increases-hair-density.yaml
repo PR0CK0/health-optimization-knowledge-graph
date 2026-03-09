@@ -1,0 +1,86 @@
+# EvidenceClaim — PRP scalp injection increases hair density in AGA
+---
+id: healthkg:claim/prp-increases-hair-density
+paradigms: [hair_health]
+tags: [prp, platelet-rich-plasma, hair-density, AGA, rct]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: moderate
+n_supporting_studies: 3
+n_refuting_studies: 0
+highest_study_design: randomized_controlled_trial
+claim_status: active
+
+assertion:
+  subject_procedure: healthkg:procedure/prp-scalp-injection
+  predicate: increases
+  object_outcome: healthkg:outcome/hair-density
+  mechanism_summary: >-
+    PRP releases PDGF, TGF-β1, VEGF, EGF, IGF-1 and FGF from activated
+    platelet alpha-granules. These growth factors promote anagen phase
+    induction, dermal papilla cell proliferation, and perifollicular
+    angiogenesis. Effect is localised and dose-dependent on platelet
+    concentration.
+
+evidence_lines:
+
+  - study:
+      pmid: "24165522"
+      title: >-
+        The Effect of Platelet-Rich Plasma in Hair Regrowth:
+        A Randomized Placebo-Controlled Trial.
+      authors: [Gentile P, Garcovich S, Bielli A, Scioli MG, Orlandi A, Cervelli V]
+      journal: Stem Cells Translational Medicine
+      year: 2015
+      design: randomized_controlled_trial
+      n_participants: 23
+      duration_weeks: 12
+      population_sex: mixed
+      blinding: placebo_controlled
+      risk_of_bias: low
+    eco_evidence_type: randomized_controlled_trial_evidence
+    direction: supports
+    notes: >-
+      PRP significantly increased hair number and mean follicle diameter
+      vs placebo injection. Standardised PRP preparation at 4× baseline
+      platelets. Statistically significant at 3 months.
+
+  - study:
+      pmid: "28891582"
+      title: >-
+        A Randomized Placebo-Controlled, Double-Blind, Half-Head Study
+        to Assess the Efficacy of Platelet-Rich Plasma on the Treatment
+        of Androgenetic Alopecia.
+      authors: [Alves R, Grimalt R]
+      journal: Dermatologic Surgery
+      year: 2016
+      design: randomized_controlled_trial
+      n_participants: 25
+      duration_weeks: 24
+      blinding: double_blind
+      risk_of_bias: low
+    eco_evidence_type: randomized_controlled_trial_evidence
+    direction: supports
+    percent_change: null
+    notes: >-
+      Double-blind half-head RCT: PRP-treated side showed significantly
+      increased hair density (mean +33.6 hairs/cm²) vs saline control
+      at 6 months. Intra-individual design controls for confounders.
+
+  - study:
+      pmid: "30027569"
+      title: >-
+        Meta-analytical comparison of PRP versus minoxidil for treatment
+        of androgenetic alopecia.
+      authors: [Gupta AK, Carviel JL]
+      journal: Journal of Dermatological Treatment
+      year: 2017
+      design: meta_analysis
+      risk_of_bias: moderate
+    eco_evidence_type: meta_analysis_evidence
+    direction: supports
+    notes: >-
+      PRP showed comparable efficacy to topical minoxidil for hair
+      density improvement. PRP superior to placebo across pooled studies.
+      Heterogeneity in PRP preparation protocols limits pooled estimates.

@@ -1,0 +1,11 @@
+---
+id: healthkg:paradigm/mitochondrial-health
+name: Mitochondrial Health
+description: >-
+  Domain covering mitochondrial biogenesis, electron transport chain
+  efficiency, mitophagy, NAD+/NADH ratio, reactive oxygen species (ROS)
+  management, and ATP production capacity. Interventions include
+  NMN/NR (NAD+ precursors), CoQ10, PQQ, red light therapy,
+  and exercise.
+paradigms: [mitochondrial_health]
+key_biomarkers: [NAD+ levels, CoQ10, mtDNA copy number, lactate/pyruvate ratio]

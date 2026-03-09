@@ -1,0 +1,18 @@
+# HairOutcome — Hair Shaft Diameter
+---
+id: healthkg:outcome/hair-shaft-diameter
+name: Hair Shaft Diameter
+description: >-
+  Mean hair shaft diameter in micrometers (µm) measured at the scalp surface.
+  Reduced miniaturization (increasing diameter) indicates treatment response
+  in AGA. Normal terminal hair is ≥60µm; vellus hair is <30µm. The ratio
+  of terminal to vellus hairs (terminal:vellus ratio, or TVR) is related.
+  Measured by phototrichogram or digital trichoscopy.
+paradigms:
+  - hair_health
+
+measurement_method: Phototrichogram, digital trichoscopy with measurement software
+improvement_direction: increase
+typical_units: micrometers (µm)
+reference_range_lower: 60.0   # µm for terminal hair
+reference_range_upper: 100.0

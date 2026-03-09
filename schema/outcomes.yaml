@@ -1,0 +1,479 @@
+id: https://healthoptkg.github.io/schema/outcomes
+name: health-opt-kg-outcomes
+description: >-
+  Classes representing health outcomes — measurable biomarkers, phenotypic
+  traits, symptoms, conditions, and performance metrics that agents or
+  procedures are asserted to affect. All outcomes are things we can
+  observe, measure, or assess in a person.
+license: CC-BY-4.0
+version: 0.1.0
+
+prefixes:
+  linkml:   https://w3id.org/linkml/
+  healthkg: https://healthoptkg.github.io/schema/
+  BFO:      http://purl.obolibrary.org/obo/BFO_
+  HP:       http://purl.obolibrary.org/obo/HP_
+  MONDO:    http://purl.obolibrary.org/obo/MONDO_
+  LOINC:    http://loinc.org/
+  UBERON:   http://purl.obolibrary.org/obo/UBERON_
+  NCIT:     http://purl.obolibrary.org/obo/NCIT_
+  PATO:     http://purl.obolibrary.org/obo/PATO_
+  schema:   http://schema.org/
+
+default_prefix: healthkg
+default_range: string
+
+imports:
+  - linkml:types
+  - core
+
+# ── Classes ───────────────────────────────────────────────────────────────────
+classes:
+
+  HealthOutcome:
+    description: >-
+      Any observable or measurable health-related state, quality, or
+      process that can serve as the object of an evidence claim. This
+      is the broadest category — subclassed into biomarkers, symptoms,
+      conditions, and performance metrics.
+      Aligned with BFO:0000019 (quality) for measurable traits and
+      BFO:0000016 (disposition) for tendencies/conditions.
+    is_a: BFOQuality
+    abstract: true
+    attributes:
+      hp_id:
+        range: CURIEString
+        description: >-
+          Human Phenotype Ontology identifier for this outcome
+          (e.g. HP:0001596 for alopecia).
+      mondo_id:
+        range: CURIEString
+        description: >-
+          MONDO disease ontology identifier, if this outcome is a
+          diagnosable condition.
+      ncit_id:
+        range: CURIEString
+        description: NCI Thesaurus identifier.
+      direction_of_improvement:
+        range: OutcomeImprovementDirection
+        description: >-
+          Whether improvement means an increase or decrease in the
+          measured value. Used to interpret effect direction in claims.
+      measurement_method:
+        range: string
+        description: >-
+          Standard method(s) for measuring this outcome
+          (e.g. "trichoscopy", "serum assay", "validated questionnaire").
+
+  Biomarker:
+    description: >-
+      A quantifiable biological measurement — a molecular, cellular,
+      physiological, or radiological characteristic that objectively
+      reflects a biological state, process, or pharmacological response.
+      Aligned with IAO:0000109 (measurement datum).
+    is_a: HealthOutcome
+    class_uri: NCIT:C16342
+    attributes:
+      loinc_code:
+        range: LOINCCode
+        description: >-
+          LOINC identifier for the standardized laboratory observation
+          (e.g. 14749-6 for serum glucose, 2986-8 for serum testosterone).
+      specimen_type:
+        range: SpecimenType
+        description: Biological specimen required for measurement.
+      units:
+        range: string
+        description: Standard reporting units (e.g. ng/dL, pg/mL, mmol/L, IU/mL).
+      reference_range_lower:
+        range: float
+        description: Lower bound of the population reference range (conventionally healthy).
+      reference_range_upper:
+        range: float
+        description: Upper bound of the population reference range.
+      optimal_range_lower:
+        range: float
+        description: >-
+          Lower bound of the health-optimization target range (may differ
+          from clinical reference range — e.g. optimal vitamin D vs.
+          sufficiency cutoff).
+      optimal_range_upper:
+        range: float
+        description: Upper bound of the health-optimization target range.
+      biomarker_category:
+        range: BiomarkerCategory
+        description: Functional category of this biomarker.
+      hallmarks_of_aging_relevance:
+        range: HallmarkOfAging
+        multivalued: true
+        description: >-
+          Which hallmarks of aging this biomarker reflects or tracks
+          (e.g. IGF-1 → deregulated nutrient sensing).
+
+  HormonalBiomarker:
+    description: >-
+      A biomarker measuring a hormone or hormone-related compound.
+      Includes sex hormones, thyroid hormones, stress hormones,
+      growth factors, and their binding proteins.
+    is_a: Biomarker
+    attributes:
+      hormone_class:
+        range: HormoneClass
+        description: Class of hormone.
+      binding_protein:
+        range: string
+        description: >-
+          Primary binding protein in circulation, if applicable
+          (e.g. SHBG for testosterone, TBG for T4/T3).
+      free_vs_total:
+        range: string
+        description: >-
+          Whether the measurement is of total hormone, free fraction,
+          or both (e.g. "free testosterone", "total testosterone").
+
+  InflammatoryBiomarker:
+    description: >-
+      A biomarker measuring systemic or local inflammation.
+      Includes acute-phase proteins, cytokines, and inflammatory indexes.
+    is_a: Biomarker
+    attributes:
+      cytokine_type:
+        range: string
+        description: >-
+          Cytokine classification if applicable (pro-inflammatory,
+          anti-inflammatory, regulatory).
+
+  MetabolicBiomarker:
+    description: >-
+      A biomarker measuring metabolic state — glucose homeostasis,
+      lipid metabolism, liver function, kidney function, or body
+      composition.
+    is_a: Biomarker
+    attributes:
+      fasting_required:
+        range: boolean
+        description: True if fasting is required before measurement.
+
+  HairOutcome:
+    description: >-
+      An outcome specifically relating to hair growth, density, structure,
+      or scalp health. Includes both objective (trichoscopy, phototrichogram)
+      and subjective measures.
+    is_a: HealthOutcome
+    class_uri: NCIT:C17625
+    attributes:
+      hair_parameter:
+        range: HairParameter
+        description: The specific hair-related parameter being measured.
+      measurement_tool:
+        range: string
+        description: >-
+          Tool or scale used for measurement (e.g. "trichoscopy",
+          "global photographic assessment", "TLSS — Trichologist-Led
+          Severity Scale", "hair pull test", "phototrichogram").
+      scalp_region:
+        range: ScalpRegion
+        description: Region of the scalp being assessed.
+
+  SkinOutcome:
+    description: >-
+      An outcome relating to skin appearance, structure, or function.
+      Covers dermal thickness, collagen density, elasticity, pigmentation,
+      sebum production, hydration, barrier function, and perceived aging.
+    is_a: HealthOutcome
+    attributes:
+      skin_parameter:
+        range: SkinParameter
+        description: The specific skin-related parameter being measured.
+      skin_layer:
+        range: string
+        description: >-
+          Skin layer primarily affected (epidermis, dermis, hypodermis,
+          stratum corneum, dermal-epidermal junction).
+      measurement_tool:
+        range: string
+        description: >-
+          Measurement tool or scoring system (e.g. "Cutometer",
+          "high-frequency ultrasound", "confocal reflectance microscopy",
+          "GAIS — Global Aesthetic Improvement Scale", "Mexameter").
+
+  Symptom:
+    description: >-
+      A subjective experience reported by an individual — not directly
+      observable by another person and not directly measurable by a
+      laboratory test. Examples: fatigue, brain fog, low libido,
+      joint pain, hair thinning (self-perceived).
+      Aligned with IAO symptom concept; use HP terms where available.
+    is_a: HealthOutcome
+    class_uri: HP:0000118
+    attributes:
+      severity_scale:
+        range: string
+        description: >-
+          Validated scale used to assess severity
+          (e.g. "VAS 0–10", "HAMD-17", "PSQI for sleep", "MFI for fatigue").
+      onset_pattern:
+        range: string
+        description: >-
+          Typical onset pattern (acute, subacute, chronic, episodic).
+
+  HealthCondition:
+    description: >-
+      A diagnosable disease, disorder, or condition. Includes chronic
+      diseases targeted by health optimization interventions. Use MONDO
+      terms where available; HP for associated phenotypes.
+    is_a: HealthOutcome
+    class_uri: MONDO:0000001
+    attributes:
+      icd10_code:
+        range: string
+        description: ICD-10-CM code for this condition.
+      prevalence:
+        range: string
+        description: >-
+          Approximate population prevalence (e.g. "~50% of men by age 50"
+          for androgenic alopecia).
+      etiology:
+        range: string
+        multivalued: true
+        description: Known or hypothesized etiological factors.
+
+  PerformanceMetric:
+    description: >-
+      A measurable physical or cognitive performance outcome. Includes
+      strength, endurance, cognitive test scores, reaction time, and
+      recovery markers.
+    is_a: HealthOutcome
+    attributes:
+      performance_domain:
+        range: PerformanceDomain
+        description: Domain of performance being measured.
+      test_or_protocol:
+        range: string
+        description: >-
+          Specific test or standardized protocol used
+          (e.g. "1RM squat", "VO2max via CPET", "CNS Vital Signs",
+          "Grip strength dynamometry", "HRV via RMSSD").
+
+# ── Enumerations ──────────────────────────────────────────────────────────────
+enums:
+
+  OutcomeImprovementDirection:
+    description: >-
+      Whether an improvement in this outcome corresponds to an increase
+      or decrease in the measured value.
+    permissible_values:
+      increase_is_better:
+        description: >-
+          Higher values represent improvement (e.g. hair density,
+          testosterone, VO2max, grip strength, HDL cholesterol).
+      decrease_is_better:
+        description: >-
+          Lower values represent improvement (e.g. hair loss score,
+          blood glucose, LDL, CRP, cortisol, DHT).
+      context_dependent:
+        description: >-
+          Direction of improvement depends on context, baseline, or
+          individual factors (e.g. IGF-1 — low in deficiency, potentially
+          high in cancer promotion).
+
+  BiomarkerCategory:
+    description: Functional category for biomarkers.
+    permissible_values:
+      hormonal:
+        description: Hormones and hormone metabolites.
+      inflammatory:
+        description: Markers of systemic or local inflammation (CRP, IL-6, TNF-alpha, homocysteine).
+      metabolic:
+        description: Glucose, lipids, liver enzymes, metabolic panel markers.
+      hematological:
+        description: Complete blood count, iron panel, coagulation markers.
+      thyroid:
+        description: Thyroid hormones and related markers (TSH, free T4, free T3, TPO-Ab).
+      nutritional:
+        description: >-
+          Micronutrient levels (vitamin D, vitamin B12, folate, ferritin,
+          zinc, magnesium RBC).
+      renal:
+        description: Kidney function markers (creatinine, BUN, eGFR, cystatin C).
+      hepatic:
+        description: Liver function markers (ALT, AST, GGT, bilirubin, albumin).
+      cardiovascular:
+        description: >-
+          Cardiovascular risk markers (ApoB, Lp(a), ox-LDL, triglycerides,
+          CAC score, CIMT).
+      epigenetic:
+        description: >-
+          Biological age clocks and epigenetic markers (Horvath clock,
+          GrimAge, DNAm pace of aging, telomere length).
+      microbiome:
+        description: Gut microbiome diversity indices and specific taxa ratios.
+      imaging:
+        description: >-
+          Imaging-based biomarkers (DEXA for body composition/BMD,
+          MRI, ultrasound, trichoscopy).
+      cognitive:
+        description: Neuropsychological test scores.
+      other: {}
+
+  SpecimenType:
+    description: Biological specimen required for biomarker measurement.
+    permissible_values:
+      serum: {}
+      plasma: {}
+      whole_blood: {}
+      urine_24h:
+        description: 24-hour urine collection.
+      urine_spot: {}
+      saliva: {}
+      stool: {}
+      hair_tissue_mineral:
+        description: Hair tissue mineral analysis (HTMA) — hair sample.
+      biopsy_skin: {}
+      biopsy_hair_follicle: {}
+      csf:
+        description: Cerebrospinal fluid.
+      breath: {}
+      imaging:
+        description: No specimen — measurement from imaging modality.
+
+  HormoneClass:
+    description: Classification of hormones.
+    permissible_values:
+      androgen:
+        description: Testosterone, DHT, DHEA, androstenedione.
+      estrogen:
+        description: Estradiol, estrone, estriol.
+      progestogen:
+        description: Progesterone, 17-hydroxyprogesterone.
+      glucocorticoid:
+        description: Cortisol, cortisone.
+      mineralocorticoid:
+        description: Aldosterone.
+      thyroid:
+        description: T3, T4, TSH, reverse T3.
+      growth_factor:
+        description: Growth hormone (GH), IGF-1, IGF-BP3.
+      insulin_glucagon:
+        description: Insulin, glucagon, C-peptide, proinsulin.
+      melatonin_circadian:
+        description: Melatonin and circadian-related hormones.
+      peptide_hormone:
+        description: Hormones with peptide structure not listed above (leptin, ghrelin, adiponectin).
+      other: {}
+
+  HairParameter:
+    description: Specific hair-related outcome parameter.
+    permissible_values:
+      hair_density:
+        description: Number of hair follicle units per cm² of scalp.
+      hair_count:
+        description: Total hair count in a defined area.
+      hair_thickness_diameter:
+        description: Individual hair shaft diameter in micrometers.
+      anagen_ratio:
+        description: Proportion of hairs in the anagen (active growth) phase.
+      telogen_ratio:
+        description: Proportion of hairs in the telogen (resting/shedding) phase.
+      hair_growth_rate:
+        description: Rate of hair shaft elongation (mm/day or mm/month).
+      hair_shedding_count:
+        description: Number of hairs shed per day (normal ~50–100).
+      global_photographic_assessment:
+        description: >-
+          Standardized photographic global assessment score for hair
+          fullness and coverage.
+      investigator_assessment_score:
+        description: Clinician-rated severity score (e.g. TLSS, Hamilton-Norwood staging).
+      patient_reported_satisfaction:
+        description: Self-assessed satisfaction or improvement.
+      scalp_sebum_production:
+        description: Sebum production rate at scalp surface.
+      scalp_microbiome_diversity:
+        description: Diversity index of scalp microbiome.
+      miniaturization_ratio:
+        description: >-
+          Proportion of follicles showing vellus miniaturization
+          (key marker of androgenic alopecia progression).
+
+  ScalpRegion:
+    description: Region of the scalp assessed.
+    permissible_values:
+      vertex:
+        description: Crown/top of the scalp — primary target in male pattern baldness.
+      frontal:
+        description: Frontal hairline and frontotemporal receding areas.
+      temporal:
+        description: Temporal regions bilaterally.
+      occipital:
+        description: Back of the scalp (often least affected in AGA, used as control).
+      diffuse:
+        description: Diffuse involvement across the entire scalp.
+      mid_scalp:
+        description: Mid-scalp region between vertex and frontal.
+
+  SkinParameter:
+    description: Specific skin-related outcome parameter.
+    permissible_values:
+      collagen_density:
+        description: Dermal collagen content (ultrasound, histology, or MRI-derived).
+      skin_elasticity:
+        description: Cutometer measurement of skin elasticity and firmness.
+      skin_hydration:
+        description: Corneometer or TEWL measurement of stratum corneum hydration.
+      wrinkle_depth_area:
+        description: Silicone replica analysis or fringe projection topography of wrinkles.
+      skin_thickness:
+        description: Ultrasound-derived epidermal and dermal thickness.
+      pigmentation:
+        description: Melanin content measurement (Mexameter, spectrophotometry).
+      erythema:
+        description: Redness/erythema index (Mexameter, subjective grading).
+      sebum_production:
+        description: Sebumeter measurement of skin surface lipids.
+      pore_size:
+        description: Dermoscopy or digital photography pore area quantification.
+      barrier_function_tewl:
+        description: >-
+          Transepidermal water loss (TEWL) — measure of skin barrier
+          integrity (Tewameter).
+      skin_texture_roughness:
+        description: Profilometry or digital analysis of surface texture.
+      global_aging_score:
+        description: >-
+          Composite clinician- or patient-rated global skin aging assessment
+          (GAIS, Fitzpatrick scale, Glogau scale).
+
+  PerformanceDomain:
+    description: Domain of physical or cognitive performance.
+    permissible_values:
+      muscular_strength:
+        description: Maximum force production (1RM, grip dynamometry, isokinetic testing).
+      muscular_endurance:
+        description: Sustained force production over time or repetitions.
+      aerobic_capacity:
+        description: VO2max, lactate threshold, aerobic power output.
+      power_explosiveness:
+        description: Vertical jump, sprint speed, Wingate test, rate of force development.
+      body_composition:
+        description: Lean mass, fat mass, body fat percentage (DEXA, BIA, skinfold).
+      bone_density:
+        description: Bone mineral density (DEXA T-score, Z-score).
+      flexibility_mobility:
+        description: Range of motion, joint flexibility.
+      balance_coordination:
+        description: Static and dynamic balance assessments.
+      cognitive_processing_speed:
+        description: Reaction time, processing speed tests (Trail Making Test, CogState).
+      working_memory:
+        description: Short-term working memory capacity (digit span, N-back).
+      executive_function:
+        description: Planning, inhibition, cognitive flexibility (Stroop, WCST).
+      sleep_quality:
+        description: >-
+          PSQI score, polysomnography parameters, wearable HRV, deep
+          sleep percentage.
+      recovery_hrv:
+        description: Heart rate variability as a marker of autonomic recovery.
+      endurance_performance:
+        description: Time trial, race performance, sustained power output metrics.

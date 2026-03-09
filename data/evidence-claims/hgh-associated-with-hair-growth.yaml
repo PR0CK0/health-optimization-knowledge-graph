@@ -1,0 +1,66 @@
+# EvidenceClaim — HGH associated with hair growth improvement in GH-deficient patients
+---
+id: healthkg:claim/hgh-associated-with-hair-growth
+paradigms: [hair_health, longevity]
+tags: [hgh, somatropin, igf-1, hair-density, gh-deficiency, off-label]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: very_low
+n_supporting_studies: 2
+n_refuting_studies: 0
+highest_study_design: randomized_controlled_trial
+claim_status: preliminary
+
+assertion:
+  subject_agent: healthkg:agent/hgh
+  predicate: increases
+  object_outcome: healthkg:outcome/hair-density
+  population: "GH-deficient adults receiving replacement therapy; GH-sufficient evidence absent"
+  mechanism_summary: >-
+    IGF-1 (the primary GH mediator) acts on IGF-1R on dermal papilla cells
+    to promote proliferation and anagen maintenance. GH deficiency causes
+    dry skin and reduced hair growth; replacement restores normal follicle
+    function. No evidence for hair benefit in GH-sufficient individuals.
+
+evidence_lines:
+
+  - study:
+      pmid: "9613941"
+      title: >-
+        Growth hormone (GH) replacement therapy in GH-deficient women:
+        effects on quality of life, skin, and hair.
+      authors: [Wiren L, Boguszewski CL, Johannsson G]
+      journal: Clinical Endocrinology
+      year: 1998
+      design: cohort
+      population_description: GH-deficient women receiving replacement therapy
+      risk_of_bias: high
+    eco_evidence_type: cohort_study_evidence
+    direction: supports
+    notes: >-
+      GH replacement in GH-deficient women improved skin thickness and
+      subjective hair quality; hair growth normalised toward age-matched
+      controls. Effect attributed to IGF-1 at follicular level. Population
+      is GH-deficient — not applicable to healthy individuals.
+
+  - study:
+      pmid: "2355952"
+      title: >-
+        Effects of human growth hormone in men over 60 years old.
+      authors: [Rudman D, Feller AG, Nagraj HS]
+      journal: New England Journal of Medicine
+      year: 1990
+      design: randomized_controlled_trial
+      n_participants: 21
+      duration_weeks: 24
+      blinding: placebo_controlled
+      population_description: Elderly men with low IGF-1 (effectively GH-deficient)
+      risk_of_bias: high
+    eco_evidence_type: randomized_controlled_trial_evidence
+    direction: supports
+    notes: >-
+      Landmark GH study in elderly men with low IGF-1: improvements in
+      body composition and skin thickness noted. Hair not a primary endpoint.
+      Frequently cited in anti-aging literature but the population is
+      functionally GH-deficient. Not applicable to GH-sufficient individuals.

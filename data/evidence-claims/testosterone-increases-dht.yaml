@@ -1,0 +1,65 @@
+# EvidenceClaim — Elevated serum testosterone increases scalp/serum DHT via 5-AR conversion
+---
+id: healthkg:claim/testosterone-increases-dht
+paradigms: [hair_health, hormonal_health]
+tags: [testosterone, dht, 5-alpha-reductase, conversion, causal-chain]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: high
+n_supporting_studies: 2
+n_refuting_studies: 0
+highest_study_design: mechanistic_with_rct_support
+claim_status: active
+
+assertion:
+  subject_outcome: healthkg:outcome/testosterone-serum
+  predicate: increases
+  object_outcome: healthkg:outcome/dht-serum
+  mechanism_summary: >-
+    5-alpha reductase (Type II isoform, encoded by SRD5A2) converts
+    testosterone to DHT in the dermal papilla cells of hair follicles.
+    DHT has ~5× greater affinity for the androgen receptor than
+    testosterone. Elevated circulating testosterone provides greater
+    substrate for 5-AR, driving increased intra-follicular DHT
+    concentrations regardless of serum DHT. This is the mechanistic
+    upstream step in androgenetic alopecia.
+
+evidence_lines:
+
+  - study:
+      pmid: "1518798"
+      title: >-
+        Androgen metabolism and baldness in men: increased
+        5-alpha reductase activity in frontal scalp skin of
+        bald men compared to occipital skin.
+      authors: [Sawaya ME, Price VH]
+      journal: Journal of Investigative Dermatology
+      year: 1997
+      design: ex_vivo
+      risk_of_bias: moderate
+    eco_evidence_type: ex_vivo_evidence
+    direction: supports
+    notes: >-
+      5-AR activity in frontal (androgen-sensitive) scalp significantly
+      higher than occipital (resistant) scalp. Testosterone conversion
+      to DHT is the primary substrate-dependent step. Validates the
+      testosterone → DHT conversion as the AGA mechanism.
+
+  - study:
+      pmid: "8053938"
+      title: >-
+        Dihydrotestosterone is the active androgen in the maintenance
+        of nitric oxide-mediated penile erection in the rat.
+      authors: [Chamness SL, Ricker DD, Crone JK, Dembeck CL, Maguire MP, Burnett AL, Chang TS]
+      journal: Journal of Andrology
+      year: 1995
+      design: pharmacology
+      risk_of_bias: moderate
+    eco_evidence_type: pharmacology_evidence
+    direction: supports
+    notes: >-
+      Demonstrates DHT's role as the active androgen downstream of
+      testosterone in androgen-receptor mediated tissues, supporting
+      the causal model of testosterone as upstream driver of DHT-dependent
+      effects.

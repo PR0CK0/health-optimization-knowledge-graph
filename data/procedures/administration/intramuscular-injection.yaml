@@ -1,0 +1,20 @@
+id: healthkg:procedure/intramuscular-injection
+name: Intramuscular Injection
+description: >
+  Administration via needle directly into muscle tissue. Oil-based compounds form a depot
+  in the muscle bed and release slowly into the capillary network, producing sustained
+  blood-level curves. Standard route for AAS esters, injectable estradiol, and some
+  peptide protocols requiring larger volumes.
+paradigms:
+  - drug_delivery
+common_sites:
+  - Ventroglute / gluteus medius (preferred — large muscle, away from sciatic nerve, low pain)
+  - Dorsoglute / gluteus maximus (common but higher sciatic nerve risk if landmark missed)
+  - Vastus lateralis / quad (accessible for self-injection; moderate soreness with oils)
+  - Deltoid (small volumes only — ≤1ml; fast absorption due to high vascularity)
+typical_gauge: 23-25G (23G most common for oil-based; 25G for aqueous)
+typical_needle_length_inch: 1.0-1.5 (1.0 for lean; 1.5 for higher body fat or ventroglute)
+max_volume_ml: 3
+carrier_notes: Oil-based carriers (grape seed, sesame, MCT, cottonseed) require 21-23G to draw; switch to 23-25G to inject
+absorption_profile: Slow depot release from oil matrix; peak serum at 24-72h (ester-dependent)
+aspiration_required: false (current consensus — no need to aspirate in limb/glute sites)

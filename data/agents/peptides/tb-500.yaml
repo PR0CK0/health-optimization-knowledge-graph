@@ -1,0 +1,33 @@
+---
+id: healthkg:agent/tb-500
+name: TB-500
+description: >-
+  TB-500 is a synthetic peptide corresponding to the active region of
+  Thymosin Beta-4 (Tβ4), a naturally occurring 43-amino-acid protein
+  ubiquitous in human tissues. The TB-500 fragment (typically residues
+  17–23: LKKTETQ) retains the core actin-binding and wound-healing
+  activities of full-length Tβ4. Promotes angiogenesis, reduces
+  inflammation, accelerates tissue repair (tendon, muscle, cardiac),
+  and — critically — activates hair follicle stem cells in the bulge
+  region via Wnt/β-catenin signalling to trigger anagen phase entry.
+aliases:
+  - Thymosin Beta-4 fragment
+  - Tβ4 synthetic analog
+  - TB500
+xrefs:
+  - PubChem:16133641
+paradigms: [hair_health, wound_healing, musculoskeletal, recovery]
+amino_acid_sequence: Lys-Lys-Thr-Glu-Thr-Gln (core active fragment of Tβ4)
+residue_count: 43
+peptide_class: tissue_repair_peptide
+regulatory_status: research_chemical
+notes: >-
+  Distinct from BPC-157 — TB-500's primary mechanism is actin
+  sequestration and Wnt/β-catenin pathway activation. Hair follicle
+  stem cell activation is a well-characterised property of full-length
+  Tβ4 in murine models (Philp 2004, Cha 2003). No human RCTs for hair
+  specifically. WADA-prohibited. Typically administered subcutaneously.
+  Often stacked with BPC-157 in research peptide protocols.
+administered_via:
+  - healthkg:procedure/subcutaneous-injection
+  - healthkg:procedure/intranasal-administration

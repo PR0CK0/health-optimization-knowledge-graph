@@ -1,0 +1,22 @@
+id: healthkg:procedure/subcutaneous-injection
+name: Subcutaneous Injection
+description: >
+  Administration into the subcutaneous fat layer (hypodermis) between skin and muscle.
+  Lower vascularity than muscle produces slower, more even absorption — particularly
+  advantageous for TRT microdosing and peptide protocols where stable serum levels
+  matter more than peak concentration. Standard route for insulin, HGH, and most
+  research peptides.
+paradigms:
+  - drug_delivery
+common_sites:
+  - Abdomen (periumbilical, 2+ inches from navel — preferred for peptides)
+  - Anterior thigh (easy self-injection; moderate absorption rate)
+  - Deltoid fat pad (upper outer arm)
+  - Upper buttock / hip fat
+typical_gauge: 27-31G (insulin syringe territory; 29-31G for aqueous peptides)
+typical_needle_length_inch: 0.375-0.5 (3/8 to 1/2 inch; pinch skin to tent fat layer)
+max_volume_ml: 1 (larger volumes cause painful blebs and slow incomplete absorption)
+absorption_profile: Slow, even absorption; flatter serum curve than IM — preferred for stable hormone levels in TRT microdosing
+notes: >
+  Subcutaneous testosterone is increasingly preferred over IM for TRT due to
+  reduced peak-to-trough variability. Bioavailability is equivalent at lower volumes.

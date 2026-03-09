@@ -1,0 +1,12 @@
+---
+id: healthkg:paradigm/skin-health
+name: Skin Health
+description: >-
+  Domain covering dermal biology, collagen and elastin synthesis,
+  skin barrier function (TEWL), photoageing, wound healing, and
+  interventions affecting skin texture, hydration, pigmentation,
+  and structural integrity. Overlaps with longevity via
+  extracellular matrix remodelling.
+paradigms: [skin_health]
+key_conditions: [photoageing, atopic dermatitis, acne, rosacea]
+key_biomarkers: [dermal collagen density, skin elasticity, TEWL]

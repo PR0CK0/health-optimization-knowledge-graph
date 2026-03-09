@@ -1,0 +1,27 @@
+id: healthkg:agent/fluoxymesterone
+name: Halotestin (Fluoxymesterone)
+description: >
+  Extremely potent oral testosterone-derived AAS. Despite testosterone derivation the fluorine
+  group at C-9 blocks aromatization, yielding an unusually high androgenic index (850).
+  Produces dramatic aggression and strength increases with minimal mass gain. Licensed for
+  androgen deficiency and delayed puberty. Rarely used due to severe side-effect profile
+  (hepatotoxicity, aggressive behaviour, cardiovascular strain). Half-life 9 hours.
+aliases:
+  - Fluoxymesterone
+  - Halotestin
+  - Halo
+xrefs:
+  - CHEBI:5103
+  - ATC:G03BA01
+  - DrugBank:DB01185
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+regulatory_status: schedule_iii_controlled_substance_us
+wada_prohibited: true
+aromatizes: false
+anabolic_index: 1900
+androgenic_index: 850
+half_life: 9 hours
+administered_via:
+  - healthkg:procedure/oral-administration

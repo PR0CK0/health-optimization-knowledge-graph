@@ -1,0 +1,27 @@
+id: healthkg:agent/oxymetholone
+name: Anadrol (Oxymetholone)
+description: >
+  Highly potent oral DHT-derived anabolic steroid. Among the strongest AAS for mass accrual;
+  licensed for aplastic anaemia and HIV wasting. Despite DHT derivation, produces significant
+  water retention via an unclear mechanism (possibly prostanoid pathway, not aromatase).
+  Substantially hepatotoxic at clinical and performance doses. Short half-life necessitates
+  daily or split dosing.
+aliases:
+  - Oxymetholone
+  - A-50
+  - Anadrol-50
+xrefs:
+  - CHEBI:7853
+  - ATC:A14AA05
+  - DrugBank:DB06412
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+regulatory_status: schedule_iii_controlled_substance_us
+wada_prohibited: true
+aromatizes: false
+anabolic_index: 320
+androgenic_index: 45
+half_life: 8-9 hours
+administered_via:
+  - healthkg:procedure/oral-administration

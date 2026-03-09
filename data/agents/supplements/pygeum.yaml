@@ -1,0 +1,30 @@
+---
+id: healthkg:supplement/pygeum
+name: Pygeum Extract
+description: >-
+  Bark extract of Prunus africana (African plum tree), standardised to
+  contain triterpenes (ursolic, oleic, crataegolic acids), ferulic acid
+  esters (n-docosanol, tetracosanol), and beta-sitosterol. Multiple
+  mechanisms relevant to AGA: weak 5-alpha reductase inhibition via
+  beta-sitosterol; anti-androgenic effects via ferulic acid esters
+  reducing cholesterol side-chain cleavage (limiting androgen precursor
+  supply); and anti-inflammatory effects in the scalp. Evidence primarily
+  from BPH trials; hair-specific data is limited.
+aliases:
+  - Prunus africana extract
+  - Pygeum africanum
+  - Tadenan (brand)
+xrefs:
+  - PubChem:222284   # beta-sitosterol (primary active)
+paradigms: [hair_health, hormonal_health]
+supplement_category: Botanical / triterpene-phytosterol extract
+standardisation: Lipophilic bark extract 13% total sterols
+typical_dose: 100mg/day (standardised extract)
+notes: >-
+  Pygeum has good evidence for BPH (meta-analyses show symptom reduction)
+  via the same 5-AR / androgen pathway relevant to AGA. Hair-specific
+  RCT data is lacking. Beta-sitosterol content overlaps with saw palmetto
+  mechanism. Often combined with saw palmetto in OTC BPH/hair formulas.
+  Very safe profile. Not WADA prohibited.
+administered_via:
+  - healthkg:procedure/oral-administration

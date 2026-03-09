@@ -1,0 +1,11 @@
+---
+id: healthkg:paradigm/tissue-repair
+name: Tissue Repair
+description: >-
+  Domain covering acute and chronic wound healing, tendon/ligament
+  repair, scar remodelling, and regenerative biology. Involves
+  inflammatory phases, fibroblast proliferation, angiogenesis,
+  and extracellular matrix remodelling. Key agents: BPC-157,
+  TB-500, PRP, GHK-Cu.
+paradigms: [tissue_repair]
+key_biomarkers: [tissue repair rate, wound closure rate, scar area]

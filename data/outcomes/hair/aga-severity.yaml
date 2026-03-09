@@ -1,0 +1,16 @@
+# HairOutcome — AGA Severity (Hamilton-Norwood / Ludwig Scale)
+---
+id: healthkg:outcome/aga-severity
+name: AGA Severity (HN/Ludwig Scale)
+description: >-
+  Clinical staging of androgenic alopecia (AGA) using standardised scales.
+  Hamilton-Norwood scale (men): grades I–VII based on frontal recession and
+  vertex thinning. Ludwig scale (women): grades I–III based on diffuse crown
+  thinning. Lower scores = less severe. Assessed by clinician photograph
+  grading, global photography, or validated patient self-assessment tools.
+paradigms:
+  - hair_health
+
+measurement_method: Clinical assessment, standardised global photography, Hamilton-Norwood or Ludwig scale
+improvement_direction: decrease
+typical_units: ordinal scale (HN I–VII or Ludwig I–III)

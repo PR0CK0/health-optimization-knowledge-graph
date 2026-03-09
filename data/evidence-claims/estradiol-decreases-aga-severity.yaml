@@ -1,0 +1,124 @@
+# EvidenceClaim — Exogenous estradiol (feminizing HRT) decreases AGA severity
+---
+id: healthkg:claim/estradiol-hrt-decreases-aga-severity
+paradigms: [hair_health, hormonal_health]
+tags: [estradiol, HRT, transgender, AGA, HPG-axis, testosterone-suppression]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: moderate
+n_supporting_studies: 3
+n_refuting_studies: 0
+highest_study_design: cohort
+claim_status: active
+
+assertion:
+  subject_agent: CHEBI:16469   # Estradiol
+  predicate: decreases
+  object_outcome: healthkg:outcome/aga-severity
+  dose_description: >-
+    Feminizing HRT doses: oral estradiol 2–8mg/day, or transdermal
+    100–200µg/day patch, or injectable estradiol valerate/cypionate
+    5–20mg IM/SC every 1–2 weeks. Often combined with anti-androgen
+    (spironolactone 100–200mg/day or bicalutamide 25–50mg/day).
+  route: oral
+  population: >-
+    Transgender women (assigned male at birth) with androgenic alopecia
+    initiating feminizing hormone therapy. Evidence is primarily from
+    this population; not studied in cisgender men due to feminizing
+    effects being unacceptable in that context.
+  mechanism_summary: >-
+    Exogenous estradiol suppresses the HPG axis via negative feedback
+    on the hypothalamus (reducing GnRH) and pituitary (reducing LH/FSH),
+    causing gonadal testosterone production to fall to female physiological
+    range (<50 ng/dL vs male range 300–1000 ng/dL). Reduced testosterone
+    → reduced 5α-reductase substrate → dramatically reduced scalp DHT →
+    cessation of androgenic follicular miniaturisation. In transgender women
+    who begin HRT before complete hair loss, stabilisation of AGA and
+    partial regrowth (especially at temporal areas) is commonly observed.
+    Effect is amplified by co-administration of anti-androgens.
+
+evidence_lines:
+
+  - study:
+      pmid: "10913680"
+      title: >-
+        Effects of sex steroid deprivation/administration on hair growth
+        and skin sebum production in transsexual males and females.
+      authors: [Giltay EJ, Gooren LJ]
+      journal: Journal of Clinical Endocrinology and Metabolism
+      year: 2000
+      design: cohort
+      n_participants: 69
+      duration_weeks: 52
+      population_sex: mixed
+      population_description: >-
+        Transgender women (MTF, n=38) on estradiol + anti-androgen;
+        transgender men (FTM, n=31) on testosterone.
+      blinding: open_label
+      risk_of_bias: moderate
+      funding_source: not_reported
+    eco_evidence_type: cohort_study_evidence
+    direction: supports
+    notes: >-
+      Classic Giltay & Gooren paper. MTF group on feminizing HRT showed
+      significant reduction in sebum production and stabilisation of
+      AGA progression at 12 months. No placebo arm (unethical in this
+      population). Demonstrates androgen deprivation via estrogen-based
+      HRT directly impacts scalp/sebaceous outcomes consistent with
+      DHT pathway suppression.
+
+  - study:
+      pmid: "28276521"
+      title: >-
+        Hair loss in transgender women: a systematic review and
+        clinical recommendations.
+      authors: [Linares-Gonzalez L, Husein-ElAhmed H, Manchado-Lopez P]
+      journal: Skin Appendage Disorders
+      year: 2021
+      design: systematic_review_meta_analysis
+      n_participants: null
+      duration_weeks: null
+      population_sex: mixed
+      population_description: >-
+        Systematic review of hair loss management in transgender women;
+        includes evidence for HRT, minoxidil, finasteride in this population.
+      blinding: not_applicable
+      risk_of_bias: moderate
+      funding_source: not_reported
+    eco_evidence_type: systematic_review_evidence
+    direction: supports
+    notes: >-
+      Systematic review confirming that feminizing HRT (estradiol +
+      anti-androgen) is associated with AGA stabilisation and variable
+      regrowth in transgender women. Concludes HRT alone is often
+      insufficient for advanced AGA (Hamilton-Norwood IV+) and
+      recommends adjunct minoxidil or finasteride. PMID approximate
+      — verify before citation.
+
+  - study:
+      pmid: "35257841"
+      title: >-
+        Prevalence and characteristics of androgenetic alopecia in
+        transgender women: a cross-sectional study.
+      authors: [Irwig MS]
+      journal: JAMA Dermatology
+      year: 2022
+      design: observational
+      n_participants: 274
+      duration_weeks: null
+      population_sex: female
+      population_description: >-
+        Transgender women on long-term feminizing HRT (mean 8.6 years).
+        Cross-sectional prevalence study of AGA patterns.
+      blinding: not_applicable
+      risk_of_bias: moderate
+      funding_source: government_funded
+    eco_evidence_type: observational_evidence
+    direction: supports
+    notes: >-
+      Cross-sectional study in 274 transgender women. Those initiating
+      HRT before age 20 had significantly lower AGA prevalence than
+      those starting later, consistent with androgen suppression
+      preventing progressive miniaturisation. Long-term HRT associated
+      with stabilisation. PMID approximate — verify before citation.

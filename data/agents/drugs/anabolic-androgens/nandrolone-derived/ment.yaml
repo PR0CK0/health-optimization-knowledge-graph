@@ -1,0 +1,27 @@
+id: healthkg:agent/trestolone
+name: MENT (Trestolone)
+description: >
+  Injectable 19-nortestosterone-derived AAS under active investigation as a male hormonal
+  contraceptive (WHO Phase II trials). Extraordinary potency — approximately 10x testosterone
+  by anabolic activity. Notable pharmacological outlier: despite being a 19-nor compound, MENT
+  aromatizes heavily to 7-alpha-methyl-oestradiol (a potent oestrogen), unlike most 19-nor AAS.
+  Highly progestogenic. Short half-life as acetate. Not approved for any clinical indication;
+  research chemical / underground-lab only in current practice.
+aliases:
+  - Trestolone
+  - Trestolone acetate
+  - 7-alpha-methyl-19-nortestosterone
+  - MENT
+xrefs:
+  - CHEBI:76981
+paradigms:
+  - musculoskeletal
+  - hormonal_health
+regulatory_status: research_chemical_unapproved
+wada_prohibited: true
+aromatizes: true
+anabolic_index: 650
+androgenic_index: 2300
+half_life: 8 hours (acetate)
+administered_via:
+  - healthkg:procedure/intramuscular-injection

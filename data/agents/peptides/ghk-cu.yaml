@@ -1,0 +1,52 @@
+# ResearchPeptide entry — GHK-Cu (Copper peptide)
+# Validate: make validate-data FILE=data/agents/peptides/ghk-cu.yaml CLASS=ResearchPeptide
+---
+id: PubChem:73995
+name: GHK-Cu
+description: >-
+  Glycyl-L-histidyl-L-lysine copper(II) complex. A naturally occurring
+  human tripeptide first isolated from human plasma albumin by Pickart (1973).
+  Endogenous levels decline significantly with age. Strong regenerative,
+  anti-inflammatory, antioxidant, and wound-healing properties demonstrated
+  in cell culture and animal studies. Used topically in cosmetic products
+  and subcutaneously (research use) for skin rejuvenation, hair growth
+  stimulation, and tissue repair.
+aliases:
+  - Copper peptide
+  - GHK-copper
+  - Gly-His-Lys copper complex
+  - Copper(II) GHK
+  - Lamin (trade name)
+xrefs:
+  - PubChem:73995
+  - CHEBI:73253
+paradigms:
+  - hair_health
+  - skin_health
+  - longevity
+  - wound_healing
+
+amino_acid_sequence: Gly-His-Lys
+residue_count: 3
+peptide_class: copper_binding_peptide
+regulatory_status: research_chemical
+
+mechanisms_of_action:
+  - Stimulates collagen synthesis (types I, III, VI) in fibroblasts
+  - Activates TGF-beta1 signaling for dermal remodelling
+  - Upregulates VEGF → increases follicular vascularisation
+  - Activates follicular stem cells via Wnt/β-catenin pathway modulation
+  - Antioxidant: superoxide dismutase-like activity via copper chelation
+  - Anti-inflammatory: downregulates TNF-α, IL-1β, IL-6
+  - Promotes anagen phase in hair follicle cycling
+notes: >-
+  Endogenous GHK-Cu is produced during normal tissue repair. Serum levels
+  ~200 ng/mL at age 20 decline to ~80 ng/mL by age 60. Most evidence is
+  preclinical (cell/animal); human RCT data is limited but growing for
+  topical skin applications. Hair evidence primarily from in vitro follicle
+  culture and murine studies (Pickart, Uno). Routes used: topical (cosmetics,
+  medical-grade serums), subcutaneous injection (research peptide protocols).
+  Not FDA approved; sold as cosmetic ingredient or research chemical.
+administered_via:
+  - healthkg:procedure/topical-application
+  - healthkg:procedure/subcutaneous-injection

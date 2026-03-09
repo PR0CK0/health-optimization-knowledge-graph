@@ -1,0 +1,45 @@
+# Supplement entry — NMN (Nicotinamide Mononucleotide)
+# Validate: make validate-data FILE=data/agents/supplements/nmn.yaml CLASS=Supplement
+---
+id: CHEBI:77518
+name: NMN
+description: >-
+  β-Nicotinamide mononucleotide. A nucleotide derived from ribose and
+  nicotinamide. Direct precursor to NAD+ (nicotinamide adenine dinucleotide),
+  bypassing the rate-limiting NAMPT step for NMN→NMN via the salvage pathway.
+  Intracellular NAD+ declines ~50% per decade after age 40. Oral NMN
+  supplementation has been shown in multiple human RCTs (2021–2024) to
+  significantly elevate whole-blood and tissue NAD+ levels. Studied for
+  metabolic, mitochondrial, cardiovascular, and longevity effects.
+aliases:
+  - Nicotinamide mononucleotide
+  - β-NMN
+  - β-D-ribofuranosyl nicotinamide 5'-monophosphate
+  - NMN supplement
+xrefs:
+  - CHEBI:77518
+  - PubChem:14180005
+paradigms:
+  - longevity
+  - metabolic_health
+  - mitochondrial_health
+
+typical_dose: 250–500 mg/day oral; some studies use 1g/day
+supplement_category: NAD precursor / longevity compound
+
+mechanisms_of_action:
+  - Converted to NMN then NAD+ via NMNAT enzymes in cells
+  - Restores NAD+ levels that decline with aging
+  - NAD+ is co-factor for sirtuins (SIRT1–7) — epigenetic/metabolic regulators
+  - NAD+ required for PARP DNA repair enzymes
+  - Supports mitochondrial electron transport chain function
+  - Activates AMPK indirectly via NAD+/NADH ratio changes
+notes: >-
+  Best taken in the morning (circadian alignment — NAD+ peaks in early day).
+  Multiple human RCTs published 2021–2024 confirm blood/tissue NAD+ elevation.
+  Clinical endpoints beyond NAD+ (metabolic improvement, longevity, cognitive)
+  are still under investigation. NR (nicotinamide riboside) is a competing
+  NAD precursor with similar effects; head-to-head data limited.
+  Sublingual form may have superior bioavailability to enteric-coated capsules.
+administered_via:
+  - healthkg:procedure/oral-administration

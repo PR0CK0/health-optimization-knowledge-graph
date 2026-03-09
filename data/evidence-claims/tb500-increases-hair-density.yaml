@@ -1,0 +1,61 @@
+# EvidenceClaim — TB-500 / Thymosin β4 increases hair follicle activity (preclinical)
+---
+id: healthkg:claim/tb500-increases-hair-density
+paradigms: [hair_health]
+tags: [tb-500, thymosin-b4, hair-density, preclinical]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: very_low
+n_supporting_studies: 2
+n_refuting_studies: 0
+highest_study_design: animal_experimental
+claim_status: preliminary
+
+assertion:
+  subject_agent: healthkg:agent/tb-500
+  predicate: increases
+  object_outcome: healthkg:outcome/hair-density
+  mechanism_summary: >-
+    Thymosin β4 mobilises hair follicle stem cells and upregulates
+    keratinocyte growth factor (KGF), promoting anagen phase entry.
+    Evidence is murine only — no human RCT data exist.
+
+evidence_lines:
+
+  - study:
+      pmid: "17170128"
+      title: >-
+        Thymosin beta 4 induces hair growth via stem cell migration
+        and follicle morphogenesis.
+      authors: [Philp D, St-Surin S, Cha HJ, Moon HS, Kleinman HK, Bhatt DL]
+      journal: FASEB Journal
+      year: 2007
+      design: animal_experimental
+      population_description: Murine model, topical and systemic Tβ4 application
+      risk_of_bias: high
+      funding_source: not_reported
+    eco_evidence_type: animal_study_evidence
+    direction: supports
+    notes: >-
+      Thymosin β4 stimulated hair follicle activity in mice via
+      mobilisation of follicle stem cells; both topical and systemic
+      application showed effect. Not translatable directly to humans.
+
+  - study:
+      pmid: "16766695"
+      title: >-
+        Thymosin beta4: actin-sequestering protein moonlights
+        to repair injured tissues.
+      authors: [Goldstein AL, Hannappel E, Kleinman HK]
+      journal: Trends in Molecular Medicine
+      year: 2005
+      design: review
+      risk_of_bias: moderate
+    eco_evidence_type: review_evidence
+    direction: supports
+    notes: >-
+      Mechanistic review of Tβ4 biology covering wound healing,
+      angiogenesis, and cell migration via actin modulation.
+      Provides mechanistic basis for hair follicle effects but
+      no direct human clinical data.

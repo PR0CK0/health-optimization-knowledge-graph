@@ -1,0 +1,50 @@
+# ResearchPeptide entry — BPC-157
+# Validate: make validate-data FILE=data/agents/peptides/bpc-157.yaml CLASS=ResearchPeptide
+---
+id: PubChem:9941957
+name: BPC-157
+description: >-
+  Body Protection Compound-157. A synthetic pentadecapeptide (15 amino acids)
+  derived from a protective protein found in gastric juice. Originally
+  isolated from human gastric juice by Sikirić et al. (Zagreb, Croatia).
+  Extensively studied in animal models for gastrointestinal mucosal protection,
+  tendon/ligament repair, nerve regeneration, and angiogenesis. Human
+  clinical data is very limited; regarded as a research chemical. Structurally
+  stable in gastric acid — can be taken orally unlike most peptides.
+aliases:
+  - Body Protection Compound 157
+  - PL 14736
+  - Bepecin (proposed name)
+  - Pentadecapeptide BPC 157
+xrefs:
+  - PubChem:9941957
+paradigms:
+  - musculoskeletal
+  - gut_microbiome
+  - wound_healing
+
+amino_acid_sequence: Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val
+residue_count: 15
+peptide_class: tissue_repair_peptide
+regulatory_status: research_chemical
+
+mechanisms_of_action:
+  - Upregulates VEGFR2 and promotes angiogenesis
+  - Activates FAK-paxillin pathway in tendon fibroblasts
+  - Modulates nitric oxide (NO) synthesis (both upregulation in repair,
+    downregulation in inflammation contexts)
+  - Cytoprotective effects on GI mucosa via prostaglandin E2 pathway
+  - Promotes gut barrier integrity; reduces intestinal permeability
+  - Neuroprotective: dopamine system modulation
+notes: >-
+  Virtually all mechanistic data from rat/mouse models by the Sikirić group
+  (Zagreb). No published Phase I/II/III human RCTs as of 2025. Classified
+  as prohibited substance by WADA (2023). Oral, subcutaneous, and
+  intramuscular routes used in research protocols. Extraordinary anecdotal
+  reports in biohacker community but human evidence base remains very weak.
+  GRADE for any human claim: very_low. Promising for tendon/gut applications
+  pending clinical trials.
+administered_via:
+  - healthkg:procedure/subcutaneous-injection
+  - healthkg:procedure/oral-administration
+  - healthkg:procedure/intranasal-administration

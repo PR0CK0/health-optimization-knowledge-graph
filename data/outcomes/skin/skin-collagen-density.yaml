@@ -1,0 +1,21 @@
+# SkinOutcome — Dermal Collagen Density
+---
+id: healthkg:outcome/skin-collagen-density
+name: Dermal Collagen Density
+description: >-
+  Quantified content and organisation of collagen in the dermis. Collagen
+  (primarily types I and III) constitutes ~70% of the dry weight of the dermis
+  and is the primary structural protein determining skin firmness, elasticity,
+  and resistance to wrinkling. Declines ~1% per year after age 25, accelerated
+  by UV exposure, smoking, and chronic inflammation. Increased dermal collagen
+  density is a key endpoint in skin anti-ageing interventions.
+paradigms:
+  - skin_health
+  - longevity
+
+measurement_method: >-
+  High-frequency ultrasound (20–50 MHz) for dermis thickness;
+  reflectance confocal microscopy; histology (biopsy) with Masson's trichrome
+  or picrosirius red staining; cutometry for surrogate elasticity measures
+typical_units: arbitrary units (ultrasound), µm (thickness), % collagen area (histology)
+improvement_direction: increase

@@ -1,0 +1,10 @@
+---
+id: healthkg:procedure/topical-application
+name: Topical Application
+description: >-
+  Direct application of a compound to the skin surface. Absorption is
+  limited to local tissues unless the formulation is specifically
+  designed for systemic delivery (transdermal patch). Standard route
+  for minoxidil, ketoconazole shampoo, GHK-Cu serums, and emollients.
+paradigms: [drug_delivery]
+forms: [cream, serum, foam, shampoo, lotion, patch, oil]

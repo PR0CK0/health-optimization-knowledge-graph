@@ -1,0 +1,66 @@
+# EvidenceClaim — Beef tallow topically associated with skin barrier support
+---
+id: healthkg:claim/beef-tallow-topical-supports-skin-barrier
+paradigms: [skin_health]
+tags: [beef-tallow, skin-barrier, traditional-use, lipid-replenishment, very-low-evidence]
+curator: tyler
+curation_date: "2026-02-26"
+last_reviewed: "2026-02-26"
+overall_grade: very_low
+n_supporting_studies: 1
+n_refuting_studies: 0
+highest_study_design: observational
+claim_status: preliminary
+
+assertion:
+  subject_agent: healthkg:topical/beef-tallow
+  predicate: lightly_supports
+  object_outcome: healthkg:outcome/skin-collagen-density
+  dose_description: "Topical application of rendered beef tallow (suet), ad hoc use"
+  route: topical
+  population: "General adult population with dry or compromised skin barrier; traditional use"
+  mechanism_summary: >-
+    Beef tallow has a fatty acid profile (oleic acid ~47%, palmitic acid ~26%,
+    stearic acid ~14%, conjugated linoleic acid ~2%) closely resembling human
+    sebum. These lipids replenish the stratum corneum lipid bilayer, reducing
+    transepidermal water loss (TEWL) and restoring barrier function. Oleic
+    acid facilitates keratinocyte lipid synthesis; stearic acid and palmitic
+    acid are substrates for ceramide production. Conjugated linoleic acid
+    has weak anti-inflammatory activity. However, no RCT has measured dermal
+    collagen density as an endpoint after topical tallow; the mechanism for
+    collagen increase specifically is highly indirect (barrier → reduced
+    inflammation → reduced MMP activation). Grade: very_low.
+
+evidence_lines:
+
+  - study:
+      pmid: null
+      title: >-
+        Traditional and ethnobotanical use of animal-derived lipids in skin
+        care: a review.
+      authors: [Traditional use review — no specific PMID for tallow RCT available as of 2026]
+      journal: null
+      year: null
+      design: review
+      n_participants: null
+      duration_weeks: null
+      population_sex: null
+      population_description: >-
+        Pre-industrial and traditional cultures using rendered animal fat
+        topically. No indexed clinical trial data on beef tallow specifically
+        as of curator review date.
+      blinding: not_applicable
+      risk_of_bias: very_high
+      funding_source: not_reported
+    eco_evidence_type: traditional_use_evidence
+    direction: supports
+    notes: >-
+      IMPORTANT: There is NO published RCT on topical beef tallow for skin
+      health. The grade of very_low reflects traditional use + biochemical
+      plausibility based on lipid composition similarity to sebum only.
+      This claim should NOT be cited as evidence-based without an actual RCT.
+      It is included as a hypothesis-generating node for the knowledge graph.
+      Comparable commercial products (e.g. petrolatum, lanolin) have better
+      evidence for barrier repair. This node exists to represent the claim as
+      made in traditional/ancestral health communities with appropriate
+      epistemic humility.
