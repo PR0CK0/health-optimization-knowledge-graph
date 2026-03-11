@@ -4,6 +4,8 @@
 
 A BFO-aligned, evidence-graded knowledge graph mapping health optimization interventions (supplements, drugs, peptides, procedures) to outcomes, backed by primary literature with explicit evidence grading.
 
+**Live app:** [pr0ck0.github.io/health-optimization-knowledge-graph](https://pr0ck0.github.io/health-optimization-knowledge-graph/)
+
 ## What is this?
 
 Every claim is an `EvidenceClaim` — a self-contained unit asserting that *[agent/procedure]* *[increases | decreases | modulates | ...]* *[outcome]*, with:
